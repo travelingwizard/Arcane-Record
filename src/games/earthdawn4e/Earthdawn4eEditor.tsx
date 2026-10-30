@@ -16,6 +16,7 @@ import {
   SheetFieldGrid,
 } from '../../components/layout/SheetPrimitives';
 import { CatalogSourceSettings } from '../shared/CatalogSourceSettings';
+import { EarthdawnCatalogList } from './EarthdawnCatalogList';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
@@ -753,6 +754,21 @@ export function Earthdawn4eEditor({
     [legendDescription, setLegendDescription] = useState(''),
     [disciplinePickerOpen, setDisciplinePickerOpen] = useState(false),
     [pathPickerOpen, setPathPickerOpen] = useState(false),
+    [disciplinePickerView, setDisciplinePickerView] = useState<
+      'cards' | 'list'
+    >(() =>
+      localStorage.getItem(
+        'arcane-record:earthdawn4e:discipline-picker:view',
+      ) === 'list'
+        ? 'list'
+        : 'cards',
+    ),
+    [pathPickerView, setPathPickerView] = useState<'cards' | 'list'>(() =>
+      localStorage.getItem('arcane-record:earthdawn4e:path-picker:view') ===
+      'list'
+        ? 'list'
+        : 'cards',
+    ),
     [disciplineSearch, setDisciplineSearch] = useState(''),
     [stepSearch, setStepSearch] = useState(''),
     [karmaEligibility, setKarmaEligibility] = useState('none'),
@@ -789,6 +805,9 @@ export function Earthdawn4eEditor({
       key: 'name',
       direction: 'asc',
     }),
+    [catalogColumnWidths, setCatalogColumnWidths] = useState<
+      Record<string, number>
+    >({}),
     [expandedCatalogRows, setExpandedCatalogRows] = useState<Set<string>>(
       new Set(),
     ),
@@ -915,21 +934,53 @@ export function Earthdawn4eEditor({
   }, [catalogKind]);
   useEffect(() => {
     if (!catalogKind) return;
-    if (catalogKind === 'race') {
-      setCatalogView('cards');
-      return;
-    }
     const key = `arcane-record:earthdawn4e:catalog:${catalogKind}:view`;
     const stored = window.localStorage.getItem(key);
-    setCatalogView(stored === 'table' ? 'table' : 'cards');
+    setCatalogView(stored === 'table' || stored === 'list' ? 'table' : 'cards');
+    try {
+      const widths = JSON.parse(
+        window.localStorage.getItem(
+          `arcane-record:earthdawn4e:catalog:${catalogKind}:columns`,
+        ) ?? '{}',
+      ) as Record<string, unknown>;
+      setCatalogColumnWidths(
+        Object.fromEntries(
+          Object.entries(widths).filter(
+            (entry): entry is [string, number] =>
+              typeof entry[1] === 'number' && Number.isFinite(entry[1]),
+          ),
+        ),
+      );
+    } catch {
+      setCatalogColumnWidths({});
+    }
   }, [catalogKind]);
   useEffect(() => {
     if (!catalogKind) return;
     window.localStorage.setItem(
       `arcane-record:earthdawn4e:catalog:${catalogKind}:view`,
-      catalogView,
+      catalogView === 'table' ? 'list' : catalogView,
     );
   }, [catalogKind, catalogView]);
+  useEffect(() => {
+    if (!catalogKind) return;
+    window.localStorage.setItem(
+      `arcane-record:earthdawn4e:catalog:${catalogKind}:columns`,
+      JSON.stringify(catalogColumnWidths),
+    );
+  }, [catalogColumnWidths, catalogKind]);
+  useEffect(() => {
+    localStorage.setItem(
+      'arcane-record:earthdawn4e:discipline-picker:view',
+      disciplinePickerView,
+    );
+  }, [disciplinePickerView]);
+  useEffect(() => {
+    localStorage.setItem(
+      'arcane-record:earthdawn4e:path-picker:view',
+      pathPickerView,
+    );
+  }, [pathPickerView]);
   useEffect(() => {
     const refresh = () =>
       setCustomDisciplines(customDisciplineRepository.list());
@@ -1015,7 +1066,6 @@ export function Earthdawn4eEditor({
         : catalogButtonRef.current;
     setCatalogKind(kind);
     if (kind !== 'spell') setSpellbookMode(false);
-    if (kind === 'race') setCatalogView('cards');
     setCatalogSearch('');
     setCatalogSource('all');
     setCatalogAttribute('all');
@@ -4001,24 +4051,32 @@ export function Earthdawn4eEditor({
                                     {ability.source || 'Custom'}
                                     {managed ? ' · Managed grant' : ''}
                                   </small>
-                                  <textarea
-                                    aria-label={`${ability.name} notes`}
-                                    value={ability.notes}
-                                    onChange={(event) =>
-                                      update((current) => ({
-                                        ...current,
-                                        abilities: current.abilities.map(
-                                          (item) =>
-                                            item.id === ability.id
-                                              ? {
-                                                  ...item,
-                                                  notes: event.target.value,
-                                                }
-                                              : item,
-                                        ),
-                                      }))
-                                    }
-                                  />
+                                  {managed ? (
+                                    ability.notes ? (
+                                      <p className="earthdawn-managed-grant-note">
+                                        {ability.notes}
+                                      </p>
+                                    ) : null
+                                  ) : (
+                                    <textarea
+                                      aria-label={`${ability.name} notes`}
+                                      value={ability.notes}
+                                      onChange={(event) =>
+                                        update((current) => ({
+                                          ...current,
+                                          abilities: current.abilities.map(
+                                            (item) =>
+                                              item.id === ability.id
+                                                ? {
+                                                    ...item,
+                                                    notes: event.target.value,
+                                                  }
+                                                : item,
+                                          ),
+                                        }))
+                                      }
+                                    />
+                                  )}
                                   {recordWarnings
                                     .get(ability.id)
                                     ?.map((warning) => (
@@ -8811,82 +8869,182 @@ export function Earthdawn4eEditor({
                   Close
                 </button>
               </div>
-              <div className="catalog-results">
-                {earthdawnPathProfiles.map((path) => {
-                  const selected = draft.mysticPaths.some(
-                    ({ definitionId }) => definitionId === path.id,
-                  );
-                  const eligibility = pathEligibility(draft, path);
-                  return (
-                    <SheetCard key={path.id} className="catalog-card">
-                      <span className="kind-badge">Mystic Path</span>
-                      <h3>{path.name}</h3>
-                      <p>{path.summary}</p>
-                      <small>
-                        Circle {path.minimumCircle}+ · {path.initiationCost} LP
-                        · {path.bloodMagicDamage} Blood Magic Damage · maximum
-                        Rank {path.maximumRank}
-                      </small>
-                      {eligibility.blockers.length ? (
-                        <p className="field-error">
-                          {eligibility.blockers.join(' ')}
-                        </p>
-                      ) : null}
-                      <details>
-                        <summary>Requirements and ordeal</summary>
-                        <p>{path.ordeal}</p>
-                        <ul>
-                          {path.requirements.map((requirement, index) => (
-                            <li key={`${path.id}-requirement-${index}`}>
-                              {requirement.kind === 'manual'
-                                ? requirement.description
-                                : requirement.kind === 'knowledge-skill'
-                                  ? `Knowledge Skill Rank ${requirement.rank}`
-                                  : `${requirement.name} Rank ${requirement.rank}`}
-                            </li>
-                          ))}
-                        </ul>
-                        {path.restrictions.map((restriction) => (
-                          <p key={restriction}>{restriction}</p>
-                        ))}
-                      </details>
-                      <details>
-                        <summary>Rank bonuses and Talent Options</summary>
-                        <p>
-                          {path.rankBonuses
-                            .map(({ rank, label }) => `Rank ${rank}: ${label}`)
-                            .join('; ') || 'No characteristic bonuses.'}
-                        </p>
-                        {path.optionTiers.map((tier) => (
-                          <p key={`${path.id}-${tier.minimumRank}`}>
-                            <strong>
-                              Rank {tier.minimumRank}+ ({tier.costTier}):
-                            </strong>{' '}
-                            {tier.talents.join(', ')}
-                          </p>
-                        ))}
-                      </details>
-                      <details>
-                        <summary>Half-Magic and advancement</summary>
-                        <p>{path.halfMagic}</p>
-                        <p>{path.karmaRitual}</p>
-                        <p>{path.advancement}</p>
-                      </details>
-                      <cite>{path.citation}</cite>
+              <SheetToolbar className="earthdawn-catalog-view-toolbar">
+                <button
+                  type="button"
+                  className="icon-button"
+                  aria-label="Show Mystic Paths as cards"
+                  aria-pressed={pathPickerView === 'cards'}
+                  onClick={() => setPathPickerView('cards')}
+                >
+                  ▦
+                </button>
+                <button
+                  type="button"
+                  className="icon-button"
+                  aria-label="Show Mystic Paths as a list"
+                  aria-pressed={pathPickerView === 'list'}
+                  onClick={() => setPathPickerView('list')}
+                >
+                  ☷
+                </button>
+              </SheetToolbar>
+              {pathPickerView === 'list' ? (
+                <EarthdawnCatalogList
+                  preferenceKey="arcane-record:earthdawn4e:path-picker"
+                  rows={earthdawnPathProfiles}
+                  columns={[
+                    {
+                      id: 'name',
+                      label: 'Name',
+                      width: 170,
+                      render: (path) => path.name,
+                      sortValue: (path) => path.name,
+                    },
+                    {
+                      id: 'circle',
+                      label: 'Circle',
+                      width: 90,
+                      render: (path) => `${path.minimumCircle}+`,
+                      sortValue: (path) => path.minimumCircle,
+                    },
+                    {
+                      id: 'cost',
+                      label: 'Initiation',
+                      width: 150,
+                      render: (path) =>
+                        `${path.initiationCost} LP · ${path.bloodMagicDamage} Blood Magic`,
+                      sortValue: (path) => path.initiationCost,
+                    },
+                    {
+                      id: 'rank',
+                      label: 'Max Rank',
+                      width: 100,
+                      render: (path) => path.maximumRank,
+                      sortValue: (path) => path.maximumRank,
+                    },
+                    {
+                      id: 'summary',
+                      label: 'Summary',
+                      width: 320,
+                      render: (path) => path.summary,
+                      sortValue: (path) => path.summary,
+                    },
+                    {
+                      id: 'source',
+                      label: 'Source',
+                      width: 190,
+                      render: (path) => path.citation,
+                      sortValue: (path) => path.citation,
+                    },
+                  ]}
+                  action={(path) => {
+                    const selected = draft.mysticPaths.some(
+                      ({ definitionId }) => definitionId === path.id,
+                    );
+                    const eligibility = pathEligibility(draft, path);
+                    return (
                       <button
-                        className="primary-button"
+                        type="button"
+                        className="primary-button compact-inline-button"
                         disabled={
                           selected ||
                           (eligibility.blockers.length > 0 && !gmOverride)
                         }
                         onClick={() => initiateMysticPath(path.id)}
                       >
-                        {selected ? 'Selected' : 'Initiate Path'}
+                        {selected ? 'Selected' : '+'}
                       </button>
-                    </SheetCard>
-                  );
-                })}
-              </div>
+                    );
+                  }}
+                  details={(path) => (
+                    <div>
+                      <p>{path.summary}</p>
+                      <p>{path.ordeal}</p>
+                      <p>{path.advancement}</p>
+                    </div>
+                  )}
+                />
+              ) : (
+                <div className="catalog-results">
+                  {earthdawnPathProfiles.map((path) => {
+                    const selected = draft.mysticPaths.some(
+                      ({ definitionId }) => definitionId === path.id,
+                    );
+                    const eligibility = pathEligibility(draft, path);
+                    return (
+                      <SheetCard key={path.id} className="catalog-card">
+                        <span className="kind-badge">Mystic Path</span>
+                        <h3>{path.name}</h3>
+                        <p>{path.summary}</p>
+                        <small>
+                          Circle {path.minimumCircle}+ · {path.initiationCost}{' '}
+                          LP · {path.bloodMagicDamage} Blood Magic Damage ·
+                          maximum Rank {path.maximumRank}
+                        </small>
+                        {eligibility.blockers.length ? (
+                          <p className="field-error">
+                            {eligibility.blockers.join(' ')}
+                          </p>
+                        ) : null}
+                        <details>
+                          <summary>Requirements and ordeal</summary>
+                          <p>{path.ordeal}</p>
+                          <ul>
+                            {path.requirements.map((requirement, index) => (
+                              <li key={`${path.id}-requirement-${index}`}>
+                                {requirement.kind === 'manual'
+                                  ? requirement.description
+                                  : requirement.kind === 'knowledge-skill'
+                                    ? `Knowledge Skill Rank ${requirement.rank}`
+                                    : `${requirement.name} Rank ${requirement.rank}`}
+                              </li>
+                            ))}
+                          </ul>
+                          {path.restrictions.map((restriction) => (
+                            <p key={restriction}>{restriction}</p>
+                          ))}
+                        </details>
+                        <details>
+                          <summary>Rank bonuses and Talent Options</summary>
+                          <p>
+                            {path.rankBonuses
+                              .map(
+                                ({ rank, label }) => `Rank ${rank}: ${label}`,
+                              )
+                              .join('; ') || 'No characteristic bonuses.'}
+                          </p>
+                          {path.optionTiers.map((tier) => (
+                            <p key={`${path.id}-${tier.minimumRank}`}>
+                              <strong>
+                                Rank {tier.minimumRank}+ ({tier.costTier}):
+                              </strong>{' '}
+                              {tier.talents.join(', ')}
+                            </p>
+                          ))}
+                        </details>
+                        <details>
+                          <summary>Half-Magic and advancement</summary>
+                          <p>{path.halfMagic}</p>
+                          <p>{path.karmaRitual}</p>
+                          <p>{path.advancement}</p>
+                        </details>
+                        <cite>{path.citation}</cite>
+                        <button
+                          className="primary-button"
+                          disabled={
+                            selected ||
+                            (eligibility.blockers.length > 0 && !gmOverride)
+                          }
+                          onClick={() => initiateMysticPath(path.id)}
+                        >
+                          {selected ? 'Selected' : 'Initiate Path'}
+                        </button>
+                      </SheetCard>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         ) : null}
@@ -8922,172 +9080,341 @@ export function Earthdawn4eEditor({
                     }
                   />
                 </SheetField>
-                <div className="catalog-results">
-                  {earthdawnDisciplines
-                    .filter((discipline) => {
-                      const query = disciplineSearch.trim().toLocaleLowerCase();
-                      return (
-                        !query ||
-                        `${discipline.name} ${discipline.summary} ${discipline.mechanics} ${discipline.halfMagic ?? ''} ${discipline.karmaRitual ?? ''} ${(discipline.restrictions ?? []).join(' ')} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
-                          .toLocaleLowerCase()
-                          .includes(query)
-                      );
-                    })
-                    .map((discipline) => {
-                      const selected = draft.disciplines.some(
-                        ({ disciplineId }) => disciplineId === discipline.id,
-                      );
-                      return (
-                        <SheetCard key={discipline.id} className="catalog-card">
-                          <span className="kind-badge">Discipline</span>
-                          <h3>{discipline.name}</h3>
-                          <p>{discipline.summary}</p>
-                          {(
-                            [
-                              'novice',
-                              'journeyman',
-                              'warden',
-                              'master',
-                            ] as const
-                          ).map((tier, tierIndex) => {
-                            const start = tierIndex * 4 + 1;
-                            const end = tier === 'master' ? 15 : start + 3;
-                            const circles = discipline.circles.filter(
-                              ({ circle }) => circle >= start && circle <= end,
-                            );
-                            return (
-                              <details key={tier}>
-                                <summary>
-                                  {tier[0].toUpperCase() + tier.slice(1)} ·
-                                  Circles {start}–{end}
-                                </summary>
-                                <div className="earthdawn-progression-list">
-                                  {circles.map((circle) => (
-                                    <div key={circle.circle}>
-                                      <strong>Circle {circle.circle}</strong>
-                                      <span>
-                                        {circle.requiredTalents.join(', ')}
-                                      </span>
-                                      {circle.ability ? (
-                                        <small>{circle.ability}</small>
-                                      ) : null}
-                                      {circle.bonuses.length ? (
-                                        <small>
-                                          {circle.bonuses.join(' · ')}
-                                        </small>
-                                      ) : null}
-                                      <cite>
-                                        {circle.source}
-                                        {circle.page
-                                          ? `, p. ${circle.page}${circle.pageEnd && circle.pageEnd !== circle.page ? `–${circle.pageEnd}` : ''}`
-                                          : ', page unavailable'}
-                                      </cite>
-                                    </div>
-                                  ))}
-                                  <p>
-                                    <strong>Talent options:</strong>{' '}
-                                    {discipline.talentOptions[tier].join(
-                                      ', ',
-                                    ) || 'None listed'}
-                                  </p>
-                                </div>
-                              </details>
-                            );
-                          })}
-                          {discipline.halfMagic || discipline.karmaRitual ? (
-                            <details>
-                              <summary>Half-Magic and Karma Ritual</summary>
-                              {discipline.halfMagic ? (
-                                <p>
-                                  <strong>Half-Magic:</strong>{' '}
-                                  {discipline.halfMagic}
-                                </p>
-                              ) : null}
-                              {discipline.karmaRitual ? (
-                                <p>
-                                  <strong>Karma Ritual:</strong>{' '}
-                                  {discipline.karmaRitual}
-                                </p>
-                              ) : null}
-                              {(discipline.restrictions ?? []).map(
-                                (restriction) => (
-                                  <p key={restriction}>{restriction}</p>
-                                ),
-                              )}
-                            </details>
-                          ) : null}
-                          <button
-                            className="primary-button"
-                            disabled={selected}
-                            onClick={() => addDiscipline(discipline)}
-                          >
-                            {selected ? 'Selected' : 'Add Discipline'}
-                          </button>
-                        </SheetCard>
-                      );
-                    })}
-                  {earthdawnPassions
-                    .filter(([name, , , summary]) => {
-                      const query = disciplineSearch.trim().toLocaleLowerCase();
-                      const devotions = earthdawnCatalog
+                <SheetToolbar className="earthdawn-catalog-view-toolbar">
+                  <button
+                    type="button"
+                    className="icon-button"
+                    aria-label="Show Disciplines and Questors as cards"
+                    aria-pressed={disciplinePickerView === 'cards'}
+                    onClick={() => setDisciplinePickerView('cards')}
+                  >
+                    ▦
+                  </button>
+                  <button
+                    type="button"
+                    className="icon-button"
+                    aria-label="Show Disciplines and Questors as a list"
+                    aria-pressed={disciplinePickerView === 'list'}
+                    onClick={() => setDisciplinePickerView('list')}
+                  >
+                    ☷
+                  </button>
+                </SheetToolbar>
+                {disciplinePickerView === 'list' ? (
+                  <EarthdawnCatalogList
+                    preferenceKey="arcane-record:earthdawn4e:discipline-picker"
+                    rows={[
+                      ...earthdawnDisciplines
+                        .filter((entry) => {
+                          const query = disciplineSearch
+                            .trim()
+                            .toLocaleLowerCase();
+                          return (
+                            !query ||
+                            `${entry.name} ${entry.summary} ${entry.mechanics} ${Object.values(entry.talentOptions).flat().join(' ')}`
+                              .toLocaleLowerCase()
+                              .includes(query)
+                          );
+                        })
+                        .map((entry) => ({
+                          id: `discipline:${entry.id}`,
+                          type: 'Discipline',
+                          name: entry.name,
+                          summary: entry.summary,
+                          attributes: entry.importantAttributes.join(', '),
+                          access: entry.spellcaster
+                            ? 'Spellcaster'
+                            : 'Non-magician',
+                          source: entry.source,
+                          discipline: entry,
+                          passion: null as null | string,
+                          page: entry.page,
+                          mad: false,
+                        })),
+                      ...earthdawnPassions
                         .filter(
-                          ({ kind, mechanics }) =>
-                            kind === 'devotion' && mechanics.includes(name),
+                          ([name, , , summary]) =>
+                            !disciplineSearch.trim() ||
+                            `${name} ${summary}`
+                              .toLocaleLowerCase()
+                              .includes(
+                                disciplineSearch.trim().toLocaleLowerCase(),
+                              ),
                         )
-                        .map(({ name: devotionName }) => devotionName)
-                        .join(' ');
-                      return (
-                        !query ||
-                        `${name} ${summary} ${devotions}`
-                          .toLocaleLowerCase()
-                          .includes(query)
-                      );
-                    })
-                    .map(([name, page, mad, summary]) => {
-                      const selected = draft.questorPaths.some(
-                        ({ patronName }) => patronName === name,
-                      );
-                      const unavailable = mad && !gmOverride;
-                      return (
-                        <SheetCard key={name} className="catalog-card">
-                          <span className="kind-badge">Questor</span>
-                          <h3>{name}</h3>
-                          <p>{summary}</p>
-                          <details>
-                            <summary>
-                              Follower, Adherent, and Exemplar devotions
-                            </summary>
-                            <ul>
-                              {earthdawnCatalog
-                                .filter(
-                                  ({ kind, mechanics }) =>
-                                    kind === 'devotion' &&
-                                    mechanics.includes(name),
-                                )
-                                .map((devotion) => (
-                                  <li key={devotion.id}>{devotion.name}</li>
-                                ))}
-                            </ul>
-                          </details>
-                          <small>
-                            Questors, p. {page}
-                            {mad ? ' · Mad Passion; GM Override required' : ''}
-                          </small>
+                        .map(([name, page, mad, summary]) => ({
+                          id: `questor:${name}`,
+                          type: 'Questor',
+                          name,
+                          summary,
+                          attributes: 'Passion',
+                          access: 'Devotions',
+                          source: 'Questors',
+                          discipline: null,
+                          passion: name as string | null,
+                          page,
+                          mad,
+                        })),
+                    ]}
+                    columns={[
+                      {
+                        id: 'name',
+                        label: 'Name',
+                        width: 170,
+                        render: (row) => row.name,
+                        sortValue: (row) => row.name,
+                      },
+                      {
+                        id: 'type',
+                        label: 'Type',
+                        width: 100,
+                        render: (row) => row.type,
+                        sortValue: (row) => row.type,
+                      },
+                      {
+                        id: 'attributes',
+                        label: 'Attributes / Passion',
+                        width: 180,
+                        render: (row) => row.attributes,
+                        sortValue: (row) => row.attributes,
+                      },
+                      {
+                        id: 'access',
+                        label: 'Access',
+                        width: 130,
+                        render: (row) => row.access,
+                        sortValue: (row) => row.access,
+                      },
+                      {
+                        id: 'summary',
+                        label: 'Summary',
+                        width: 320,
+                        render: (row) => row.summary,
+                        sortValue: (row) => row.summary,
+                      },
+                      {
+                        id: 'source',
+                        label: 'Source',
+                        width: 170,
+                        render: (row) =>
+                          `${row.source}${row.page ? `, p. ${row.page}` : ''}`,
+                        sortValue: (row) => `${row.source}:${row.page ?? 0}`,
+                      },
+                    ]}
+                    action={(row) => {
+                      if (row.discipline) {
+                        const selected = draft.disciplines.some(
+                          ({ disciplineId }) =>
+                            disciplineId === row.discipline?.id,
+                        );
+                        return (
                           <button
-                            className="primary-button"
-                            disabled={
-                              selected ||
-                              unavailable ||
-                              (draft.questorPaths.length > 0 && !gmOverride)
-                            }
-                            onClick={() => addQuestorPath(name)}
+                            type="button"
+                            className="primary-button compact-inline-button"
+                            disabled={selected}
+                            onClick={() => addDiscipline(row.discipline!)}
                           >
-                            {selected ? 'Selected' : 'Add Questor path'}
+                            {selected ? 'Selected' : '+'}
                           </button>
-                        </SheetCard>
+                        );
+                      }
+                      const selected = draft.questorPaths.some(
+                        ({ patronName }) => patronName === row.passion,
                       );
-                    })}
-                </div>
+                      return (
+                        <button
+                          type="button"
+                          className="primary-button compact-inline-button"
+                          disabled={
+                            selected ||
+                            (row.mad && !gmOverride) ||
+                            (draft.questorPaths.length > 0 && !gmOverride)
+                          }
+                          onClick={() => addQuestorPath(row.passion!)}
+                        >
+                          {selected ? 'Selected' : '+'}
+                        </button>
+                      );
+                    }}
+                    details={(row) => <p>{row.summary}</p>}
+                  />
+                ) : (
+                  <div className="catalog-results">
+                    {earthdawnDisciplines
+                      .filter((discipline) => {
+                        const query = disciplineSearch
+                          .trim()
+                          .toLocaleLowerCase();
+                        return (
+                          !query ||
+                          `${discipline.name} ${discipline.summary} ${discipline.mechanics} ${discipline.halfMagic ?? ''} ${discipline.karmaRitual ?? ''} ${(discipline.restrictions ?? []).join(' ')} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
+                            .toLocaleLowerCase()
+                            .includes(query)
+                        );
+                      })
+                      .map((discipline) => {
+                        const selected = draft.disciplines.some(
+                          ({ disciplineId }) => disciplineId === discipline.id,
+                        );
+                        return (
+                          <SheetCard
+                            key={discipline.id}
+                            className="catalog-card"
+                          >
+                            <span className="kind-badge">Discipline</span>
+                            <h3>{discipline.name}</h3>
+                            <p>{discipline.summary}</p>
+                            {(
+                              [
+                                'novice',
+                                'journeyman',
+                                'warden',
+                                'master',
+                              ] as const
+                            ).map((tier, tierIndex) => {
+                              const start = tierIndex * 4 + 1;
+                              const end = tier === 'master' ? 15 : start + 3;
+                              const circles = discipline.circles.filter(
+                                ({ circle }) =>
+                                  circle >= start && circle <= end,
+                              );
+                              return (
+                                <details key={tier}>
+                                  <summary>
+                                    {tier[0].toUpperCase() + tier.slice(1)} ·
+                                    Circles {start}–{end}
+                                  </summary>
+                                  <div className="earthdawn-progression-list">
+                                    {circles.map((circle) => (
+                                      <div key={circle.circle}>
+                                        <strong>Circle {circle.circle}</strong>
+                                        <span>
+                                          {circle.requiredTalents.join(', ')}
+                                        </span>
+                                        {circle.ability ? (
+                                          <small>{circle.ability}</small>
+                                        ) : null}
+                                        {circle.bonuses.length ? (
+                                          <small>
+                                            {circle.bonuses.join(' · ')}
+                                          </small>
+                                        ) : null}
+                                        <cite>
+                                          {circle.source}
+                                          {circle.page
+                                            ? `, p. ${circle.page}${circle.pageEnd && circle.pageEnd !== circle.page ? `–${circle.pageEnd}` : ''}`
+                                            : ', page unavailable'}
+                                        </cite>
+                                      </div>
+                                    ))}
+                                    <p>
+                                      <strong>Talent options:</strong>{' '}
+                                      {discipline.talentOptions[tier].join(
+                                        ', ',
+                                      ) || 'None listed'}
+                                    </p>
+                                  </div>
+                                </details>
+                              );
+                            })}
+                            {discipline.halfMagic || discipline.karmaRitual ? (
+                              <details>
+                                <summary>Half-Magic and Karma Ritual</summary>
+                                {discipline.halfMagic ? (
+                                  <p>
+                                    <strong>Half-Magic:</strong>{' '}
+                                    {discipline.halfMagic}
+                                  </p>
+                                ) : null}
+                                {discipline.karmaRitual ? (
+                                  <p>
+                                    <strong>Karma Ritual:</strong>{' '}
+                                    {discipline.karmaRitual}
+                                  </p>
+                                ) : null}
+                                {(discipline.restrictions ?? []).map(
+                                  (restriction) => (
+                                    <p key={restriction}>{restriction}</p>
+                                  ),
+                                )}
+                              </details>
+                            ) : null}
+                            <button
+                              className="primary-button"
+                              disabled={selected}
+                              onClick={() => addDiscipline(discipline)}
+                            >
+                              {selected ? 'Selected' : 'Add Discipline'}
+                            </button>
+                          </SheetCard>
+                        );
+                      })}
+                    {earthdawnPassions
+                      .filter(([name, , , summary]) => {
+                        const query = disciplineSearch
+                          .trim()
+                          .toLocaleLowerCase();
+                        const devotions = earthdawnCatalog
+                          .filter(
+                            ({ kind, mechanics }) =>
+                              kind === 'devotion' && mechanics.includes(name),
+                          )
+                          .map(({ name: devotionName }) => devotionName)
+                          .join(' ');
+                        return (
+                          !query ||
+                          `${name} ${summary} ${devotions}`
+                            .toLocaleLowerCase()
+                            .includes(query)
+                        );
+                      })
+                      .map(([name, page, mad, summary]) => {
+                        const selected = draft.questorPaths.some(
+                          ({ patronName }) => patronName === name,
+                        );
+                        const unavailable = mad && !gmOverride;
+                        return (
+                          <SheetCard key={name} className="catalog-card">
+                            <span className="kind-badge">Questor</span>
+                            <h3>{name}</h3>
+                            <p>{summary}</p>
+                            <details>
+                              <summary>
+                                Follower, Adherent, and Exemplar devotions
+                              </summary>
+                              <ul>
+                                {earthdawnCatalog
+                                  .filter(
+                                    ({ kind, mechanics }) =>
+                                      kind === 'devotion' &&
+                                      mechanics.includes(name),
+                                  )
+                                  .map((devotion) => (
+                                    <li key={devotion.id}>{devotion.name}</li>
+                                  ))}
+                              </ul>
+                            </details>
+                            <small>
+                              Questors, p. {page}
+                              {mad
+                                ? ' · Mad Passion; GM Override required'
+                                : ''}
+                            </small>
+                            <button
+                              className="primary-button"
+                              disabled={
+                                selected ||
+                                unavailable ||
+                                (draft.questorPaths.length > 0 && !gmOverride)
+                              }
+                              onClick={() => addQuestorPath(name)}
+                            >
+                              {selected ? 'Selected' : 'Add Questor path'}
+                            </button>
+                          </SheetCard>
+                        );
+                      })}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -9561,8 +9888,8 @@ export function Earthdawn4eEditor({
                   <button
                     type="button"
                     className="icon-button earthdawn-catalog-view-button"
-                    title="Table view"
-                    aria-label="Show catalog as a table"
+                    title="List view"
+                    aria-label="Show catalog as a list"
                     aria-pressed={catalogView === 'table'}
                     onClick={() => setCatalogView('table')}
                   >
@@ -9572,9 +9899,10 @@ export function Earthdawn4eEditor({
                     <button
                       type="button"
                       className="text-button"
-                      onClick={() =>
-                        setCatalogSort({ key: 'name', direction: 'asc' })
-                      }
+                      onClick={() => {
+                        setCatalogSort({ key: 'name', direction: 'asc' });
+                        setCatalogColumnWidths({});
+                      }}
                     >
                       Reset columns & sort
                     </button>
@@ -9593,6 +9921,9 @@ export function Earthdawn4eEditor({
                             <th
                               key={column.key}
                               className="earthdawn-resizable-column"
+                              style={{
+                                width: catalogColumnWidths[column.key] ?? 160,
+                              }}
                             >
                               <button
                                 type="button"
@@ -9614,6 +9945,66 @@ export function Earthdawn4eEditor({
                                     : ' ▼'
                                   : ''}
                               </button>
+                              <button
+                                type="button"
+                                className="earthdawn-column-resizer"
+                                aria-label={`Resize ${column.label} column`}
+                                title="Drag or use arrow keys to resize"
+                                onKeyDown={(event) => {
+                                  if (
+                                    ![
+                                      'ArrowLeft',
+                                      'ArrowRight',
+                                      'Home',
+                                    ].includes(event.key)
+                                  )
+                                    return;
+                                  event.preventDefault();
+                                  const current =
+                                    catalogColumnWidths[column.key] ?? 160;
+                                  const next =
+                                    event.key === 'Home'
+                                      ? 160
+                                      : current +
+                                        (event.key === 'ArrowRight' ? 1 : -1) *
+                                          (event.shiftKey ? 24 : 8);
+                                  setCatalogColumnWidths((widths) => ({
+                                    ...widths,
+                                    [column.key]: Math.min(
+                                      480,
+                                      Math.max(88, next),
+                                    ),
+                                  }));
+                                }}
+                                onPointerDown={(event) => {
+                                  event.preventDefault();
+                                  const startX = event.clientX;
+                                  const startWidth =
+                                    catalogColumnWidths[column.key] ?? 160;
+                                  const move = (moveEvent: PointerEvent) =>
+                                    setCatalogColumnWidths((widths) => ({
+                                      ...widths,
+                                      [column.key]: Math.min(
+                                        480,
+                                        Math.max(
+                                          88,
+                                          startWidth +
+                                            moveEvent.clientX -
+                                            startX,
+                                        ),
+                                      ),
+                                    }));
+                                  const up = () => {
+                                    window.removeEventListener(
+                                      'pointermove',
+                                      move,
+                                    );
+                                    window.removeEventListener('pointerup', up);
+                                  };
+                                  window.addEventListener('pointermove', move);
+                                  window.addEventListener('pointerup', up);
+                                }}
+                              />
                             </th>
                           ))}
                           <th>Details</th>

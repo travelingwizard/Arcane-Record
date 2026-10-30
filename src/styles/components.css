@@ -2901,6 +2901,118 @@
   opacity: 1;
 }
 
+.earthdawn-creator-choice--selected,
+.earthdawn-equipment-add--selected {
+  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.earthdawn-creator-choice--selected small {
+  color: inherit;
+}
+
+.earthdawn-managed-grant-note {
+  margin: 0.25rem 0 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.earthdawn-equipment-funds {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-block: 0.35rem;
+  background: var(--panel);
+}
+
+.earthdawn-catalog-list-region {
+  min-width: 0;
+}
+
+.earthdawn-catalog-list-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.35rem;
+}
+
+.earthdawn-catalog-list-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--rule-light);
+}
+
+.earthdawn-catalog-list {
+  width: max-content;
+  min-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.earthdawn-catalog-list th,
+.earthdawn-catalog-list td {
+  position: relative;
+  min-width: 0;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--rule-light);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.earthdawn-catalog-list-sort {
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+}
+
+.earthdawn-catalog-list-sort:disabled {
+  opacity: 1;
+}
+
+.earthdawn-catalog-list-cell {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.earthdawn-column-resizer {
+  position: absolute;
+  inset-block: 0;
+  right: -10px;
+  z-index: 1;
+  width: 20px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+}
+
+.earthdawn-column-resizer::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 9px;
+  width: 2px;
+  background: var(--rule-light);
+}
+
+.earthdawn-column-resizer:focus-visible::after {
+  background: var(--accent);
+}
+
+.earthdawn-catalog-list-details td {
+  max-width: min(80vw, 60rem);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .earthdawn-dialog-results.earthdawn-skill-results--list {
   grid-template-columns: minmax(0, 1fr);
 }

@@ -93,9 +93,11 @@ import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle
 import mysticPathWorkbookRows from '../../src/games/earthdawn4e/generated/mystic-paths-workbook.json';
 import disciplineWorkbookRows from '../../src/games/earthdawn4e/generated/discipline-specifications.json';
 import {
+  CREATOR_EQUIPMENT_OVERRIDE_CODE,
   creatorEquipmentAdjustment,
   creatorWeaponSizeCompatibility,
   finalizeEarthdawnCreation,
+  formatCreatorCurrency,
   reopenEarthdawnCreation,
   reviewEarthdawnCreation,
 } from '../../src/games/earthdawn4e/creator-rules';
@@ -457,8 +459,46 @@ describe('Earthdawn Fourth Edition module', () => {
       creationOwned: true,
     });
     const review = reviewEarthdawnCreation(character);
-    expect(review.blockers).toContain('Overtrained exceeds starting Rank 3.');
+    expect(review.blockers).toContain(
+      'Overtrained exceeds starting Rank 3 by 1.',
+    );
+    expect(review.violations).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'skill-rank',
+          category: 'skills',
+          limit: 3,
+          spent: 4,
+          excess: 1,
+        }),
+      ]),
+    );
     expect(review.advisories).toContain('No race selected.');
+  });
+
+  it.each([
+    [200, '2 gp'],
+    [21, '2 sp · 1 cp'],
+    [1, '1 cp'],
+    [0, '0 sp'],
+    [-21, '−2 sp · 1 cp'],
+  ])('formats %i copper compactly as %s', (copper, expected) => {
+    expect(formatCreatorCurrency(copper)).toBe(expected);
+  });
+
+  it('scopes the equipment override to equipment spending only', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    character.creation.overrides.push({
+      id: crypto.randomUUID(),
+      code: CREATOR_EQUIPMENT_OVERRIDE_CODE,
+      reason: 'Equipment overspending approved during character creation.',
+      createdAt: '2026-10-30T12:00:00.000Z',
+    });
+    character.attributes.dexterity.purchased = 8;
+    character.attributes.strength.purchased = 8;
+    expect(() => finalizeEarthdawnCreation(character)).toThrow(
+      /Attribute allocation exceeds/,
+    );
   });
 
   it('provides separate, numerically ordered play and creation rules', () => {

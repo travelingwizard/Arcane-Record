@@ -19,6 +19,7 @@ import {
 } from './catalog';
 import { attributeModifierCosts, deriveCharacter, stepDice } from './engine';
 import {
+  CREATOR_EQUIPMENT_OVERRIDE_CODE,
   creatorAttributeAllocation,
   creatorEquipmentAdjustment,
   creatorEquipmentCategory,
@@ -27,8 +28,12 @@ import {
   type CreatorFitting,
   creatorTalentAllocation,
   finalizeEarthdawnCreation,
+  formatCreatorCurrency,
+  hasCreatorEquipmentOverride,
   reviewEarthdawnCreation,
+  type CreatorViolation,
 } from './creator-rules';
+import { EarthdawnCatalogList } from './EarthdawnCatalogList';
 import { earthdawnPathProfiles } from './path-profiles';
 import {
   questorTier,
@@ -59,9 +64,10 @@ const tierRanges = [
 ] as const;
 
 type SkillCategory = 'general' | 'knowledge' | 'artisan' | 'language';
-type EquipmentCategory = 'equipment' | 'weapon' | 'armor' | 'shield';
 type SkillBrowserView = 'cards' | 'list';
 const skillViewPreferenceKey = 'arcane-record:earthdawn4e:creator:skills:view';
+const equipmentViewPreferenceKey =
+  'arcane-record:earthdawn4e:creator:equipment:view';
 const skillCategoryLabels: Record<SkillCategory, string> = {
   general: 'General',
   knowledge: 'Knowledge',
@@ -219,9 +225,19 @@ export function EarthdawnCreator({
       : 'cards',
   );
   const [equipmentDialogOpen, setEquipmentDialogOpen] = useState(false);
-  const [equipmentFilter, setEquipmentFilter] =
-    useState<EquipmentCategory>('equipment');
   const [equipmentSearch, setEquipmentSearch] = useState('');
+  const [equipmentView, setEquipmentView] = useState<SkillBrowserView>(() =>
+    window.localStorage.getItem(equipmentViewPreferenceKey) === 'list'
+      ? 'list'
+      : 'cards',
+  );
+  const [budgetAlert, setBudgetAlert] = useState<CreatorViolation[] | null>(
+    null,
+  );
+  const [pendingEquipment, setPendingEquipment] =
+    useState<EarthdawnDefinition | null>(null);
+  const [pendingEquipmentOverride, setPendingEquipmentOverride] =
+    useState(false);
   const [pendingFitting, setPendingFitting] =
     useState<EarthdawnDefinition | null>(null);
   const [pendingChange, setPendingChange] =
@@ -276,11 +292,7 @@ export function EarthdawnCreator({
   ) as Record<'general' | 'knowledge' | 'artisan' | 'language', number>;
   const creationReview = reviewEarthdawnCreation(character);
   const purchaseQuote = creationReview.quote;
-  const displayCopper = (copper: number) => {
-    const safe = Math.abs(Math.trunc(copper));
-    const value = `${Math.floor(safe / 100)} gp · ${Math.floor((safe % 100) / 10)} sp · ${safe % 10} cp`;
-    return copper < 0 ? `−${value}` : value;
-  };
+  const displayCopper = formatCreatorCurrency;
   const plannedStartingGrants = [
     'Adventurer’s Kit',
     'Artisan Tools',
@@ -297,6 +309,9 @@ export function EarthdawnCreator({
   useEffect(() => {
     window.localStorage.setItem(skillViewPreferenceKey, skillView);
   }, [skillView]);
+  useEffect(() => {
+    window.localStorage.setItem(equipmentViewPreferenceKey, equipmentView);
+  }, [equipmentView]);
   const skillDefinitions = useMemo(
     () =>
       earthdawnCatalog.filter(
@@ -315,15 +330,15 @@ export function EarthdawnCreator({
     () =>
       earthdawnCatalog.filter(
         (entry) =>
-          (entry.kind === 'equipment' || entry.kind === 'weapon') &&
+          entry.kind === 'equipment' &&
           entry.verification === 'verified' &&
           character.sources.enabledSourceIds.includes(entry.sourceId) &&
-          equipmentCategory(entry) === equipmentFilter &&
+          equipmentCategory(entry) === 'equipment' &&
           entry.name
             .toLocaleLowerCase()
             .includes(equipmentSearch.toLocaleLowerCase()),
       ),
-    [character.sources.enabledSourceIds, equipmentFilter, equipmentSearch],
+    [character.sources.enabledSourceIds, equipmentSearch],
   );
   const spellChoices = useMemo(() => {
     if (!discipline) return [];
@@ -376,6 +391,48 @@ export function EarthdawnCreator({
     update((current) => ({
       ...current,
       creation: { ...current.creation, ...patch },
+    }));
+  const updateWithBudgetAlert = (
+    transform: (current: Earthdawn4eCharacter) => Earthdawn4eCharacter,
+  ) => {
+    const before = reviewEarthdawnCreation(character).violations;
+    const next = transform(character);
+    const after = reviewEarthdawnCreation(next).violations;
+    const increased = after.filter((violation) => {
+      if (violation.category === 'equipment' || violation.excess == null)
+        return false;
+      const previous = before.find(
+        (candidate) =>
+          candidate.code === violation.code &&
+          candidate.targetId === violation.targetId,
+      );
+      return violation.excess > (previous?.excess ?? 0);
+    });
+    update(() => next);
+    if (!overrideActive && increased.length) setBudgetAlert(increased);
+  };
+  const setEquipmentOverride = (enabled: boolean) =>
+    update((current) => ({
+      ...current,
+      creation: {
+        ...current.creation,
+        overrides: enabled
+          ? [
+              ...current.creation.overrides.filter(
+                ({ code }) => code !== CREATOR_EQUIPMENT_OVERRIDE_CODE,
+              ),
+              {
+                id: crypto.randomUUID(),
+                code: CREATOR_EQUIPMENT_OVERRIDE_CODE,
+                reason:
+                  'Equipment overspending approved during character creation.',
+                createdAt: new Date().toISOString(),
+              },
+            ]
+          : current.creation.overrides.filter(
+              ({ code }) => code !== CREATOR_EQUIPMENT_OVERRIDE_CODE,
+            ),
+      },
     }));
   const setOverrideReason = (reason: string) =>
     update((current) => {
@@ -533,7 +590,7 @@ export function EarthdawnCreator({
         ],
       };
     });
-  const addEquipment = (definition: EarthdawnDefinition) => {
+  const commitEquipment = (definition: EarthdawnDefinition) => {
     if (
       creatorRequiresTskrangFitting(definition) &&
       character.identity.raceName === 'T’skrang'
@@ -547,8 +604,43 @@ export function EarthdawnCreator({
       (definition.equipmentMetadata?.size ?? 0) > 2;
     addEquipmentRecord(definition, windlingWeapon ? 'windling-balanced' : null);
   };
+  const selectedEquipment = (definition: EarthdawnDefinition) =>
+    character.equipment.some(
+      ({ definitionId, creationOwned }) =>
+        creationOwned && definitionId === definition.id,
+    );
+  const toggleEquipment = (definition: EarthdawnDefinition) => {
+    if (selectedEquipment(definition)) {
+      update((current) => ({
+        ...current,
+        equipment: current.equipment.filter(
+          ({ definitionId, creationOwned }) =>
+            !(creationOwned && definitionId === definition.id),
+        ),
+      }));
+      return;
+    }
+    const adjustment = creatorEquipmentAdjustment(
+      definition,
+      character.identity.raceName,
+    );
+    if (
+      purchaseQuote.remainingCopper - adjustment.adjustedCopper < 0 &&
+      !overrideActive &&
+      !hasCreatorEquipmentOverride(character)
+    ) {
+      setPendingEquipmentOverride(false);
+      setPendingEquipment(definition);
+      return;
+    }
+    commitEquipment(definition);
+  };
+  const activeViolations = creationReview.violations.filter(
+    ({ code }) =>
+      code !== 'equipment-spending' || !hasCreatorEquipmentOverride(character),
+  );
   const completionBlocked = character.creation.enforceRules
-    ? violations.length > 0
+    ? activeViolations.length > 0
     : !globalOverride?.reason.trim();
   const finalize = () => {
     if (completionBlocked) return;
@@ -661,6 +753,104 @@ export function EarthdawnCreator({
       creatorChangePreview('Review Discipline change', character, next),
     );
   };
+  const clearDiscipline = () => {
+    const previousId = character.disciplines[0]?.disciplineId;
+    const removedTalentIds = new Set(
+      character.talents
+        .filter(
+          ({ creationOwned, originDisciplineId }) =>
+            creationOwned && originDisciplineId === previousId,
+        )
+        .map(({ id }) => id),
+    );
+    const next: Earthdawn4eCharacter = {
+      ...character,
+      disciplines: [],
+      talents: character.talents.filter(
+        ({ creationOwned, originDisciplineId }) =>
+          !(creationOwned && originDisciplineId === previousId),
+      ),
+      magic: {
+        ...character.magic,
+        spells: character.magic.spells.filter(
+          ({ creationOwned }) => !creationOwned,
+        ),
+        matrices: character.magic.matrices.filter(
+          ({ originType, talentId }) =>
+            originType !== 'free-discipline' &&
+            !removedTalentIds.has(talentId ?? ''),
+        ),
+      },
+      creation: {
+        ...character.creation,
+        specializedPathId: null,
+        specializedPathRank: 0,
+      },
+    };
+    setPendingChange(
+      creatorChangePreview('Review No Discipline', character, next),
+    );
+  };
+  const clearRace = () => {
+    const raceSources = new Set(earthdawnRaces.map(({ id }) => `race:${id}`));
+    const next: Earthdawn4eCharacter = {
+      ...character,
+      identity: { ...character.identity, raceId: null, raceName: '' },
+      raceSnapshot: null,
+      attributes: Object.fromEntries(
+        Object.entries(character.attributes).map(([id, attribute]) => [
+          id,
+          { ...attribute, racial: 10 },
+        ]),
+      ) as Earthdawn4eCharacter['attributes'],
+      talents: character.talents
+        .map((talent) => ({
+          ...talent,
+          disciplineSources: talent.disciplineSources.filter(
+            (source) => !raceSources.has(source),
+          ),
+        }))
+        .filter(
+          (talent) =>
+            !(
+              talent.creationOwned &&
+              talent.originDisciplineId == null &&
+              talent.disciplineSources.length === 0 &&
+              ['Versatility', 'Astral Sight'].includes(talent.name)
+            ),
+        ),
+      abilities: character.abilities.filter(
+        ({ definitionId }) => !definitionId?.startsWith('race-grant:'),
+      ),
+      health: {
+        ...character.health,
+        modifiers: character.health.modifiers.filter(
+          ({ name }) => !name.startsWith('Racial:'),
+        ),
+      },
+      creation: {
+        ...character.creation,
+        specializedPathId: null,
+        specializedPathRank: 0,
+      },
+    };
+    setPendingChange(creatorChangePreview('Review No Race', character, next));
+  };
+  const clearPatron = () =>
+    setPendingChange(
+      creatorChangePreview('Review No Patron', character, {
+        ...character,
+        identity: { ...character.identity, passion: '' },
+        questor: {
+          ...character.questor,
+          patronId: null,
+          patronName: '',
+          rank: 0,
+          tier: 'none',
+          outOfFavor: false,
+        },
+      }),
+    );
   const buildProfileChange = (
     current: Earthdawn4eCharacter,
     profile: Earthdawn4eCharacter['creation']['profile'],
@@ -781,6 +971,18 @@ export function EarthdawnCreator({
               <strong>Custom Discipline</strong>
               <small>Adds no talents or calculated benefits.</small>
             </button>
+            {selected ? (
+              <button
+                type="button"
+                className="earthdawn-creator-choice-card"
+                onClick={clearDiscipline}
+              >
+                <strong>No Discipline</strong>
+                <small>
+                  Remove creator-granted talents, matrices, and spells.
+                </small>
+              </button>
+            ) : null}
           </div>
           {selected ? (
             <SheetFieldGrid columns={3} className="earthdawn-starting-circle">
@@ -867,6 +1069,16 @@ export function EarthdawnCreator({
               </button>
             );
           })}
+          {character.questor.patronId ? (
+            <button
+              type="button"
+              className="earthdawn-creator-choice-card"
+              onClick={clearPatron}
+            >
+              <strong>No Patron</strong>
+              <small>Clear the creator Questor patron selection.</small>
+            </button>
+          ) : null}
         </div>
       ) : null}
       {discipline ? (
@@ -994,6 +1206,18 @@ export function EarthdawnCreator({
             </small>
           </button>
         ))}
+        {race ? (
+          <button
+            type="button"
+            className="earthdawn-creator-choice-card"
+            onClick={clearRace}
+          >
+            <strong>No Race</strong>
+            <small>
+              Return racial values and automatic grants to a blank state.
+            </small>
+          </button>
+        ) : null}
       </div>
       {discipline && selected && selected.circle >= 5 ? (
         <div className="earthdawn-tier-disclosures">
@@ -1110,7 +1334,7 @@ export function EarthdawnCreator({
                 aria-label={`${labels[id as keyof typeof labels]} modifier`}
                 value={attribute.purchased}
                 onChange={(event) =>
-                  update((current) => {
+                  updateWithBudgetAlert((current) => {
                     const next = {
                       ...current,
                       attributes: {
@@ -1213,15 +1437,14 @@ export function EarthdawnCreator({
                 aria-label={`${talent.name} free ranks`}
                 type="number"
                 min="0"
-                max={character.creation.enforceRules ? 3 : 15}
+                max={15}
                 value={talent.freeRank}
                 onChange={(event) => {
-                  const maximum = character.creation.enforceRules ? 3 : 15;
                   const rank = Math.min(
-                    maximum,
+                    15,
                     Math.max(0, Number(event.target.value)),
                   );
-                  update((current) => {
+                  updateWithBudgetAlert((current) => {
                     const next = {
                       ...current,
                       talents: current.talents.map((item) =>
@@ -1294,14 +1517,15 @@ export function EarthdawnCreator({
                         <button
                           type="button"
                           key={`${tier}-${name}`}
-                          aria-pressed={chosen}
-                          disabled={
-                            character.creation.enforceRules &&
-                            !chosen &&
-                            optionalTalentCount >= (selected?.circle ?? 1)
+                          className={
+                            chosen
+                              ? 'earthdawn-creator-choice--selected'
+                              : undefined
                           }
+                          aria-pressed={chosen}
+                          aria-label={`${chosen ? 'Remove' : 'Select'} ${name} Talent Option`}
                           onClick={() =>
-                            update((current) => {
+                            updateWithBudgetAlert((current) => {
                               if (chosen) {
                                 const next = {
                                   ...current,
@@ -1393,7 +1617,10 @@ export function EarthdawnCreator({
                             })
                           }
                         >
-                          {name}
+                          <strong>{name}</strong>
+                          <small>
+                            {chosen ? 'Selected · click to remove' : 'Select'}
+                          </small>
                         </button>
                       );
                     })}
@@ -1425,9 +1652,13 @@ export function EarthdawnCreator({
                 <button
                   type="button"
                   key={`${spell.id}:${variantKey}`}
+                  className={
+                    chosen ? 'earthdawn-creator-choice--selected' : undefined
+                  }
                   aria-pressed={chosen}
+                  aria-label={`${chosen ? 'Remove' : 'Select'} ${spell.name} Circle ${circle}`}
                   onClick={() =>
-                    update((current) => ({
+                    updateWithBudgetAlert((current) => ({
                       ...current,
                       magic: {
                         ...current.magic,
@@ -1500,6 +1731,9 @@ export function EarthdawnCreator({
                     {earthdawnSources.find(({ id }) => id === variant.sourceId)
                       ?.shortTitle ?? variant.sourceId}{' '}
                     · p. {variant.pageStart ?? 'unavailable'}
+                  </small>
+                  <small>
+                    {chosen ? 'Selected · click to remove' : 'Select'}
                   </small>
                 </button>
               );
@@ -1619,14 +1853,12 @@ export function EarthdawnCreator({
                 <input
                   type="number"
                   min="0"
-                  max={character.creation.enforceRules ? 3 : 15}
+                  max={15}
                   value={skill.freeRank}
                   onChange={(event) => {
                     const requested = Math.max(0, Number(event.target.value));
-                    const rank = character.creation.enforceRules
-                      ? Math.min(3, requested)
-                      : requested;
-                    update((current) => ({
+                    const rank = Math.min(15, requested);
+                    updateWithBudgetAlert((current) => ({
                       ...current,
                       skills: current.skills.map((item) =>
                         item.id === skill.id
@@ -1717,7 +1949,7 @@ export function EarthdawnCreator({
           className="secondary-button"
           onClick={() => setEquipmentDialogOpen(true)}
         >
-          Browse Equipment and Weapons
+          Browse Equipment
         </button>
       </SheetToolbar>
       {character.equipment.length === 0 && character.weapons.length === 0 ? (
@@ -2126,95 +2358,118 @@ export function EarthdawnCreator({
               <span aria-hidden="true">☷</span>
             </button>
           </SheetToolbar>
-          <div
-            className={`earthdawn-dialog-results earthdawn-skill-results--${skillView}`}
-          >
-            {skillDefinitions.map((definition) => {
-              const chosen = character.skills.some(
-                ({ definitionId }) => definitionId === definition.id,
-              );
-              const action = (
-                <button
-                  type="button"
-                  className={`secondary-button compact-button earthdawn-skill-add${chosen ? ' earthdawn-skill-add--selected' : ''}`}
-                  disabled={chosen}
-                  aria-label={
-                    chosen
-                      ? `${definition.name} already added`
-                      : `Add ${definition.name}`
-                  }
-                  onClick={() => addSkill(definition, skillCategory)}
-                >
-                  <span aria-hidden="true">+</span>
-                </button>
-              );
-              if (skillView === 'list')
+          {skillView === 'list' ? (
+            <EarthdawnCatalogList
+              preferenceKey={skillViewPreferenceKey}
+              rows={skillDefinitions}
+              columns={[
+                {
+                  id: 'name',
+                  label: 'Name',
+                  width: 180,
+                  render: (entry) => entry.name,
+                  sortValue: (entry) => entry.name,
+                },
+                {
+                  id: 'attribute',
+                  label: 'Attribute',
+                  width: 120,
+                  render: (entry) =>
+                    labels[entry.defaultAttribute ?? 'perception'],
+                  sortValue: (entry) =>
+                    labels[entry.defaultAttribute ?? 'perception'],
+                },
+                {
+                  id: 'summary',
+                  label: 'Summary',
+                  width: 320,
+                  render: (entry) => entry.summary,
+                  sortValue: (entry) => entry.summary,
+                },
+                {
+                  id: 'source',
+                  label: 'Source / page',
+                  width: 190,
+                  render: (entry) => `${entry.source}, p. ${entry.page ?? '—'}`,
+                  sortValue: (entry) => `${entry.source}:${entry.page ?? 0}`,
+                },
+              ]}
+              action={(definition) => {
+                const chosen = character.skills.some(
+                  ({ definitionId }) => definitionId === definition.id,
+                );
                 return (
-                  <details
-                    className="earthdawn-skill-list-row"
-                    key={definition.id}
+                  <button
+                    type="button"
+                    className={`secondary-button compact-button earthdawn-skill-add${chosen ? ' earthdawn-skill-add--selected' : ''}`}
+                    disabled={chosen}
+                    aria-label={
+                      chosen
+                        ? `${definition.name} already added`
+                        : `Add ${definition.name}`
+                    }
+                    onClick={() => addSkill(definition, skillCategory)}
                   >
-                    <summary>
+                    +
+                  </button>
+                );
+              }}
+              details={(definition) => <p>{definition.summary}</p>}
+            />
+          ) : (
+            <div className="earthdawn-dialog-results earthdawn-skill-results--cards">
+              {skillDefinitions.map((definition) => {
+                const chosen = character.skills.some(
+                  ({ definitionId }) => definitionId === definition.id,
+                );
+                const action = (
+                  <button
+                    type="button"
+                    className={`secondary-button compact-button earthdawn-skill-add${chosen ? ' earthdawn-skill-add--selected' : ''}`}
+                    disabled={chosen}
+                    aria-label={
+                      chosen
+                        ? `${definition.name} already added`
+                        : `Add ${definition.name}`
+                    }
+                    onClick={() => addSkill(definition, skillCategory)}
+                  >
+                    <span aria-hidden="true">+</span>
+                  </button>
+                );
+                return (
+                  <SheetCard key={definition.id} density="compact">
+                    <div>
                       <strong>{definition.name}</strong>
-                      <span>
-                        {labels[definition.defaultAttribute ?? 'perception']}
-                      </span>
-                      <span
-                        className="earthdawn-skill-list-row__summary"
-                        title={definition.summary}
-                      >
-                        {definition.summary}
-                      </span>
+                      <small>{definition.summary}</small>
                       <small>
+                        {labels[definition.defaultAttribute ?? 'perception']} ·{' '}
                         {definition.source}, p. {definition.page}
                       </small>
-                    </summary>
+                    </div>
                     {action}
-                    <p>{definition.summary}</p>
-                  </details>
+                  </SheetCard>
                 );
-              return (
-                <SheetCard key={definition.id} density="compact">
-                  <div>
-                    <strong>{definition.name}</strong>
-                    <small>{definition.summary}</small>
-                    <small>
-                      {labels[definition.defaultAttribute ?? 'perception']} ·{' '}
-                      {definition.source}, p. {definition.page}
-                    </small>
-                  </div>
-                  {action}
-                </SheetCard>
-              );
-            })}
-          </div>
+              })}
+            </div>
+          )}
         </CreatorDialog>
       ) : null}
       {equipmentDialogOpen ? (
         <CreatorDialog
-          title="Browse Equipment and Weapons"
+          title="Browse Equipment"
           onClose={() => setEquipmentDialogOpen(false)}
         >
-          <SheetToolbar className="earthdawn-dialog-filters">
-            {(
-              [
-                ['equipment', 'Equipment'],
-                ['weapon', 'Weapons'],
-                ['armor', 'Armor'],
-                ['shield', 'Shields'],
-              ] as const
-            ).map(([category, label]) => (
-              <button
-                type="button"
-                className="secondary-button"
-                aria-pressed={equipmentFilter === category}
-                onClick={() => setEquipmentFilter(category)}
-                key={category}
-              >
-                {label}
-              </button>
-            ))}
-          </SheetToolbar>
+          <div className="sheet-stat-grid earthdawn-derived-grid earthdawn-equipment-funds">
+            <span>
+              Starting Funds{' '}
+              <strong>{displayCopper(purchaseQuote.startingCopper)}</strong>
+            </span>
+            <span>
+              Projected Remaining Funds{' '}
+              <strong>{displayCopper(purchaseQuote.remainingCopper)}</strong>
+            </span>
+          </div>
           <SheetField label="Search equipment">
             <input
               type="search"
@@ -2222,54 +2477,233 @@ export function EarthdawnCreator({
               onChange={(event) => setEquipmentSearch(event.target.value)}
             />
           </SheetField>
-          <div className="earthdawn-dialog-results">
-            {equipmentDefinitions.map((definition) => {
-              const mechanics = parseMechanics(definition);
-              const category = equipmentCategory(definition);
-              const fitting =
-                definition.kind === 'weapon' &&
-                character.identity.raceName === 'Windling' &&
-                (definition.equipmentMetadata?.size ?? 0) > 2
-                  ? 'windling-balanced'
-                  : null;
-              const adjustment = creatorEquipmentAdjustment(
-                definition,
-                character.identity.raceName,
-                fitting,
-              );
-              return (
-                <SheetCard key={definition.id} density="compact">
-                  <div>
-                    <strong>{definition.name}</strong>
-                    <small>
-                      Base {displayCopper(adjustment.baseCopper)} · Adjusted{' '}
-                      {displayCopper(adjustment.adjustedCopper)} · Weight{' '}
-                      {adjustment.adjustedWeight} · p. {definition.page}
-                    </small>
-                    {adjustment.notes.length ? (
-                      <small>{adjustment.notes.join(' · ')}</small>
-                    ) : null}
-                    <small>
-                      {category === 'weapon'
-                        ? `Damage ${numericMechanic(mechanics, 'damageStep')} · STR ${numericMechanic(mechanics, 'strengthMinimum')} · Size ${numericMechanic(mechanics, 'size')} · Range ${String(mechanics.range || 'melee')}`
-                        : category === 'armor'
-                          ? `PA ${numericMechanic(mechanics, 'physicalArmor')} · MA ${numericMechanic(mechanics, 'mysticArmor')} · IP ${numericMechanic(mechanics, 'initiativePenalty')}`
-                          : category === 'shield'
-                            ? `PD +${numericMechanic(mechanics, 'physicalDefense')} · MD +${numericMechanic(mechanics, 'mysticDefense')} · IP ${numericMechanic(mechanics, 'initiativePenalty')} · Shatter ${numericMechanic(mechanics, 'shatterThreshold')}`
-                            : definition.summary}
-                    </small>
-                  </div>
+          <SheetToolbar className="earthdawn-catalog-view-toolbar earthdawn-compact-toolbar">
+            <button
+              type="button"
+              className="icon-button"
+              aria-label="Show equipment as cards"
+              aria-pressed={equipmentView === 'cards'}
+              onClick={() => setEquipmentView('cards')}
+            >
+              ▦
+            </button>
+            <button
+              type="button"
+              className="icon-button"
+              aria-label="Show equipment as a list"
+              aria-pressed={equipmentView === 'list'}
+              onClick={() => setEquipmentView('list')}
+            >
+              ☷
+            </button>
+          </SheetToolbar>
+          {equipmentView === 'list' ? (
+            <EarthdawnCatalogList
+              preferenceKey={equipmentViewPreferenceKey}
+              rows={equipmentDefinitions}
+              columns={[
+                {
+                  id: 'name',
+                  label: 'Name',
+                  width: 190,
+                  render: (entry) => entry.name,
+                  sortValue: (entry) => entry.name,
+                },
+                {
+                  id: 'cost',
+                  label: 'Cost',
+                  width: 130,
+                  render: (entry) =>
+                    displayCopper(
+                      creatorEquipmentAdjustment(
+                        entry,
+                        character.identity.raceName,
+                      ).adjustedCopper,
+                    ),
+                  sortValue: (entry) =>
+                    creatorEquipmentAdjustment(
+                      entry,
+                      character.identity.raceName,
+                    ).adjustedCopper,
+                },
+                {
+                  id: 'weight',
+                  label: 'Weight',
+                  width: 90,
+                  render: (entry) =>
+                    creatorEquipmentAdjustment(
+                      entry,
+                      character.identity.raceName,
+                    ).adjustedWeight,
+                  sortValue: (entry) =>
+                    creatorEquipmentAdjustment(
+                      entry,
+                      character.identity.raceName,
+                    ).adjustedWeight,
+                },
+                {
+                  id: 'availability',
+                  label: 'Availability',
+                  width: 120,
+                  render: (entry) =>
+                    entry.equipmentMetadata?.availability || '—',
+                  sortValue: (entry) =>
+                    entry.equipmentMetadata?.availability || '',
+                },
+                {
+                  id: 'summary',
+                  label: 'Summary',
+                  width: 300,
+                  render: (entry) => entry.summary,
+                  sortValue: (entry) => entry.summary,
+                },
+              ]}
+              action={(definition) => {
+                const chosen = selectedEquipment(definition);
+                return (
                   <button
                     type="button"
-                    className="secondary-button compact-button"
-                    onClick={() => addEquipment(definition)}
+                    className={`secondary-button compact-button earthdawn-equipment-add${chosen ? ' earthdawn-equipment-add--selected' : ''}`}
+                    aria-pressed={chosen}
+                    aria-label={`${chosen ? 'Remove' : 'Add'} ${definition.name}`}
+                    onClick={() => toggleEquipment(definition)}
                   >
-                    Add
+                    +
                   </button>
-                </SheetCard>
-              );
-            })}
-          </div>
+                );
+              }}
+              details={(definition) => <p>{definition.summary}</p>}
+            />
+          ) : (
+            <div className="earthdawn-dialog-results">
+              {equipmentDefinitions.map((definition) => {
+                const adjustment = creatorEquipmentAdjustment(
+                  definition,
+                  character.identity.raceName,
+                );
+                const chosen = selectedEquipment(definition);
+                return (
+                  <SheetCard key={definition.id} density="compact">
+                    <div>
+                      <strong>{definition.name}</strong>
+                      <small>
+                        {adjustment.baseCopper === adjustment.adjustedCopper
+                          ? `Cost ${displayCopper(adjustment.adjustedCopper)}`
+                          : `Base ${displayCopper(adjustment.baseCopper)} · Adjusted ${displayCopper(adjustment.adjustedCopper)}`}
+                        {' · '}Weight {adjustment.adjustedWeight} · p.{' '}
+                        {definition.page ?? 'unavailable'}
+                      </small>
+                      {adjustment.notes.length ? (
+                        <small>{adjustment.notes.join(' · ')}</small>
+                      ) : null}
+                      <small>{definition.summary}</small>
+                    </div>
+                    <button
+                      type="button"
+                      className={`secondary-button compact-button earthdawn-equipment-add${chosen ? ' earthdawn-equipment-add--selected' : ''}`}
+                      aria-pressed={chosen}
+                      aria-label={`${chosen ? 'Remove' : 'Add'} ${definition.name}`}
+                      onClick={() => toggleEquipment(definition)}
+                    >
+                      +
+                    </button>
+                  </SheetCard>
+                );
+              })}
+            </div>
+          )}
+        </CreatorDialog>
+      ) : null}
+      {pendingEquipment
+        ? (() => {
+            const adjustment = creatorEquipmentAdjustment(
+              pendingEquipment,
+              character.identity.raceName,
+            );
+            const overage = Math.max(
+              0,
+              adjustment.adjustedCopper - purchaseQuote.remainingCopper,
+            );
+            return (
+              <CreatorDialog
+                title="Equipment budget exceeded"
+                onClose={() => setPendingEquipment(null)}
+              >
+                <p>
+                  Adding <strong>{pendingEquipment.name}</strong> costs{' '}
+                  {displayCopper(adjustment.adjustedCopper)}. You have{' '}
+                  {displayCopper(Math.max(0, purchaseQuote.remainingCopper))}{' '}
+                  available and would exceed starting funds by{' '}
+                  <strong>{displayCopper(overage)}</strong>.
+                </p>
+                <label className="appearance-switch">
+                  <input
+                    type="checkbox"
+                    checked={pendingEquipmentOverride}
+                    onChange={(event) =>
+                      setPendingEquipmentOverride(event.target.checked)
+                    }
+                  />
+                  <span>
+                    <strong>GM Override</strong>
+                    <small>
+                      Permit equipment overspending for this character only.
+                      Other creation limits remain enforced.
+                    </small>
+                  </span>
+                </label>
+                <div className="button-row">
+                  <button
+                    type="button"
+                    className="secondary-button"
+                    onClick={() => setPendingEquipment(null)}
+                  >
+                    Remove item
+                  </button>
+                  <button
+                    type="button"
+                    className="primary-button"
+                    onClick={() => {
+                      if (pendingEquipmentOverride) setEquipmentOverride(true);
+                      commitEquipment(pendingEquipment);
+                      setPendingEquipment(null);
+                    }}
+                  >
+                    Add Anyway
+                  </button>
+                </div>
+              </CreatorDialog>
+            );
+          })()
+        : null}
+      {budgetAlert ? (
+        <CreatorDialog
+          title="Creation budget exceeded"
+          onClose={() => setBudgetAlert(null)}
+        >
+          <p>The change was kept. Review the following allocation overage:</p>
+          <ul>
+            {budgetAlert.map((violation) => (
+              <li key={`${violation.code}:${violation.targetId ?? ''}`}>
+                <strong>{violation.category.replace('-', ' ')}</strong>:{' '}
+                {violation.message}
+                {violation.limit != null && violation.spent != null ? (
+                  <small>
+                    {' '}
+                    Limit {violation.limit}; spent {violation.spent}; over by{' '}
+                    {violation.excess}.
+                  </small>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            className="primary-button"
+            onClick={() => setBudgetAlert(null)}
+          >
+            Return to allocations
+          </button>
         </CreatorDialog>
       ) : null}
       {pendingFitting ? (

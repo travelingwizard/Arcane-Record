@@ -246,9 +246,7 @@ test('contains Earthdawn rules UI at desktop, tablet, narrow, and zoom-equivalen
   await page.getByRole('button', { name: 'Compendium' }).click();
   const catalog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
   await expect(catalog).toBeVisible();
-  await catalog
-    .getByRole('button', { name: 'Show catalog as a table' })
-    .click();
+  await catalog.getByRole('button', { name: 'Show catalog as a list' }).click();
   const tableScroller = catalog.locator('.earthdawn-catalog-table-wrap');
   await expect(tableScroller).toBeVisible();
   const bounds = await catalog.evaluate((node) => {
@@ -390,6 +388,15 @@ test('browses every supported Mystic Path without treating Boatman as a Path', a
     0,
   );
   await expect(dialog.getByRole('heading', { name: 'Shaman' })).toHaveCount(0);
+  await dialog
+    .getByRole('button', { name: 'Show Mystic Paths as a list' })
+    .click();
+  await expect(
+    dialog.getByRole('button', { name: 'Resize Name column' }),
+  ).toBeVisible();
+  await dialog
+    .getByRole('button', { name: 'Show Mystic Paths as cards' })
+    .click();
   const outcast = dialog.locator('.catalog-card').filter({
     has: page.getByRole('heading', { name: 'Outcast Path', exact: true }),
   });
@@ -429,6 +436,19 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
   await expect(dialog.getByRole('heading', { name: 'Shaman' })).toBeVisible();
   await dialog.getByText('Novice · Circles 1–4').click();
   await expect(dialog.getByText(/p\. 167–178/).first()).toBeVisible();
+  await dialog
+    .getByRole('button', {
+      name: 'Show Disciplines and Questors as a list',
+    })
+    .click();
+  await expect(
+    dialog.getByRole('button', { name: 'Resize Name column' }),
+  ).toBeVisible();
+  await dialog
+    .getByRole('button', {
+      name: 'Show Disciplines and Questors as cards',
+    })
+    .click();
   await page.setViewportSize({ width: 320, height: 800 });
   expect(
     await page.evaluate(
@@ -682,22 +702,31 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   await expect(
     page.getByRole('heading', { name: /Talent Options/ }),
   ).toBeVisible();
-  const talentOption = page.getByRole('button', {
-    name: 'Acrobatic Defense',
-    exact: true,
-  });
+  const talentOption = page
+    .locator('.earthdawn-compact-choice-grid button')
+    .filter({ hasText: 'Acrobatic Defense' });
   await talentOption.click();
   await expect(talentOption).toHaveAttribute('aria-pressed', 'true');
+  await expect(talentOption).toContainText('click to remove');
+  await talentOption.click();
+  await expect(talentOption).toHaveAttribute('aria-pressed', 'false');
+  await talentOption.click();
+  await page.getByLabel('Avoid Blow free ranks').fill('9');
+  const budgetDialog = page.getByRole('dialog', {
+    name: 'Creation budget exceeded',
+  });
+  await expect(budgetDialog).toContainText('over by 1');
+  await budgetDialog
+    .getByRole('button', { name: 'Return to allocations' })
+    .click();
   await page.getByLabel('GM Override reason').fill('High-powered campaign');
   await page.getByRole('switch', { name: 'GM Override' }).check();
-  const secondTalentOption = page.getByRole('button', {
-    name: 'Anticipate Blow',
-    exact: true,
-  });
+  const secondTalentOption = page
+    .locator('.earthdawn-compact-choice-grid button')
+    .filter({ hasText: 'Anticipate Blow' });
   await secondTalentOption.click();
   await expect(secondTalentOption).toHaveAttribute('aria-pressed', 'true');
-  await page.getByLabel('Avoid Blow free ranks').fill('5');
-  await expect(page.getByLabel('Avoid Blow free ranks')).toHaveValue('5');
+  await expect(page.getByLabel('Avoid Blow free ranks')).toHaveValue('9');
   await page.setViewportSize({ width: 320, height: 800 });
   expect(
     await page.evaluate(
@@ -737,12 +766,12 @@ test('offers persistent card and list views in the creator skill browser', async
   ).resolves.toMatchObject({ opacity: '1' });
 
   await dialog.getByRole('button', { name: 'Show skills as a list' }).click();
-  await expect(dialog.locator('.earthdawn-skill-list-row')).toHaveCount(1);
-  await dialog.getByText('Awareness', { exact: true }).click();
-  await expect(dialog.locator('.earthdawn-skill-list-row')).toHaveAttribute(
-    'open',
-    '',
-  );
+  await expect(dialog.getByRole('table')).toBeVisible();
+  await expect(
+    dialog.getByRole('button', { name: 'Resize Name column' }),
+  ).toBeVisible();
+  await dialog.getByRole('button', { name: 'Show details' }).click();
+  await expect(dialog.locator('.earthdawn-catalog-list-details')).toBeVisible();
   await dialog.getByRole('button', { name: 'Close' }).click();
 
   await page.getByRole('button', { name: 'Add Specific Skill' }).click();
@@ -938,7 +967,7 @@ test('previews and applies all eight Race reconciliations without page overflow'
   ).toBe(false);
 });
 
-test('uses a three-choice T’skrang fitting review with adjusted cost and weight', async ({
+test('keeps creator Equipment general-only and provides a resizable List view', async ({
   page,
 }) => {
   await openEarthdawnCreator(page);
@@ -948,34 +977,24 @@ test('uses a three-choice T’skrang fitting review with adjusted cost and weigh
   await applyCreatorChange(page, 'Review Race change');
   for (let index = 0; index < 4; index += 1)
     await page.getByRole('button', { name: 'Next' }).click();
-  await page
-    .getByRole('button', { name: 'Browse Equipment and Weapons' })
-    .click();
+  await page.getByRole('button', { name: 'Browse Equipment' }).click();
   const catalog = page.getByRole('dialog', {
-    name: 'Browse Equipment and Weapons',
+    name: 'Browse Equipment',
   });
-  await catalog.getByRole('button', { name: 'Armor' }).click();
-  const armor = catalog.getByRole('article').first();
-  const armorName = await armor.locator('strong').first().innerText();
-  await armor.getByRole('button', { name: 'Add' }).click();
-  const fitting = page.getByRole('dialog', {
-    name: `Choose fitting for ${armorName}`,
-  });
-  await expect(fitting.getByText('Standard', { exact: true })).toBeVisible();
+  await expect(catalog.getByText('Starting Funds')).toBeVisible();
+  await expect(catalog.getByText('Projected Remaining Funds')).toBeVisible();
+  await expect(catalog.getByRole('button', { name: 'Weapons' })).toHaveCount(0);
+  await catalog
+    .getByRole('button', { name: 'Show equipment as a list' })
+    .click();
   await expect(
-    fitting.getByText('Tail opening', { exact: true }),
+    catalog.getByRole('columnheader', { name: /Name/ }),
   ).toBeVisible();
+  const resizer = catalog.getByRole('button', { name: 'Resize Name column' });
+  await resizer.focus();
+  await resizer.press('ArrowRight');
   await expect(
-    fitting.getByText('Covered tail', { exact: true }),
-  ).toBeVisible();
-  const tailOpening = fitting
-    .getByRole('article')
-    .filter({ hasText: 'Tail opening' });
-  await expect(tailOpening).toContainText('Cost ×1.1');
-  await tailOpening.getByRole('button', { name: 'Choose' }).click();
-  await catalog.getByRole('button', { name: 'Close' }).click();
-  await expect(
-    page.getByText('Fitting: tail opening', { exact: true }),
+    catalog.getByRole('button', { name: 'Reset columns' }),
   ).toBeVisible();
 });
 
@@ -997,7 +1016,7 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
   await skillDialog
     .getByRole('article')
     .filter({ hasText: 'Singing' })
-    .getByRole('button', { name: 'Add' })
+    .getByRole('button', { name: 'Add Singing' })
     .click();
   await skillDialog.getByRole('button', { name: 'Close' }).click();
   const selectedSkill = page.locator('.sheet-card').filter({
@@ -1008,29 +1027,26 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
 
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByLabel('Starting silver').fill('0');
-  await page
-    .getByRole('button', { name: 'Browse Equipment and Weapons' })
-    .click();
+  await page.getByRole('button', { name: 'Browse Equipment' }).click();
   const equipmentDialog = page.getByRole('dialog', {
-    name: 'Browse Equipment and Weapons',
+    name: 'Browse Equipment',
   });
-  await equipmentDialog.getByRole('button', { name: 'Weapons' }).click();
-  await equipmentDialog.getByRole('searchbox').fill('Broadsword');
+  await equipmentDialog.getByRole('searchbox').fill('Backpack');
   await equipmentDialog
-    .getByRole('article')
-    .filter({ hasText: 'Broadsword' })
-    .getByRole('button', { name: 'Add' })
+    .getByRole('button', { name: 'Add Backpack', exact: true })
     .click();
+  const overspend = page.getByRole('dialog', {
+    name: 'Equipment budget exceeded',
+  });
+  await expect(overspend).toContainText('exceed starting funds');
+  await overspend.getByRole('checkbox', { name: 'GM Override' }).check();
+  await overspend.getByRole('button', { name: 'Add Anyway' }).click();
   await equipmentDialog.getByRole('button', { name: 'Close' }).click();
   await expect(page.getByText(/Starting funds are negative/)).toBeVisible();
   await page.getByRole('button', { name: 'Next' }).click();
   await expect(
     page.getByRole('button', { name: 'Complete Character' }),
-  ).toBeDisabled();
-  await page.getByRole('button', { name: 'Previous' }).click();
-  await page.getByLabel('GM Override reason').fill('Approved starting debt');
-  await page.getByRole('switch', { name: 'GM Override' }).check();
-  await page.getByRole('button', { name: 'Next' }).click();
+  ).toBeEnabled();
   await page.getByLabel('name').fill('Partial Adept');
   await page.getByRole('button', { name: 'Complete Character' }).click();
   await expect(
@@ -1259,7 +1275,7 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .click();
   await page
     .getByRole('dialog', { name: 'Earthdawn catalog' })
-    .getByRole('button', { name: 'Show catalog as a table' })
+    .getByRole('button', { name: 'Show catalog as a list' })
     .click();
   const skillDialog = page.getByRole('dialog', {
     name: 'Earthdawn catalog',

@@ -17,6 +17,45 @@ import {
 import type { Earthdawn4eCharacter } from './schema';
 
 export const CREATOR_FINALIZATION_VERSION = 1;
+export const CREATOR_EQUIPMENT_OVERRIDE_CODE = 'creator-equipment-overspend';
+
+export type CreatorViolationCategory =
+  | 'attributes'
+  | 'talents'
+  | 'talent-options'
+  | 'skills'
+  | 'spells'
+  | 'equipment'
+  | 'eligibility';
+
+export type CreatorViolation = {
+  code: string;
+  category: CreatorViolationCategory;
+  limit: number | null;
+  spent: number | null;
+  excess: number | null;
+  message: string;
+  targetId?: string;
+};
+
+export function formatCreatorCurrency(copper: number) {
+  const negative = copper < 0;
+  const safe = Math.abs(Math.trunc(copper));
+  const parts: string[] = [];
+  const gold = Math.floor(safe / 100);
+  const silver = Math.floor((safe % 100) / 10);
+  const remainder = safe % 10;
+  if (gold) parts.push(`${gold} gp`);
+  if (silver) parts.push(`${silver} sp`);
+  if (remainder) parts.push(`${remainder} cp`);
+  if (!parts.length) parts.push('0 sp');
+  return `${negative ? '−' : ''}${parts.join(' · ')}`;
+}
+
+export const hasCreatorEquipmentOverride = (character: Earthdawn4eCharacter) =>
+  character.creation.overrides.some(
+    ({ code }) => code === CREATOR_EQUIPMENT_OVERRIDE_CODE,
+  );
 
 export type CreatorFitting =
   'standard' | 'tail-opening' | 'full-tail' | 'windling-balanced' | null;
@@ -293,14 +332,23 @@ const skillRanksByCategory = (character: Earthdawn4eCharacter) =>
   ) as Record<'general' | 'knowledge' | 'artisan' | 'language', number>;
 
 export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
-  const blockers: string[] = [];
+  const violations: CreatorViolation[] = [];
+  const addViolation = (violation: CreatorViolation) =>
+    violations.push(violation);
   const advisories: string[] = [];
   const selectedDiscipline = earthdawnDisciplines.find(
     ({ id }) => id === character.disciplines[0]?.disciplineId,
   );
   const spent = creatorAttributePointsSpent(character);
   if (spent > 25)
-    blockers.push(`Attribute allocation exceeds 25 points by ${spent - 25}.`);
+    addViolation({
+      code: 'attribute-points',
+      category: 'attributes',
+      limit: 25,
+      spent,
+      excess: spent - 25,
+      message: `Attribute allocation exceeds 25 points by ${spent - 25}.`,
+    });
   else if (spent < 25)
     advisories.push(`${25 - spent} Attribute Points remain unspent.`);
 
@@ -310,9 +358,14 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
   );
   if (character.creation.profile !== 'questor') {
     if (talentRanks > 8)
-      blockers.push(
-        `Talent allocation exceeds 8 free ranks by ${talentRanks - 8}.`,
-      );
+      addViolation({
+        code: 'talent-ranks',
+        category: 'talents',
+        limit: 8,
+        spent: talentRanks,
+        excess: talentRanks - 8,
+        message: `Talent allocation exceeds 8 free ranks by ${talentRanks - 8}.`,
+      });
     else if (talentRanks < 8)
       advisories.push(`${8 - talentRanks} free Talent ranks remain unspent.`);
     if (selectedDiscipline) {
@@ -322,9 +375,14 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
       ).length;
       const optionLimit = character.disciplines[0]?.circle ?? 1;
       if (optionCount > optionLimit)
-        blockers.push(
-          `Talent Options exceed the Circle limit by ${optionCount - optionLimit}.`,
-        );
+        addViolation({
+          code: 'talent-options',
+          category: 'talent-options',
+          limit: optionLimit,
+          spent: optionCount,
+          excess: optionCount - optionLimit,
+          message: `Talent Options exceed the Circle limit by ${optionCount - optionLimit}.`,
+        });
       else if (optionCount < optionLimit)
         advisories.push(
           `${optionLimit - optionCount} Talent Option slot(s) remain unused.`,
@@ -334,7 +392,15 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
 
   for (const skill of character.skills)
     if (skill.freeRank > 3)
-      blockers.push(`${skill.name || 'A skill'} exceeds starting Rank 3.`);
+      addViolation({
+        code: 'skill-rank',
+        category: 'skills',
+        limit: 3,
+        spent: skill.freeRank,
+        excess: skill.freeRank - 3,
+        targetId: skill.id,
+        message: `${skill.name || 'A skill'} exceeds starting Rank 3 by ${skill.freeRank - 3}.`,
+      });
   const skillRanks = skillRanksByCategory(character);
   const freeSkillRanksSpent =
     skillRanks.general +
@@ -342,9 +408,14 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
     Math.max(0, skillRanks.artisan - 1) +
     Math.max(0, skillRanks.language - 3);
   if (freeSkillRanksSpent > 8)
-    blockers.push(
-      `Free skill allocation exceeds 8 ranks by ${freeSkillRanksSpent - 8}.`,
-    );
+    addViolation({
+      code: 'free-skill-ranks',
+      category: 'skills',
+      limit: 8,
+      spent: freeSkillRanksSpent,
+      excess: freeSkillRanksSpent - 8,
+      message: `Free skill allocation exceeds 8 ranks by ${freeSkillRanksSpent - 8}.`,
+    });
   else if (freeSkillRanksSpent < 8)
     advisories.push(
       `${8 - freeSkillRanksSpent} freely allocated skill ranks remain.`,
@@ -364,15 +435,26 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
   )) {
     const cost = creatorSpellPointCost(spell.circle);
     if (cost == null)
-      blockers.push(
-        `${spell.name} has no verified character-creation cost at Circle ${spell.circle}.`,
-      );
+      addViolation({
+        code: 'spell-cost-unavailable',
+        category: 'spells',
+        limit: null,
+        spent: null,
+        excess: null,
+        targetId: spell.id,
+        message: `${spell.name} has no verified character-creation cost at Circle ${spell.circle}.`,
+      });
     else spellPoints += cost;
   }
   if (spellPoints > spellBudget)
-    blockers.push(
-      `Starting spells exceed the Perception Step budget by ${spellPoints - spellBudget}.`,
-    );
+    addViolation({
+      code: 'spell-points',
+      category: 'spells',
+      limit: spellBudget,
+      spent: spellPoints,
+      excess: spellPoints - spellBudget,
+      message: `Starting spells exceed the Perception Step budget by ${spellPoints - spellBudget}.`,
+    });
   else if (selectedDiscipline?.spellcaster && spellPoints < spellBudget)
     advisories.push(
       `${spellBudget - spellPoints} starting spell point(s) remain unspent.`,
@@ -380,9 +462,14 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
 
   const quote = creatorPurchaseQuote(character);
   if (quote.remainingCopper < 0)
-    blockers.push(
-      `Equipment spending exceeds starting wealth by ${-quote.remainingCopper} copper.`,
-    );
+    addViolation({
+      code: 'equipment-spending',
+      category: 'equipment',
+      limit: quote.startingCopper,
+      spent: quote.totalCopper,
+      excess: -quote.remainingCopper,
+      message: `Equipment spending exceeds starting wealth by ${formatCreatorCurrency(-quote.remainingCopper)}.`,
+    });
 
   for (const weapon of character.weapons) {
     const compatibility = creatorWeaponSizeCompatibility(
@@ -391,7 +478,15 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
       weapon.creationFitting ?? null,
     );
     if (!compatibility.compatible)
-      blockers.push(`${weapon.name}: ${compatibility.reason}`);
+      addViolation({
+        code: 'weapon-compatibility',
+        category: 'eligibility',
+        limit: null,
+        spent: null,
+        excess: null,
+        targetId: weapon.id,
+        message: `${weapon.name}: ${compatibility.reason}`,
+      });
   }
 
   const race = earthdawnRaces.find(
@@ -403,7 +498,14 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
     advisories.push('No Discipline selected.');
   if (!character.identity.name.trim()) advisories.push('Name is blank.');
   if (character.creation.profile === 'questor' && !character.questor.patronId)
-    blockers.push('Select a patron Passion for the non-Adept Questor.');
+    addViolation({
+      code: 'questor-patron',
+      category: 'eligibility',
+      limit: null,
+      spent: null,
+      excess: null,
+      message: 'Select a patron Passion for the non-Adept Questor.',
+    });
 
   const path = earthdawnPathProfiles.find(
     ({ id }) => id === character.creation.specializedPathId,
@@ -414,15 +516,29 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
       path,
       character.creation.specializedPathRank || 1,
     );
-    blockers.push(
-      ...eligibility.blockers.map((message) => `${path.name}: ${message}`),
+    eligibility.blockers.forEach((message) =>
+      addViolation({
+        code: 'path-eligibility',
+        category: 'eligibility',
+        limit: null,
+        spent: null,
+        excess: null,
+        message: `${path.name}: ${message}`,
+      }),
     );
-    blockers.push(
-      `${path.name} initiation costs and prerequisites require recorded GM approval during creation.`,
-    );
+    addViolation({
+      code: 'path-initiation',
+      category: 'eligibility',
+      limit: null,
+      spent: null,
+      excess: null,
+      message: `${path.name} initiation costs and prerequisites require recorded GM approval during creation.`,
+    });
   }
+  const blockers = [...new Set(violations.map(({ message }) => message))];
   return {
-    blockers: [...new Set(blockers)],
+    blockers,
+    violations,
     advisories: [...new Set(advisories)],
     quote,
     spellBudget,
@@ -610,8 +726,12 @@ export function finalizeEarthdawnCreation(
     return character;
   const now = options.now ?? new Date().toISOString();
   const review = reviewEarthdawnCreation(character);
-  if (review.blockers.length && !options.override)
-    throw new Error(review.blockers.join(' '));
+  const activeViolations = review.violations.filter(
+    ({ code }) =>
+      code !== 'equipment-spending' || !hasCreatorEquipmentOverride(character),
+  );
+  if (activeViolations.length && !options.override)
+    throw new Error(activeViolations.map(({ message }) => message).join(' '));
   const remainingCopper = Math.max(0, review.quote.remainingCopper);
   const wealth = walletFromCopper(remainingCopper, character.wealth);
   const markCreatorPurchase = <
