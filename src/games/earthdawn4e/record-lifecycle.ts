@@ -210,7 +210,21 @@ const removeWithoutActivity = (
           disciplineSources: talent.disciplineSources.filter(
             (source) => source !== disciplineId,
           ),
+          disciplineOriginCircles: Object.fromEntries(
+            Object.entries(talent.disciplineOriginCircles ?? {}).filter(
+              ([source]) => source !== disciplineId,
+            ),
+          ),
         };
+        if (
+          updated.optionOriginDisciplineId &&
+          updated.disciplineSources.length === 1 &&
+          updated.disciplineSources[0] === updated.optionOriginDisciplineId
+        ) {
+          updated.optional = true;
+          updated.originDisciplineId = updated.optionOriginDisciplineId;
+          updated.optionOriginDisciplineId = null;
+        }
         return automaticTalentCanBeRemoved(character, updated) ? [] : [updated];
       }),
     };
@@ -726,6 +740,16 @@ export function applyRemoval(
       ],
     },
   };
+}
+
+export function applyRemovalWithoutActivity(
+  character: Earthdawn4eCharacter,
+  target: EarthdawnRecordTarget,
+) {
+  const plan = previewRemoval(character, target);
+  return plan.blockers.length
+    ? character
+    : removeWithoutActivity(character, target);
 }
 
 export function dependencyWarnings(character: Earthdawn4eCharacter) {

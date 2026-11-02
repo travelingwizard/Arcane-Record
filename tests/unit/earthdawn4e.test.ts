@@ -45,6 +45,7 @@ import {
 } from '../../src/games/earthdawn4e/portrait';
 import {
   appendRoll,
+  applyNewDisciplineInitiation,
   advancementTargetExists,
   attributeIncreaseCost,
   attributeTraining,
@@ -54,6 +55,7 @@ import {
   formatWalletAsSilver,
   moneyToCopper,
   disciplineCircleTraining,
+  disciplineProgressionEffects,
   equivalentTalentCircle,
   equivalentDisciplineNames,
   grantedDevotionCost,
@@ -72,16 +74,19 @@ import {
   pathRankCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
+  quoteNewDisciplineInitiation,
   reconcileFreeMatrices,
   applyFreeTalentReconciliation,
   freeTalentAdvanceQuote,
   previewFreeTalentReconciliation,
   reconcileDisciplineTalents,
+  reconcileVersatilityTalentSlots,
   reconcileRace,
   refundableLedgerEntry,
   refundBlockReason,
   spellLearningCost,
   threadRankCost,
+  talentAdvancementCostCircle,
   walletTotalCopper,
 } from '../../src/games/earthdawn4e/rules';
 import {
@@ -106,6 +111,7 @@ import {
 } from '../../src/games/earthdawn4e/creator-rules';
 import {
   applyRemoval,
+  applyRemovalWithoutActivity,
   dependencyWarnings,
   earthdawnDynamicRecordCapabilities,
   previewRemoval,
@@ -1913,6 +1919,259 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(equivalentTalentCircle(5, 1)).toBe(9);
     expect(equivalentTalentCircle(13, 3)).toBe(13);
     expect(equivalentTalentCircle(1, 0, true)).toBe(5);
+  });
+  it('quotes and atomically applies multi-Discipline initiation', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    const warrior = earthdawnDisciplines.find(
+      ({ name }) => name === 'Warrior',
+    )!;
+    character.disciplines.push({
+      id: crypto.randomUUID(),
+      definitionId: wizard.id,
+      sourceId: wizard.sourceId,
+      sourceIds: wizard.sourceIds,
+      source: wizard.source,
+      page: wizard.page,
+      pageEnd: wizard.pageEnd,
+      unresolved: false,
+      disciplineId: wizard.id,
+      name: wizard.name,
+      circle: 3,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      freeTalentChoice: null,
+    });
+    character.advancement.ledger.push(
+      createLegendEntry({
+        type: 'award',
+        amount: 20_000,
+        targetId: null,
+        targetName: 'Starting LP',
+        description: 'Test award',
+      }),
+    );
+    const quote = quoteNewDisciplineInitiation(character, warrior);
+    expect(quote.lowestCircle).toBe(3);
+    expect(quote.perTalentCost).toBe(500);
+    expect(quote.totalCost).toBe(quote.missingTalents.length * 500);
+    const recordId = crypto.randomUUID();
+    const initiated = applyNewDisciplineInitiation(
+      character,
+      warrior,
+      recordId,
+    );
+    expect(initiated.disciplines.at(-1)).toMatchObject({
+      id: recordId,
+      name: 'Warrior',
+      circle: 1,
+    });
+    expect(
+      quote.missingTalents.every((name) =>
+        initiated.talents.some(
+          (talent) =>
+            talent.name === name &&
+            talent.rank === 1 &&
+            talent.disciplineSources.includes(warrior.id),
+        ),
+      ),
+    ).toBe(true);
+    expect(legendTotals(initiated.advancement.ledger).current).toBe(
+      20_000 - quote.totalCost,
+    );
+    const insufficient = createBlankEarthdawn4eCharacter();
+    insufficient.disciplines = [...character.disciplines];
+    expect(
+      applyNewDisciplineInitiation(insufficient, warrior, crypto.randomUUID()),
+    ).toEqual(insufficient);
+  });
+  it('converts Talent Options and restores them when the new Discipline is removed', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const airSailor = earthdawnDisciplines.find(
+      ({ name }) => name === 'Air Sailor',
+    )!;
+    const optionOwner = earthdawnDisciplines.find(
+      ({ name }) => name === 'Warrior',
+    )!;
+    const option = reconcileDisciplineTalents([], airSailor, 1).find(
+      ({ name }) => name === 'Avoid Blow',
+    )!;
+    option.rank = 2;
+    option.optional = true;
+    option.originDisciplineId = optionOwner.id;
+    option.disciplineSources = [optionOwner.id];
+    character.talents = [option];
+    const recordId = crypto.randomUUID();
+    character.disciplines = [
+      {
+        id: crypto.randomUUID(),
+        definitionId: optionOwner.id,
+        sourceId: optionOwner.sourceId,
+        sourceIds: optionOwner.sourceIds,
+        source: optionOwner.source,
+        page: optionOwner.page,
+        pageEnd: optionOwner.pageEnd,
+        unresolved: false,
+        disciplineId: optionOwner.id,
+        name: optionOwner.name,
+        circle: 5,
+        startedAtCircle: 1,
+        questor: false,
+        custom: false,
+        freeTalentChoice: null,
+      },
+      {
+        id: recordId,
+        definitionId: airSailor.id,
+        sourceId: airSailor.sourceId,
+        sourceIds: airSailor.sourceIds,
+        source: airSailor.source,
+        page: airSailor.page,
+        pageEnd: airSailor.pageEnd,
+        unresolved: false,
+        disciplineId: airSailor.id,
+        name: airSailor.name,
+        circle: 1,
+        startedAtCircle: 1,
+        questor: false,
+        custom: false,
+        freeTalentChoice: null,
+      },
+    ];
+    character.talents = reconcileDisciplineTalents(
+      character.talents,
+      airSailor,
+      1,
+    );
+    expect(character.talents[0]).toMatchObject({
+      id: option.id,
+      optional: false,
+      optionOriginDisciplineId: optionOwner.id,
+    });
+    const restored = applyRemovalWithoutActivity(character, {
+      kind: 'discipline',
+      id: recordId,
+    });
+    expect(restored.talents[0]).toMatchObject({
+      id: option.id,
+      optional: true,
+      originDisciplineId: optionOwner.id,
+      optionOriginDisciplineId: null,
+    });
+  });
+  it('keeps Versatility and Discipline talent ranks separate until catch-up', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const airSailor = earthdawnDisciplines.find(
+      ({ name }) => name === 'Air Sailor',
+    )!;
+    const versatilityTalent = reconcileDisciplineTalents([], airSailor, 1).find(
+      ({ name }) => name === 'Avoid Blow',
+    )!;
+    versatilityTalent.rank = 3;
+    versatilityTalent.disciplineSources = ['versatility'];
+    versatilityTalent.originDisciplineId = null;
+    character.talents = [versatilityTalent];
+    const reconciled = reconcileDisciplineTalents(
+      character.talents,
+      airSailor,
+      1,
+    );
+    const copies = reconciled.filter(({ name }) => name === 'Avoid Blow');
+    expect(copies).toHaveLength(2);
+    expect(copies.find(({ id }) => id === versatilityTalent.id)?.rank).toBe(3);
+    const disciplineTalent = copies.find(
+      ({ id }) => id !== versatilityTalent.id,
+    )!;
+    expect(disciplineTalent.rank).toBe(0);
+    let updated = reconcileVersatilityTalentSlots({
+      ...character,
+      talents: reconciled.map((talent) =>
+        talent.id === disciplineTalent.id ? { ...talent, rank: 2 } : talent,
+      ),
+    });
+    expect(
+      updated.talents.find(({ id }) => id === versatilityTalent.id)
+        ?.versatilitySlotReleased,
+    ).toBe(false);
+    updated = reconcileVersatilityTalentSlots({
+      ...updated,
+      talents: updated.talents.map((talent) =>
+        talent.id === disciplineTalent.id ? { ...talent, rank: 3 } : talent,
+      ),
+    });
+    expect(
+      updated.talents.find(({ id }) => id === versatilityTalent.id)
+        ?.versatilitySlotReleased,
+    ).toBe(true);
+  });
+  it('uses source-specific Circles for the lowest shared-talent cost', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const primary = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    const secondary = earthdawnDisciplines.find(
+      ({ name }) => name === 'Warrior',
+    )!;
+    character.disciplines = [primary, secondary].map((definition) => ({
+      id: crypto.randomUUID(),
+      definitionId: definition.id,
+      sourceId: definition.sourceId,
+      sourceIds: definition.sourceIds,
+      source: definition.source,
+      page: definition.page,
+      pageEnd: definition.pageEnd,
+      unresolved: false,
+      disciplineId: definition.id,
+      name: definition.name,
+      circle: 9,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      freeTalentChoice: null,
+    }));
+    const talent = reconcileDisciplineTalents([], primary, 1)[0]!;
+    talent.disciplineSources = [primary.id, secondary.id];
+    talent.disciplineOriginCircles = { [primary.id]: 9, [secondary.id]: 1 };
+    expect(talentAdvancementCostCircle(character, talent)).toBe(5);
+  });
+  it('calculates tier-by-tier Durability and highest-only Discipline bonuses', () => {
+    const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    const skyRaider = earthdawnDisciplines.find(
+      ({ name }) => name === 'Sky Raider',
+    )!;
+    const record = (definition: typeof wizard, circle: number) => ({
+      id: crypto.randomUUID(),
+      definitionId: definition.id,
+      sourceId: definition.sourceId,
+      sourceIds: definition.sourceIds,
+      source: definition.source,
+      page: definition.page,
+      pageEnd: definition.pageEnd,
+      unresolved: false,
+      disciplineId: definition.id,
+      name: definition.name,
+      circle,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      freeTalentChoice: null,
+    });
+    const character = createBlankEarthdawn4eCharacter();
+    character.disciplines = [record(wizard, 5), record(skyRaider, 1)];
+    expect(disciplineProgressionEffects(character).durability).toBe(19);
+    character.disciplines[1]!.circle = 5;
+    expect(disciplineProgressionEffects(character).durability).toBe(35);
+
+    const shaman = earthdawnDisciplines.find(({ name }) => name === 'Shaman')!;
+    const gauntlet = earthdawnDisciplines.find(
+      ({ name }) => name === 'Gauntlet',
+    )!;
+    character.disciplines = [record(shaman, 8), record(gauntlet, 8)];
+    const effects = disciplineProgressionEffects(character);
+    expect(effects.modifiers.physicalDefense).toBe(2);
+    expect(effects.modifiers.mysticDefense).toBe(3);
+    expect(new Set(effects.karmaPermissions).size).toBe(
+      effects.karmaPermissions.length,
+    );
   });
   it('keeps only the primary magician Discipline free matrices', () => {
     const character = createBlankEarthdawn4eCharacter();

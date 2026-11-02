@@ -260,7 +260,12 @@ export const earthdawn4eCharacterSchema = z.object({
       citationText: z.string().default(''),
       metadataOverrides: z.array(z.string()).default([]),
       disciplineSources: z.array(z.string()),
+      disciplineOriginCircles: z
+        .record(z.string(), z.number().int().min(1).max(15))
+        .optional(),
       optional: z.boolean(),
+      optionOriginDisciplineId: z.string().nullable().optional(),
+      versatilitySlotReleased: z.boolean().optional(),
       originCircle: z.number().int().min(1).max(15).nullable(),
       originDisciplineId: z.string().nullable(),
       creationOwned: z.boolean(),
@@ -1128,12 +1133,42 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
             : [];
         })(),
     mysticPaths: [],
-    talents: (Array.isArray(data.talents) ? data.talents : []).map((entry) => ({
-      ...(isRecord(entry) ? entry : {}),
-      originCircle: null,
-      originDisciplineId: null,
-      creationOwned: false,
-    })),
+    talents: (Array.isArray(data.talents) ? data.talents : []).map((entry) => {
+      const value = isRecord(entry) ? entry : {};
+      const originCircle =
+        typeof value.originCircle === 'number' ? value.originCircle : null;
+      const sources = Array.isArray(value.disciplineSources)
+        ? value.disciplineSources.filter(
+            (source): source is string => typeof source === 'string',
+          )
+        : [];
+      const existingOrigins = isRecord(value.disciplineOriginCircles)
+        ? value.disciplineOriginCircles
+        : null;
+      return {
+        ...value,
+        originCircle,
+        originDisciplineId:
+          typeof value.originDisciplineId === 'string'
+            ? value.originDisciplineId
+            : null,
+        creationOwned: Boolean(value.creationOwned),
+        disciplineOriginCircles:
+          existingOrigins ??
+          (originCircle == null
+            ? undefined
+            : Object.fromEntries(
+                sources
+                  .filter((source) => source !== 'versatility')
+                  .map((source) => [source, originCircle]),
+              )),
+        optionOriginDisciplineId:
+          typeof value.optionOriginDisciplineId === 'string'
+            ? value.optionOriginDisciplineId
+            : null,
+        versatilitySlotReleased: Boolean(value.versatilitySlotReleased),
+      };
+    }),
     skills: (Array.isArray(data.skills) ? data.skills : []).map((entry) => ({
       ...(isRecord(entry) ? entry : {}),
       creationOwned: false,

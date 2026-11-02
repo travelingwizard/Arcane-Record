@@ -62,6 +62,7 @@ import {
 } from './engine';
 import {
   appendRoll,
+  applyNewDisciplineInitiation,
   attributeIncreaseCost,
   attributeTraining,
   createLegendEntry,
@@ -72,6 +73,7 @@ import {
   canAssignSpellToMatrix,
   reconcileRace,
   disciplineCircleTraining,
+  disciplineProgressionEffects,
   equivalentTalentCircle,
   grantedDevotionCost,
   knackLearningQuote,
@@ -83,13 +85,14 @@ import {
   matrixTypeForTalent,
   missingCircleTalentRanks,
   mysticPathModifierValue,
-  newDisciplineTalentCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
   pathEligibility,
   pathRankCost,
   questorTier,
+  quoteNewDisciplineInitiation,
   reconcileFreeMatrices,
+  reconcileVersatilityTalentSlots,
   applyFreeTalentReconciliation,
   freeTalentAdvanceQuote,
   previewFreeTalentReconciliation,
@@ -98,6 +101,7 @@ import {
   refundableLedgerEntry,
   refundBlockReason,
   skillRankCost,
+  talentAdvancementCostCircle,
   spellLearningCost,
   threadRankCost,
   talentRankCost,
@@ -132,6 +136,7 @@ import {
 } from './portrait';
 import {
   applyRemoval,
+  applyRemovalWithoutActivity,
   dependencyWarnings,
   previewRemoval,
   type EarthdawnRecordTarget,
@@ -708,11 +713,13 @@ const catalogTableColumns = (
 type AdvancementQuote = {
   title: string;
   cost: number;
-  silverCost: number;
+  silverCost: number | null;
   training: string;
   sourceCitation: string;
   warning?: string;
   blocked?: boolean;
+  acknowledgement?: string;
+  details?: string[];
 };
 type DevotionEligibility = {
   passion: string;
@@ -857,6 +864,7 @@ export function Earthdawn4eEditor({
     [advancementQuote, setAdvancementQuote] = useState<AdvancementQuote | null>(
       null,
     ),
+    [advancementAcknowledged, setAdvancementAcknowledged] = useState(false),
     [removalTarget, setRemovalTarget] = useState<EarthdawnRecordTarget | null>(
       null,
     ),
@@ -1096,7 +1104,7 @@ export function Earthdawn4eEditor({
     (fn: (value: Earthdawn4eCharacter) => Earthdawn4eCharacter) => {
       setDraft((current) => {
         const next = earthdawn4eCharacterSchema.parse(
-          reconcileFreeMatrices(fn(current)),
+          reconcileVersatilityTalentSlots(reconcileFreeMatrices(fn(current))),
         );
         revisionRef.current += 1;
         return next;
@@ -1126,7 +1134,20 @@ export function Earthdawn4eEditor({
     draft.magic.effects,
   );
   const primaryCircle = draft.disciplines[0]?.circle ?? 1;
-  const derived = deriveCharacter(values, primaryCircle);
+  const highestDisciplineCircle = Math.max(
+    primaryCircle,
+    ...draft.disciplines.map(({ circle }) => circle),
+  );
+  const derived = deriveCharacter(values, highestDisciplineCircle);
+  const disciplineEffects = disciplineProgressionEffects(draft);
+  derived.physicalDefense += disciplineEffects.modifiers.physicalDefense;
+  derived.mysticDefense += disciplineEffects.modifiers.mysticDefense;
+  derived.socialDefense += disciplineEffects.modifiers.socialDefense;
+  derived.initiative += disciplineEffects.modifiers.initiative;
+  derived.mysticArmor += disciplineEffects.modifiers.mysticArmor;
+  derived.recoveryTests += disciplineEffects.modifiers.recovery;
+  derived.unconsciousness += disciplineEffects.durability;
+  derived.death += disciplineEffects.durability;
   const armor = draft.equipment
     .filter((i) => i.inUse)
     .reduce(
@@ -1186,6 +1207,7 @@ export function Earthdawn4eEditor({
   );
   const reviewAdvancement = (quote: AdvancementQuote, action: () => void) => {
     advancementActionRef.current = action;
+    setAdvancementAcknowledged(false);
     setAdvancementQuote(quote);
     window.requestAnimationFrame(() =>
       document
@@ -1604,10 +1626,16 @@ export function Earthdawn4eEditor({
       };
       if (d.kind === 'talent') {
         const matrixType = matrixTypeForTalent(d.name);
+        const releasedVersatility = c.talents.find(
+          ({ disciplineSources, versatilitySlotReleased }) =>
+            versatilitySlotReleased &&
+            disciplineSources.length === 1 &&
+            disciplineSources[0] === 'versatility',
+        );
         return {
           ...c,
           talents: [
-            ...c.talents,
+            ...c.talents.filter(({ id }) => id !== releasedVersatility?.id),
             {
               ...base,
               rank: 0,
@@ -1626,11 +1654,12 @@ export function Earthdawn4eEditor({
               citationText:
                 d.talentMetadata?.citationText ?? `${d.source}, p. ${d.page}`,
               metadataOverrides: [],
-              disciplineSources: [],
+              disciplineSources: releasedVersatility ? ['versatility'] : [],
               optional: true,
-              originCircle: null,
+              originCircle: releasedVersatility?.originCircle ?? null,
               originDisciplineId: null,
               creationOwned: false,
+              versatilitySlotReleased: false,
             },
           ],
           magic: matrixType
@@ -2057,39 +2086,44 @@ export function Earthdawn4eEditor({
     )
       return;
     const recordId = crypto.randomUUID();
-    const existingTalentNames = new Set(
-      draft.talents.filter(({ rank }) => rank >= 1).map(({ name }) => name),
-    );
-    const required = discipline.circles[0]?.requiredTalents ?? [];
-    const missing = required.filter((name) => !existingTalentNames.has(name));
-    const lowestCircle = draft.disciplines.length
-      ? Math.min(5, ...draft.disciplines.map(({ circle }) => circle))
-      : 1;
-    const perTalent = newDisciplineTalentCost(
-      Number.isFinite(lowestCircle) ? lowestCircle : 1,
-      draft.disciplines.length + 1,
-    );
-    const cost = perTalent * missing.length;
+    const initiation = quoteNewDisciplineInitiation(draft, discipline);
+    const missing = initiation.missingTalents;
+    const cost = initiation.totalCost;
     if (playMode && !confirmed) {
       reviewAdvancement(
         {
           title: `Begin ${discipline.name} at First Circle`,
           cost,
-          silverCost: 0,
-          training: `Learn ${missing.length} missing First-Circle talent(s) at rank 1 from qualified instructors, then complete initiation with a higher-Circle adept.`,
+          silverCost: null,
+          training: `Complete 40 hours of training with an instructor of at least Fifth Circle and learn ${missing.length} missing First-Circle talent(s) at Rank 1. ${initiation.optionConversions.length ? `${initiation.optionConversions.join(', ')} will convert from Talent Options and release their former slots. ` : ''}${initiation.versatilityRestarts.length ? `${initiation.versatilityRestarts.join(', ')} will restart as separate Rank 1 Discipline Talents. ` : ''}The First-Circle Talent Option is not required for initiation.`,
           sourceCitation: "Player's Guide pp. 456–459",
+          acknowledgement:
+            'I have confirmed a qualified Fifth-Circle instructor and 40 hours of training.',
+          details: missing.map(
+            (name) =>
+              `${name}: ${initiation.perTalentCost.toLocaleString()} LP to learn Rank 1`,
+          ),
         },
         () => addDiscipline(discipline, true, freeTalentChoice),
       );
+      setDisciplinePickerOpen(false);
       return;
     }
     update((current) => {
+      if (confirmed && playMode)
+        return applyNewDisciplineInitiation(
+          current,
+          discipline,
+          recordId,
+          freeTalentChoice ?? null,
+        );
       const reconciled = reconcileDisciplineTalents(
         current.talents,
         discipline,
         1,
       ).map((talent) =>
-        missing.includes(talent.name)
+        missing.includes(talent.name) &&
+        talent.disciplineSources.includes(discipline.id)
           ? { ...talent, rank: 1, creationOwned: false }
           : talent,
       );
@@ -2116,29 +2150,7 @@ export function Earthdawn4eEditor({
           },
         ],
         talents: reconciled,
-        advancement:
-          confirmed && playMode
-            ? {
-                ledger: [
-                  ...current.advancement.ledger,
-                  createLegendEntry({
-                    type: 'discipline',
-                    amount: -cost,
-                    targetId: recordId,
-                    definitionId: discipline.id,
-                    origin: 'discipline',
-                    originDisciplineId: recordId,
-                    costCircle: 1,
-                    targetName: discipline.name,
-                    beforeRating: 0,
-                    afterRating: 1,
-                    sourceCitation: "Player's Guide pp. 456–459",
-                    training: `First-Circle initiation; ${missing.length} missing talent(s)`,
-                    description: `Begin ${discipline.name} at First Circle`,
-                  }),
-                ],
-              }
-            : current.advancement,
+        advancement: current.advancement,
       };
     });
   };
@@ -2564,35 +2576,10 @@ export function Earthdawn4eEditor({
           knacks: next.knacks.filter(({ id }) => id !== entry.targetId),
         };
       if (entry.type === 'discipline') {
-        const removed = next.disciplines.find(
-          ({ id }) => id === entry.targetId,
-        );
-        if (removed?.disciplineId) {
-          const disciplineId = removed.disciplineId;
-          next = {
-            ...next,
-            disciplines: next.disciplines.filter(
-              ({ id }) => id !== entry.targetId,
-            ),
-            talents: next.talents.flatMap((talent) => {
-              if (!talent.disciplineSources.includes(disciplineId))
-                return [talent];
-              const disciplineSources = talent.disciplineSources.filter(
-                (id) => id !== disciplineId,
-              );
-              if (
-                disciplineSources.length === 0 &&
-                talent.originDisciplineId === disciplineId &&
-                !talent.creationOwned &&
-                talent.rank === 1 &&
-                talent.freeRank === 0 &&
-                !talent.notes.trim()
-              )
-                return [];
-              return [{ ...talent, disciplineSources }];
-            }),
-          };
-        }
+        next = applyRemovalWithoutActivity(next, {
+          kind: 'discipline',
+          id: entry.targetId,
+        });
       }
       if (entry.type === 'path') {
         const pathRecord = next.mysticPaths.find(
@@ -4956,7 +4943,6 @@ export function Earthdawn4eEditor({
                         );
                         return;
                       }
-                      const circle = talent.originCircle ?? primaryCircle;
                       const matchingDisciplineIndices = draft.disciplines
                         .map((discipline, index) =>
                           discipline.disciplineId &&
@@ -4978,11 +4964,13 @@ export function Earthdawn4eEditor({
                           );
                       const versatility =
                         talent.disciplineSources.includes('versatility');
-                      const costCircle = equivalentTalentCircle(
-                        circle,
-                        disciplineIndex,
-                        versatility,
-                      );
+                      const costCircle = versatility
+                        ? equivalentTalentCircle(
+                            talent.originCircle ?? primaryCircle,
+                            0,
+                            true,
+                          )
+                        : talentAdvancementCostCircle(draft, talent);
                       const nextRank = talent.rank + 1;
                       const cost = talent.pathCostTier
                         ? talentTierRankCost(nextRank, talent.pathCostTier)
@@ -8026,6 +8014,14 @@ export function Earthdawn4eEditor({
                             Knack or thread item
                           </option>
                         </select>
+                        {disciplineEffects.karmaPermissions.length ? (
+                          <small>
+                            Discipline permissions:{' '}
+                            {disciplineEffects.karmaPermissions.join(', ')}.
+                            Overlapping permissions still allow only one Karma
+                            Point for the test.
+                          </small>
+                        ) : null}
                       </label>
                       <button
                         className="primary-button"
@@ -8187,7 +8183,9 @@ export function Earthdawn4eEditor({
                       <p>
                         <strong>{advancementQuote.cost} LP</strong>
                         {' · '}
-                        {advancementQuote.silverCost} silver
+                        {advancementQuote.silverCost == null
+                          ? 'Silver fee unavailable—record the instructor’s fee manually'
+                          : `${advancementQuote.silverCost} silver`}
                       </p>
                       <p>
                         Legend Point balance: <strong>{legend.current}</strong>{' '}
@@ -8197,11 +8195,30 @@ export function Earthdawn4eEditor({
                         </strong>
                       </p>
                       <p>{advancementQuote.training}</p>
+                      {advancementQuote.details?.length ? (
+                        <ul>
+                          {advancementQuote.details.map((detail) => (
+                            <li key={detail}>{detail}</li>
+                          ))}
+                        </ul>
+                      ) : null}
                       <small>{advancementQuote.sourceCitation}</small>
                       {advancementQuote.warning ? (
                         <p className="sheet-notice">
                           {advancementQuote.warning}
                         </p>
+                      ) : null}
+                      {advancementQuote.acknowledgement ? (
+                        <label className="earthdawn-inline-check">
+                          <input
+                            type="checkbox"
+                            checked={advancementAcknowledged}
+                            onChange={(event) =>
+                              setAdvancementAcknowledged(event.target.checked)
+                            }
+                          />
+                          <span>{advancementQuote.acknowledgement}</span>
+                        </label>
                       ) : null}
                       <SheetToolbar>
                         <button
@@ -8209,12 +8226,15 @@ export function Earthdawn4eEditor({
                           className="primary-button"
                           disabled={
                             advancementQuote.blocked ||
-                            legend.current < advancementQuote.cost
+                            legend.current < advancementQuote.cost ||
+                            (Boolean(advancementQuote.acknowledgement) &&
+                              !advancementAcknowledged)
                           }
                           onClick={() => {
                             advancementActionRef.current?.();
                             advancementActionRef.current = null;
                             setAdvancementQuote(null);
+                            setAdvancementAcknowledged(false);
                           }}
                         >
                           Confirm purchase
@@ -11200,6 +11220,14 @@ function TalentTable({
                     {!playMode && (record.freeTalentLpCredit ?? 0) > 0
                       ? ` · ${(record.freeTalentLpCredit ?? 0).toLocaleString()} LP credit`
                       : ''}
+                  </small>
+                ) : null}
+                {record.disciplineSources.includes('versatility') ? (
+                  <small>
+                    Versatility slot{' '}
+                    {record.versatilitySlotReleased
+                      ? 'released—may be reassigned'
+                      : 'occupied until the Discipline Talent reaches this Rank'}
                   </small>
                 ) : null}
                 {dependencyWarnings.get(record.id)?.map((warning) => (

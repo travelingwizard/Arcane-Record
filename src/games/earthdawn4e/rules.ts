@@ -1,5 +1,6 @@
 import {
   earthdawnDefinitionById,
+  earthdawnDisciplines,
   earthdawnRaces,
   earthdawnTalents,
   type EarthdawnDiscipline,
@@ -770,16 +771,39 @@ export function reconcileDisciplineTalents(
         talent.freeRank > 0 ||
         talent.notes.trim().length > 0,
     )
-    .map((talent) =>
-      neededNames.has(talent.name) &&
-      !talent.disciplineSources.includes(discipline.id)
-        ? {
-            ...talent,
-            disciplineSources: [...talent.disciplineSources, discipline.id],
-          }
-        : talent,
-    );
-  const existing = new Set(preserved.map(({ name }) => name));
+    .map((talent) => {
+      const required = needed.find(({ name }) => name === talent.name);
+      if (
+        !required ||
+        talent.disciplineSources.includes(discipline.id) ||
+        (talent.disciplineSources.length === 1 &&
+          talent.disciplineSources[0] === 'versatility')
+      )
+        return talent;
+      return {
+        ...talent,
+        disciplineSources: [...talent.disciplineSources, discipline.id],
+        disciplineOriginCircles: {
+          ...talent.disciplineOriginCircles,
+          [discipline.id]: required.circle,
+        },
+        optional: false,
+        optionOriginDisciplineId: talent.optional
+          ? talent.originDisciplineId
+          : talent.optionOriginDisciplineId,
+      };
+    });
+  const existing = new Set(
+    preserved
+      .filter(
+        (talent) =>
+          !(
+            talent.disciplineSources.length === 1 &&
+            talent.disciplineSources[0] === 'versatility'
+          ),
+      )
+      .map(({ name }) => name),
+  );
   const additions: Talent[] = needed
     .filter(({ name }) => !existing.has(name))
     .map(({ name, circle: originCircle, source, page }) => {
@@ -817,6 +841,7 @@ export function reconcileDisciplineTalents(
           definition?.talentMetadata?.citationText ?? `${source}, p. ${page}`,
         metadataOverrides: [],
         disciplineSources: [discipline.id],
+        disciplineOriginCircles: { [discipline.id]: originCircle },
         optional: false,
         originCircle,
         originDisciplineId: discipline.id,
@@ -935,8 +960,130 @@ export function equivalentTalentCircle(
   return [1, 5, 9, 13][Math.min(3, baseTier + shift)]!;
 }
 
+export function talentAdvancementCostCircle(
+  character: Earthdawn4eCharacter,
+  talent: Talent,
+) {
+  const candidates = character.disciplines.flatMap((record, index) => {
+    if (
+      !record.disciplineId ||
+      !talent.disciplineSources.includes(record.disciplineId)
+    )
+      return [];
+    const definition = earthdawnDisciplines.find(
+      ({ id }) => id === record.disciplineId,
+    );
+    const originCircle =
+      talent.disciplineOriginCircles?.[record.disciplineId] ??
+      definition?.circles.find((circle) =>
+        circle.requiredTalents.includes(talent.name),
+      )?.circle ??
+      talent.originCircle ??
+      1;
+    return [equivalentTalentCircle(originCircle, index)];
+  });
+  if (talent.disciplineSources.includes('versatility'))
+    candidates.push(equivalentTalentCircle(talent.originCircle ?? 1, 0, true));
+  return candidates.length
+    ? Math.min(...candidates)
+    : equivalentTalentCircle(talent.originCircle ?? 1, 0);
+}
+
+export function reconcileVersatilityTalentSlots(
+  character: Earthdawn4eCharacter,
+) {
+  return {
+    ...character,
+    talents: character.talents.map((talent) => {
+      if (!talent.disciplineSources.includes('versatility')) return talent;
+      const disciplineTalent = character.talents.find(
+        (candidate) =>
+          candidate.id !== talent.id &&
+          candidate.name === talent.name &&
+          candidate.disciplineSources.some(
+            (source) => source !== 'versatility',
+          ),
+      );
+      return {
+        ...talent,
+        versatilitySlotReleased: Boolean(
+          disciplineTalent && disciplineTalent.rank >= talent.rank,
+        ),
+      };
+    }),
+  };
+}
+
+export type DisciplineModifierTarget =
+  | 'physicalDefense'
+  | 'mysticDefense'
+  | 'socialDefense'
+  | 'mysticArmor'
+  | 'initiative'
+  | 'recovery';
+
+const disciplineBonusPatterns: Array<[RegExp, DisciplineModifierTarget]> = [
+  [/Physical Defense/i, 'physicalDefense'],
+  [/Mystic Defense/i, 'mysticDefense'],
+  [/Social Defense/i, 'socialDefense'],
+  [/Mystic Armor/i, 'mysticArmor'],
+  [/Initiative/i, 'initiative'],
+  [/Recovery Test/i, 'recovery'],
+];
+
+export function disciplineProgressionEffects(character: Earthdawn4eCharacter) {
+  const modifiers: Record<DisciplineModifierTarget, number> = {
+    physicalDefense: 0,
+    mysticDefense: 0,
+    socialDefense: 0,
+    mysticArmor: 0,
+    initiative: 0,
+    recovery: 0,
+  };
+  const highestCircle = Math.max(
+    0,
+    ...character.disciplines.map(({ circle }) => circle),
+  );
+  let durability = 0;
+  for (let circle = 1; circle <= highestCircle; circle += 1) {
+    durability += Math.max(
+      0,
+      ...character.disciplines.flatMap((record) => {
+        if (record.circle < circle) return [];
+        const definition = earthdawnDisciplines.find(
+          ({ id }) => id === record.disciplineId,
+        );
+        return definition ? [definition.durability] : [];
+      }),
+    );
+  }
+  const karmaPermissions = new Set<string>();
+  for (const record of character.disciplines) {
+    const definition = earthdawnDisciplines.find(
+      ({ id }) => id === record.disciplineId,
+    );
+    if (!definition) continue;
+    for (const circle of definition.circles.filter(
+      ({ circle }) => circle <= record.circle,
+    )) {
+      for (const bonus of circle.bonuses) {
+        const amount = Number.parseInt(bonus.match(/[+-]?\d+/)?.[0] ?? '0', 10);
+        const target = disciplineBonusPatterns.find(([pattern]) =>
+          pattern.test(bonus),
+        )?.[1];
+        if (target) modifiers[target] = Math.max(modifiers[target], amount);
+      }
+      const permission = circle.ability.match(
+        /Karma on ([^.]+?)(?: tests?|\.|$)/i,
+      )?.[1];
+      if (permission) karmaPermissions.add(permission.trim());
+    }
+  }
+  return { durability, modifiers, karmaPermissions: [...karmaPermissions] };
+}
+
 export function equivalentDisciplineNames(name: string) {
-  return name === 'Boatman'
+  return name === 'Boatman' || name === 'Air Sailor' || name === 'Sailor'
     ? (['Boatman', 'Air Sailor', 'Sailor'] as const)
     : ([name] as const);
 }
@@ -1043,6 +1190,127 @@ export function newDisciplineTalentCost(
         ? newDisciplineTalentCosts.third
         : newDisciplineTalentCosts.later;
   return row[Math.min(5, Math.max(1, Math.trunc(lowestCircle)))]!;
+}
+
+export function quoteNewDisciplineInitiation(
+  character: Earthdawn4eCharacter,
+  discipline: EarthdawnDiscipline,
+) {
+  const requiredTalents = discipline.circles[0]?.requiredTalents ?? [];
+  const knownOutsideVersatility = new Set(
+    character.talents
+      .filter(
+        ({ rank, disciplineSources }) =>
+          rank >= 1 &&
+          !(
+            disciplineSources.length === 1 &&
+            disciplineSources[0] === 'versatility'
+          ),
+      )
+      .map(({ name }) => name),
+  );
+  const missingTalents = requiredTalents.filter(
+    (name) => !knownOutsideVersatility.has(name),
+  );
+  const lowestCircle = character.disciplines.length
+    ? Math.min(...character.disciplines.map(({ circle }) => circle))
+    : 1;
+  const perTalentCost = newDisciplineTalentCost(
+    lowestCircle,
+    character.disciplines.length + 1,
+  );
+  return {
+    requiredTalents,
+    missingTalents,
+    optionConversions: character.talents
+      .filter(
+        ({ name, optional, rank }) =>
+          optional && rank >= 1 && requiredTalents.includes(name),
+      )
+      .map(({ name }) => name),
+    versatilityRestarts: character.talents
+      .filter(
+        ({ name, disciplineSources }) =>
+          requiredTalents.includes(name) &&
+          disciplineSources.length === 1 &&
+          disciplineSources[0] === 'versatility',
+      )
+      .map(({ name }) => name),
+    lowestCircle,
+    perTalentCost,
+    totalCost: perTalentCost * missingTalents.length,
+  };
+}
+
+export function applyNewDisciplineInitiation(
+  character: Earthdawn4eCharacter,
+  discipline: EarthdawnDiscipline,
+  recordId: string,
+  freeTalentChoice: 'pilot-boat' | 'sailing' | null = null,
+) {
+  if (
+    character.disciplines.some(
+      ({ disciplineId }) => disciplineId === discipline.id,
+    )
+  )
+    return character;
+  const quote = quoteNewDisciplineInitiation(character, discipline);
+  if (legendTotals(character.advancement.ledger).current < quote.totalCost)
+    return character;
+  const talents = reconcileDisciplineTalents(
+    character.talents,
+    discipline,
+    1,
+  ).map((talent) =>
+    quote.missingTalents.includes(talent.name) &&
+    talent.disciplineSources.includes(discipline.id)
+      ? { ...talent, rank: 1, creationOwned: false }
+      : talent,
+  );
+  return reconcileVersatilityTalentSlots({
+    ...character,
+    disciplines: [
+      ...character.disciplines,
+      {
+        id: recordId,
+        definitionId: discipline.id,
+        sourceId: discipline.sourceId,
+        sourceIds: discipline.sourceIds ?? [discipline.sourceId],
+        source: discipline.source,
+        page: discipline.page,
+        pageEnd: discipline.pageEnd ?? discipline.page,
+        unresolved: false,
+        disciplineId: discipline.id,
+        name: discipline.name,
+        circle: 1,
+        startedAtCircle: 1,
+        questor: false,
+        custom: false,
+        freeTalentChoice,
+      },
+    ],
+    talents,
+    advancement: {
+      ledger: [
+        ...character.advancement.ledger,
+        createLegendEntry({
+          type: 'discipline',
+          amount: -quote.totalCost,
+          targetId: recordId,
+          definitionId: discipline.id,
+          origin: 'discipline',
+          originDisciplineId: recordId,
+          costCircle: 1,
+          targetName: discipline.name,
+          beforeRating: 0,
+          afterRating: 1,
+          sourceCitation: "Player's Guide pp. 456–459",
+          training: `40 hours with a Fifth-Circle instructor; ${quote.missingTalents.length} missing talent(s)`,
+          description: `Begin ${discipline.name} at First Circle`,
+        }),
+      ],
+    },
+  });
 }
 
 export function questorRankCost(newRank: number) {

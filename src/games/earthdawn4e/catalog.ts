@@ -651,6 +651,23 @@ const coreFreeTalents: Record<string, string> = {
   Wizard:
     'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
 };
+const coreDurability: Record<string, number> = {
+  'Air Sailor': 5,
+  Archer: 5,
+  Beastmaster: 7,
+  Cavalryman: 7,
+  Elementalist: 3,
+  Illusionist: 3,
+  Nethermancer: 3,
+  Scout: 5,
+  'Sky Raider': 7,
+  Swordmaster: 7,
+  Thief: 5,
+  Troubadour: 5,
+  Warrior: 9,
+  Weaponsmith: 7,
+  Wizard: 3,
+};
 const coreDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
   ([name, page, importantAttributes, spellcaster, noviceTalents]) => ({
     ...entry(
@@ -661,7 +678,7 @@ const coreDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
       `${name} is an official adept Discipline with its own philosophy, talent progression, and Circle abilities.`,
     ),
     importantAttributes,
-    durability: 5,
+    durability: coreDurability[name] ?? 5,
     noviceTalents,
     optionalTalents: [],
     spellcaster,
@@ -777,8 +794,7 @@ const gauntlet: EarthdawnDiscipline = {
     'Body Control requires both bare hands to remain free.',
     'Terrene sense can cause distraction.',
   ],
-  freeTalent:
-    'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
+  freeTalent: undefined,
 };
 
 const shaman: EarthdawnDiscipline = {

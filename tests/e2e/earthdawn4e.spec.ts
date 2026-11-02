@@ -1,4 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { earthdawnDisciplines } from '../../src/games/earthdawn4e/catalog';
+import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
+import {
+  createLegendEntry,
+  reconcileDisciplineTalents,
+} from '../../src/games/earthdawn4e/rules';
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 import {
   createMatrixBrowserFixture,
@@ -51,6 +57,85 @@ async function openEarthdawnCreator(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
   await page.getByRole('button', { name: 'Build Character' }).click();
 }
+
+test('initiates and refunds a secondary Discipline atomically', async ({
+  page,
+}) => {
+  const data = createBlankEarthdawn4eCharacter({
+    status: 'finalized',
+    mode: 'play',
+  });
+  const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+  const wizardRecord = {
+    id: '10101010-1010-4010-8010-101010101010',
+    definitionId: wizard.id,
+    sourceId: wizard.sourceId,
+    sourceIds: wizard.sourceIds,
+    source: wizard.source,
+    page: wizard.page,
+    pageEnd: wizard.pageEnd,
+    unresolved: false,
+    disciplineId: wizard.id,
+    name: wizard.name,
+    circle: 3,
+    startedAtCircle: 1,
+    questor: false,
+    custom: false,
+    freeTalentChoice: null,
+  };
+  data.disciplines = [wizardRecord];
+  data.talents = reconcileDisciplineTalents([], wizard, 3).map((talent) => ({
+    ...talent,
+    rank: Math.max(3, talent.rank),
+  }));
+  data.advancement.ledger.push(
+    createLegendEntry({
+      type: 'award',
+      amount: 20_000,
+      targetId: null,
+      targetName: 'Starting LP',
+      description: 'Secondary Discipline test funds',
+    }),
+  );
+  await seedEarthdawnCharacter(
+    page,
+    '20202020-2020-4020-8020-202020202020',
+    'Multi Discipline Adept',
+    data,
+  );
+
+  await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
+  const browser = page.getByRole('dialog', {
+    name: 'Add Discipline and Questor',
+  });
+  await browser.getByRole('searchbox').fill('Warrior');
+  await browser
+    .locator('.catalog-card')
+    .filter({ hasText: 'Warrior' })
+    .getByRole('button', { name: 'Add Discipline' })
+    .click();
+  await expect(page.getByText('Begin Warrior at First Circle')).toBeVisible();
+  await expect(page.getByText(/40 hours.*Fifth Circle/i)).toBeVisible();
+  await expect(page.getByText(/Silver fee unavailable/i)).toBeVisible();
+  const confirm = page.getByRole('button', { name: 'Confirm purchase' });
+  await expect(confirm).toBeDisabled();
+  await page
+    .getByLabel(/qualified Fifth-Circle instructor and 40 hours/i)
+    .check();
+  await confirm.click();
+  await expect(page.getByLabel('Warrior Circle')).toHaveValue('1');
+
+  const disciplineEntry = page
+    .locator('.earthdawn-ledger-table tbody tr')
+    .filter({ hasText: 'Begin Warrior at First Circle' });
+  await disciplineEntry.getByRole('button', { name: 'Refund' }).click();
+  await expect(page.getByLabel('Warrior Circle')).toHaveCount(0);
+  await expect(
+    page
+      .locator('.earthdawn-derived-grid span')
+      .filter({ hasText: 'Current Legend Points' }),
+  ).toContainText('20000');
+});
 
 async function applyCreatorChange(
   page: import('@playwright/test').Page,

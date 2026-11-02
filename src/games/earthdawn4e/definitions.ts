@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const EARTHDAWN4E_SYSTEM_ID = 'earthdawn4e';
-export const EARTHDAWN4E_SCHEMA_VERSION = 18;
+export const EARTHDAWN4E_SCHEMA_VERSION = 19;
 
 export const earthdawn4eSectionGroups = [
   { id: 'character', label: 'Character' },
