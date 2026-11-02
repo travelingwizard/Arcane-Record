@@ -156,12 +156,144 @@ const matrixDisciplines = new Set([
   'Wizard',
 ]);
 
+type Talent = Earthdawn4eCharacter['talents'][number];
+
+export const FREE_TALENT_RECONCILIATION_VERSION = 1;
+export const freeTalentRegistry = {
+  'Air Sailor': { kind: 'talent', name: 'Air Sailing' },
+  Boatman: { kind: 'choice', names: ['Pilot Boat', 'Sailing'] },
+  Sailor: { kind: 'talent', name: 'Sailing' },
+  Troubadour: { kind: 'talent', name: 'Entertainer' },
+  Elementalist: { kind: 'matrices', count: 2 },
+  Illusionist: { kind: 'matrices', count: 2 },
+  Nethermancer: { kind: 'matrices', count: 2 },
+  Wizard: { kind: 'matrices', count: 2 },
+  Shaman: { kind: 'matrices', count: 2 },
+} as const;
+
+export function freeTalentName(
+  discipline: Earthdawn4eCharacter['disciplines'][number],
+) {
+  const grant =
+    freeTalentRegistry[discipline.name as keyof typeof freeTalentRegistry];
+  if (!grant || grant.kind === 'matrices') return null;
+  if (grant.kind === 'talent') return grant.name;
+  return discipline.freeTalentChoice === 'sailing'
+    ? 'Sailing'
+    : discipline.freeTalentChoice === 'pilot-boat'
+      ? 'Pilot Boat'
+      : null;
+}
+
+const freeTalentDefinitionId = (name: string) =>
+  `ed4.players-guide.talent.${name
+    .normalize('NFKD')
+    .replace(/[’']/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .toLocaleLowerCase()}`;
+
+function createFreeTalent(
+  discipline: Earthdawn4eCharacter['disciplines'][number],
+  name: string,
+): Talent {
+  const definition = earthdawnTalents.find(
+    (candidate) =>
+      candidate.name.localeCompare(name, undefined, { sensitivity: 'base' }) ===
+      0,
+  );
+  return {
+    id: crypto.randomUUID(),
+    definitionId: definition?.id ?? freeTalentDefinitionId(name),
+    sourceId: definition?.sourceId ?? discipline.sourceId,
+    source: definition?.source ?? discipline.source,
+    page: definition?.page ?? discipline.page,
+    unresolved: !definition,
+    name,
+    rank: discipline.circle,
+    freeRank: 0,
+    automaticRank: discipline.circle,
+    freeTalentOriginDisciplineId: discipline.id,
+    freeTalentLpCredit: 0,
+    freeTalentPurchasedRank: 0,
+    attribute: definition?.defaultAttribute ?? 'perception',
+    bonus: 0,
+    notes: `Free Talent granted by ${discipline.name}.`,
+    action: definition?.talentMetadata?.actionText ?? '',
+    strain: 0,
+    attributeText: definition?.talentMetadata?.attributeText ?? '',
+    effectText: definition?.talentMetadata?.effectText ?? '',
+    descriptionText: definition?.talentMetadata?.descriptionText ?? '',
+    actionText: definition?.talentMetadata?.actionText ?? '',
+    strainText: definition?.talentMetadata?.strainText ?? '',
+    citationText:
+      definition?.talentMetadata?.citationText ?? discipline.source ?? '',
+    metadataOverrides: [],
+    disciplineSources: discipline.disciplineId ? [discipline.disciplineId] : [],
+    optional: false,
+    originCircle: 1,
+    originDisciplineId: discipline.disciplineId,
+    creationOwned: true,
+  };
+}
+
+function reconcileNonMatrixFreeTalents(character: Earthdawn4eCharacter) {
+  if (character.creation.freeTalentReconciliation.pending) return character;
+  const eligible = character.disciplines
+    .map((discipline) => ({ discipline, name: freeTalentName(discipline) }))
+    .filter(
+      (
+        entry,
+      ): entry is {
+        discipline: Earthdawn4eCharacter['disciplines'][number];
+        name: string;
+      } => Boolean(entry.name),
+    );
+  const owners = new Set(character.disciplines.map(({ id }) => id));
+  let talents = character.talents.filter(
+    (talent) =>
+      !talent.freeTalentOriginDisciplineId ||
+      owners.has(talent.freeTalentOriginDisciplineId),
+  );
+  for (const { discipline, name } of eligible) {
+    const index = talents.findIndex(
+      (talent) => talent.freeTalentOriginDisciplineId === discipline.id,
+    );
+    const legacyIndex =
+      index >= 0
+        ? index
+        : talents.findIndex(
+            (talent) =>
+              !talent.optional &&
+              !talent.freeTalentOriginDisciplineId &&
+              talent.name.localeCompare(name, undefined, {
+                sensitivity: 'base',
+              }) === 0,
+          );
+    const current = legacyIndex >= 0 ? talents[legacyIndex]! : null;
+    const purchasedRank = current?.freeTalentPurchasedRank ?? 0;
+    const next = current
+      ? {
+          ...current,
+          name,
+          rank: Math.max(discipline.circle, purchasedRank),
+          freeRank: 0,
+          automaticRank: discipline.circle,
+          freeTalentOriginDisciplineId: discipline.id,
+        }
+      : createFreeTalent(discipline, name);
+    if (legacyIndex >= 0) talents[legacyIndex] = next;
+    else talents = [...talents, next];
+  }
+  return { ...character, talents };
+}
+
 export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
   const discipline = character.disciplines.find((entry) =>
     matrixDisciplines.has(entry.name),
   );
   if (!discipline)
-    return {
+    return reconcileNonMatrixFreeTalents({
       ...character,
       magic: {
         ...character.magic,
@@ -169,7 +301,7 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
           ({ source }) => !source.startsWith('free:'),
         ),
       },
-    };
+    });
   const source = `free:${discipline.id}`;
   const eligibleMatrices = character.magic.matrices.filter(
     ({ source: matrixSource }) =>
@@ -231,7 +363,11 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
       ? talents.find(({ id }) => id === matrix.talentId)
       : talents.find(
           (candidate) =>
-            isMatrixTalent(candidate.name) && !usedTalentIds.has(candidate.id),
+            isMatrixTalent(candidate.name) &&
+            !usedTalentIds.has(candidate.id) &&
+            (candidate.freeTalentOriginDisciplineId === discipline.id ||
+              candidate.notes ===
+                'Granted by magician Discipline progression.'),
         );
     if (!talent && template) {
       talent = {
@@ -240,7 +376,11 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
         name:
           matrix.type === 'enhanced' ? 'Enhanced Matrix' : 'Standard Matrix',
         rank: discipline.circle,
-        freeRank: discipline.circle,
+        freeRank: 0,
+        automaticRank: discipline.circle,
+        freeTalentOriginDisciplineId: discipline.id,
+        freeTalentLpCredit: 0,
+        freeTalentPurchasedRank: 0,
         notes: 'Granted by magician Discipline progression.',
       };
       talents.push(talent);
@@ -260,7 +400,11 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
           name:
             matrix.type === 'enhanced' ? 'Enhanced Matrix' : 'Standard Matrix',
           rank: discipline.circle,
-          freeRank: discipline.circle,
+          freeRank: 0,
+          automaticRank: discipline.circle,
+          freeTalentOriginDisciplineId: discipline.id,
+          freeTalentLpCredit: 0,
+          freeTalentPurchasedRank: 0,
           attribute: definition.defaultAttribute ?? 'perception',
           bonus: 0,
           notes: 'Granted by magician Discipline progression.',
@@ -288,29 +432,33 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
     if (!talent) return matrix;
     usedTalentIds.add(talent.id);
     const index = talents.findIndex(({ id }) => id === talent!.id);
+    const purchasedRank = talents[index]!.freeTalentPurchasedRank ?? 0;
+    const effectiveRank = Math.max(discipline.circle, purchasedRank);
     talents[index] = {
       ...talents[index]!,
-      rank: discipline.circle,
-      freeRank: Math.max(talents[index]!.freeRank, discipline.circle),
+      rank: effectiveRank,
+      freeRank: 0,
+      automaticRank: discipline.circle,
+      freeTalentOriginDisciplineId: discipline.id,
     };
     return {
       ...matrix,
+      rank: effectiveRank,
       originType: 'free-discipline' as const,
       talentId: talent.id,
       divided: false,
     };
   });
-  return {
+  return reconcileNonMatrixFreeTalents({
     ...character,
     talents,
     magic: {
       ...character.magic,
       matrices: linkedMatrices,
     },
-  };
+  });
 }
 
-type Talent = Earthdawn4eCharacter['talents'][number];
 type LedgerEntry = Earthdawn4eCharacter['advancement']['ledger'][number];
 type ActivityEntry = Earthdawn4eCharacter['activity']['ledger'][number];
 
@@ -756,6 +904,20 @@ export function talentRankCost(newRank: number, circle: number) {
   ]!;
 }
 
+export function freeTalentAdvanceQuote(talent: Talent) {
+  const targetRank = Math.max(
+    (talent.automaticRank ?? 0) + 1,
+    (talent.freeTalentPurchasedRank ?? 0) + 1,
+  );
+  const fullCost = talentTierRankCost(targetRank, 'novice');
+  return {
+    targetRank,
+    fullCost,
+    credit: talent.freeTalentLpCredit ?? 0,
+    cost: Math.max(0, fullCost - (talent.freeTalentLpCredit ?? 0)),
+  };
+}
+
 export function equivalentTalentCircle(
   disciplineCircle: number,
   disciplineIndex: number,
@@ -1107,4 +1269,213 @@ export function createLegendEntry(
     ...values,
     createdAt,
   };
+}
+
+export type FreeTalentReconciliationPreview = {
+  grants: string[];
+  rankChanges: string[];
+  restoredTalentPoints: number;
+  refundableEntryIds: string[];
+  refundableLegendPoints: number;
+  ambiguousTalentIds: string[];
+  needsBoatmanChoice: boolean;
+};
+
+export function previewFreeTalentReconciliation(
+  character: Earthdawn4eCharacter,
+): FreeTalentReconciliationPreview {
+  const grants: string[] = [];
+  const rankChanges: string[] = [];
+  const refundableEntryIds: string[] = [];
+  const ambiguousTalentIds: string[] = [];
+  let restoredTalentPoints = 0;
+  let refundableLegendPoints = 0;
+  const reversed = new Set(
+    character.advancement.ledger
+      .map(({ reversesId }) => reversesId)
+      .filter((id): id is string => Boolean(id)),
+  );
+  for (const discipline of character.disciplines) {
+    const name = freeTalentName(discipline);
+    if (!name) continue;
+    const talent = character.talents.find(
+      (candidate) =>
+        candidate.freeTalentOriginDisciplineId === discipline.id ||
+        candidate.name.localeCompare(name, undefined, {
+          sensitivity: 'base',
+        }) === 0,
+    );
+    if (!talent) {
+      grants.push(`${name} at Rank ${discipline.circle}`);
+      continue;
+    }
+    if (talent.rank !== discipline.circle || talent.freeRank > 0)
+      rankChanges.push(
+        `${name}: Rank ${talent.rank + talent.freeRank} → automatic Rank ${discipline.circle}`,
+      );
+    restoredTalentPoints +=
+      talent.freeRank + (character.creation.talentPoints[talent.id] ?? 0);
+    const entries = character.advancement.ledger.filter(
+      (entry) =>
+        entry.type === 'talent' &&
+        entry.targetId === talent.id &&
+        entry.amount < 0 &&
+        !entry.voidedAt &&
+        !reversed.has(entry.id),
+    );
+    for (const entry of entries) {
+      if (
+        (entry.afterRating ?? Number.POSITIVE_INFINITY) <= discipline.circle
+      ) {
+        refundableEntryIds.push(entry.id);
+        refundableLegendPoints += -entry.amount;
+      } else if (!ambiguousTalentIds.includes(talent.id)) {
+        ambiguousTalentIds.push(talent.id);
+      }
+    }
+    if (
+      talent.rank > discipline.circle &&
+      entries.every((entry) => entry.afterRating == null)
+    )
+      ambiguousTalentIds.push(talent.id);
+  }
+  const freeMatrixCount = character.magic.matrices.filter(({ source }) =>
+    source.startsWith('free:'),
+  ).length;
+  if (
+    character.disciplines.some(({ name }) => matrixDisciplines.has(name)) &&
+    freeMatrixCount < 2
+  )
+    grants.push(`${2 - freeMatrixCount} free Standard Matrix talent(s)`);
+  for (const matrix of character.magic.matrices.filter(({ source }) =>
+    source.startsWith('free:'),
+  )) {
+    const discipline = character.disciplines.find(
+      ({ id }) => matrix.source === `free:${id}`,
+    );
+    const talent = matrix.talentId
+      ? character.talents.find(({ id }) => id === matrix.talentId)
+      : null;
+    if (!discipline || !talent) continue;
+    if (talent.rank !== discipline.circle || talent.freeRank > 0)
+      rankChanges.push(
+        `${talent.name}: Rank ${talent.rank + talent.freeRank} → automatic Rank ${discipline.circle}`,
+      );
+    restoredTalentPoints +=
+      talent.freeRank + (character.creation.talentPoints[talent.id] ?? 0);
+    const entries = character.advancement.ledger.filter(
+      (entry) =>
+        entry.type === 'talent' &&
+        entry.targetId === talent.id &&
+        entry.amount < 0 &&
+        !entry.voidedAt &&
+        !reversed.has(entry.id),
+    );
+    for (const entry of entries) {
+      if (
+        (entry.afterRating ?? Number.POSITIVE_INFINITY) <= discipline.circle &&
+        !refundableEntryIds.includes(entry.id)
+      ) {
+        refundableEntryIds.push(entry.id);
+        refundableLegendPoints += -entry.amount;
+      } else if (
+        (entry.afterRating ?? Number.POSITIVE_INFINITY) > discipline.circle &&
+        !ambiguousTalentIds.includes(talent.id)
+      ) {
+        ambiguousTalentIds.push(talent.id);
+      }
+    }
+  }
+  return {
+    grants,
+    rankChanges,
+    restoredTalentPoints,
+    refundableEntryIds,
+    refundableLegendPoints,
+    ambiguousTalentIds: [...new Set(ambiguousTalentIds)],
+    needsBoatmanChoice: character.disciplines.some(
+      ({ name, freeTalentChoice }) => name === 'Boatman' && !freeTalentChoice,
+    ),
+  };
+}
+
+export function applyFreeTalentReconciliation(
+  character: Earthdawn4eCharacter,
+): Earthdawn4eCharacter {
+  const preview = previewFreeTalentReconciliation(character);
+  const managedFreeTalentIds = new Set([
+    ...character.magic.matrices
+      .filter(({ source, talentId }) => source.startsWith('free:') && talentId)
+      .map(({ talentId }) => talentId!),
+    ...character.talents
+      .filter((talent) =>
+        character.disciplines.some(
+          (discipline) => freeTalentName(discipline) === talent.name,
+        ),
+      )
+      .map(({ id }) => id),
+  ]);
+  const refundEntries = character.advancement.ledger
+    .filter(({ id }) => preview.refundableEntryIds.includes(id))
+    .map((entry) =>
+      createLegendEntry({
+        type: 'refund',
+        amount: -entry.amount,
+        earnedAmount: 0,
+        targetId: entry.targetId,
+        targetName: entry.targetName,
+        beforeRating: entry.afterRating,
+        afterRating: entry.beforeRating,
+        reversesId: entry.id,
+        definitionId: entry.definitionId,
+        origin: entry.origin,
+        originDisciplineId: entry.originDisciplineId,
+        description: `Free Talent reconciliation refund for ${entry.targetName}.`,
+      }),
+    );
+  const reconciled = reconcileFreeMatrices({
+    ...character,
+    talents: character.talents.map((talent) => {
+      if (!preview.ambiguousTalentIds.includes(talent.id))
+        return { ...talent, freeRank: 0 };
+      const owner = character.disciplines.find(
+        (discipline) =>
+          freeTalentName(discipline) === talent.name ||
+          character.magic.matrices.some(
+            (matrix) =>
+              matrix.talentId === talent.id &&
+              matrix.source === `free:${discipline.id}`,
+          ),
+      );
+      return owner
+        ? {
+            ...talent,
+            freeRank: 0,
+            automaticRank: owner.circle,
+            freeTalentOriginDisciplineId: owner.id,
+            freeTalentPurchasedRank: Math.max(talent.rank, owner.circle),
+            freeTalentLpCredit: 0,
+          }
+        : talent;
+    }),
+    creation: {
+      ...character.creation,
+      talentPoints: Object.fromEntries(
+        Object.entries(character.creation.talentPoints).map(([id, value]) => [
+          id,
+          managedFreeTalentIds.has(id) ? 0 : value,
+        ]),
+      ),
+      freeTalentReconciliation: {
+        version: FREE_TALENT_RECONCILIATION_VERSION,
+        pending: false,
+        reviewedAt: new Date().toISOString(),
+        ambiguousTalentIds: preview.ambiguousTalentIds,
+      },
+    },
+    advancement: {
+      ledger: [...character.advancement.ledger, ...refundEntries],
+    },
+  });
+  return reconciled;
 }

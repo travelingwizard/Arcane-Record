@@ -73,6 +73,9 @@ import {
   previewDisciplineTalentReconciliation,
   questorRankCost,
   reconcileFreeMatrices,
+  applyFreeTalentReconciliation,
+  freeTalentAdvanceQuote,
+  previewFreeTalentReconciliation,
   reconcileDisciplineTalents,
   reconcileRace,
   refundableLedgerEntry,
@@ -749,8 +752,8 @@ describe('Earthdawn Fourth Edition module', () => {
     );
     expect(character.sources.defaultsVersion).toBe(2);
     expect(earthdawnRaces).toHaveLength(8);
-    expect(earthdawnDisciplines).toHaveLength(18);
-    expect(Object.keys(coreTalentOptions)).toHaveLength(18);
+    expect(earthdawnDisciplines).toHaveLength(19);
+    expect(Object.keys(coreTalentOptions)).toHaveLength(19);
     for (const discipline of earthdawnDisciplines) {
       expect(coreTalentOptions[discipline.name]?.novice).toHaveLength(10);
       expect(coreTalentOptions[discipline.name]?.journeyman).toHaveLength(10);
@@ -1615,6 +1618,16 @@ describe('Earthdawn Fourth Edition module', () => {
       novice.talents.filter(({ name }) => isMatrixTalent(name)),
     ).toHaveLength(2);
     expect(
+      novice.talents
+        .filter(({ name }) => isMatrixTalent(name))
+        .every(
+          ({ automaticRank, freeRank, freeTalentOriginDisciplineId }) =>
+            automaticRank === 1 &&
+            freeRank === 0 &&
+            freeTalentOriginDisciplineId === character.disciplines[0]!.id,
+        ),
+    ).toBe(true);
+    expect(
       novice.magic.matrices.every(
         ({ type, rank }) => type === 'standard' && rank === 1,
       ),
@@ -1671,6 +1684,157 @@ describe('Earthdawn Fourth Edition module', () => {
     const gauntletCharacter = createBlankEarthdawn4eCharacter();
     gauntletCharacter.disciplines.push(disciplineRecord(gauntlet));
     expect(reconcileFreeMatrices(gauntletCharacter).magic.matrices).toEqual([]);
+  });
+  it('reconciles Discipline Free Talents without spending creation ranks', () => {
+    for (const [name, expected] of [
+      ['Air Sailor', 'Air Sailing'],
+      ['Sailor', 'Sailing'],
+      ['Troubadour', 'Entertainer'],
+    ] as const) {
+      const definition = earthdawnDisciplines.find(
+        (discipline) => discipline.name === name,
+      )!;
+      const character = createBlankEarthdawn4eCharacter();
+      character.disciplines.push({
+        id: crypto.randomUUID(),
+        disciplineId: definition.id,
+        name: definition.name,
+        circle: 4,
+        startedAtCircle: 1,
+        questor: false,
+        custom: false,
+        definitionId: definition.id,
+        sourceId: definition.sourceId,
+        source: definition.source,
+        page: definition.page,
+        unresolved: false,
+      });
+      const reconciled = reconcileFreeMatrices(character);
+      const talent = reconciled.talents.find(
+        (candidate) => candidate.name === expected,
+      )!;
+      expect(talent.rank).toBe(4);
+      expect(talent.automaticRank).toBe(4);
+      expect(talent.freeRank).toBe(0);
+      expect(talent.freeTalentOriginDisciplineId).toBe(
+        character.disciplines[0]!.id,
+      );
+    }
+  });
+  it('requires and preserves the Boatman Free Talent choice', () => {
+    const definition = earthdawnDisciplines.find(
+      ({ name }) => name === 'Boatman',
+    )!;
+    const character = createBlankEarthdawn4eCharacter();
+    character.disciplines.push({
+      id: crypto.randomUUID(),
+      disciplineId: definition.id,
+      name: definition.name,
+      circle: 3,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      definitionId: definition.id,
+      sourceId: definition.sourceId,
+      source: definition.source,
+      page: definition.page,
+      unresolved: false,
+      freeTalentChoice: 'sailing',
+    });
+    expect(reconcileFreeMatrices(character).talents).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ name: 'Sailing', automaticRank: 3 }),
+      ]),
+    );
+  });
+  it('carries paid Free Talent LP forward and refunds only audited legacy ranks', () => {
+    const definition = earthdawnDisciplines.find(
+      ({ name }) => name === 'Air Sailor',
+    )!;
+    let character = createBlankEarthdawn4eCharacter();
+    const disciplineId = crypto.randomUUID();
+    character.disciplines.push({
+      id: disciplineId,
+      disciplineId: definition.id,
+      name: definition.name,
+      circle: 3,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      definitionId: definition.id,
+      sourceId: definition.sourceId,
+      source: definition.source,
+      page: definition.page,
+      unresolved: false,
+    });
+    character = reconcileFreeMatrices(character);
+    const talent = character.talents.find(
+      ({ name }) => name === 'Air Sailing',
+    )!;
+    talent.freeTalentPurchasedRank = 4;
+    talent.freeTalentLpCredit = 500;
+    talent.rank = 4;
+    expect(freeTalentAdvanceQuote(talent)).toMatchObject({
+      targetRank: 5,
+      fullCost: 800,
+      credit: 500,
+      cost: 300,
+    });
+    character.disciplines[0]!.circle = 4;
+    character = reconcileFreeMatrices(character);
+    expect(
+      freeTalentAdvanceQuote(
+        character.talents.find(({ id }) => id === talent.id)!,
+      ),
+    ).toMatchObject({ cost: 300 });
+
+    const legacy = createBlankEarthdawn4eCharacter();
+    legacy.creation.freeTalentReconciliation.pending = true;
+    legacy.disciplines.push({ ...character.disciplines[0]!, circle: 2 });
+    legacy.talents.push({
+      ...talent,
+      rank: 2,
+      freeRank: 2,
+      automaticRank: undefined,
+      freeTalentOriginDisciplineId: undefined,
+    });
+    legacy.advancement.ledger.push({
+      id: crypto.randomUUID(),
+      date: '2026-01-01',
+      type: 'talent',
+      amount: -100,
+      earnedAmount: 0,
+      targetId: talent.id,
+      targetName: talent.name,
+      beforeRating: 0,
+      afterRating: 1,
+      silverCost: 0,
+      training: '',
+      sourceCitation: '',
+      description: '',
+      reversesId: null,
+      definitionId: talent.definitionId,
+      variantKey: null,
+      formKey: null,
+      origin: 'discipline',
+      originDisciplineId: disciplineId,
+      costCircle: 1,
+      dependsOnEntryIds: [],
+      manual: false,
+      voidedAt: null,
+      voidReason: '',
+      createdAt: '2026-01-01T00:00:00.000Z',
+    });
+    expect(previewFreeTalentReconciliation(legacy)).toMatchObject({
+      refundableLegendPoints: 100,
+      restoredTalentPoints: 2,
+    });
+    const migrated = applyFreeTalentReconciliation(legacy);
+    expect(migrated.creation.freeTalentReconciliation.pending).toBe(false);
+    expect(migrated.advancement.ledger.at(-1)).toMatchObject({
+      type: 'refund',
+      amount: 100,
+    });
   });
   it('adds only required Discipline talents and preserves advanced records when Circle falls', () => {
     const discipline = earthdawnDisciplines.find(

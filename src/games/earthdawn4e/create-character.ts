@@ -44,6 +44,13 @@ export function createBlankEarthdawn4eCharacter(
       overrides: [],
       attributePoints: {},
       talentPoints: {},
+      advancedFreeTalents: false,
+      freeTalentReconciliation: {
+        version: 1,
+        pending: false,
+        reviewedAt: null,
+        ambiguousTalentIds: [],
+      },
       finalizationVersion: 0,
       purchaseTotalCopper: 0,
       finalizationSnapshot: null,

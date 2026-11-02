@@ -1338,3 +1338,9 @@ coreTalentOptions.Boatman = {
   warden: [...coreTalentOptions['Air Sailor']!.warden],
   master: [...coreTalentOptions['Air Sailor']!.master],
 };
+coreTalentOptions.Sailor = {
+  novice: [...coreTalentOptions['Air Sailor']!.novice],
+  journeyman: [...coreTalentOptions['Air Sailor']!.journeyman],
+  warden: [...coreTalentOptions['Air Sailor']!.warden],
+  master: [...coreTalentOptions['Air Sailor']!.master],
+};

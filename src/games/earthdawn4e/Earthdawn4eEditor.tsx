@@ -14,6 +14,7 @@ import {
   SheetToolbar,
   SheetField,
   SheetFieldGrid,
+  SheetNotice,
 } from '../../components/layout/SheetPrimitives';
 import { CatalogSourceSettings } from '../shared/CatalogSourceSettings';
 import { EarthdawnCatalogList } from './EarthdawnCatalogList';
@@ -89,6 +90,9 @@ import {
   pathRankCost,
   questorTier,
   reconcileFreeMatrices,
+  applyFreeTalentReconciliation,
+  freeTalentAdvanceQuote,
+  previewFreeTalentReconciliation,
   reconcileDisciplineTalents,
   advancementTargetExists,
   refundableLedgerEntry,
@@ -846,6 +850,10 @@ export function Earthdawn4eEditor({
       recordId: string;
       circle: number;
     } | null>(null),
+    [pendingBoatman, setPendingBoatman] = useState<{
+      discipline: (typeof earthdawnDisciplines)[number];
+      confirmed: boolean;
+    } | null>(null),
     [advancementQuote, setAdvancementQuote] = useState<AdvancementQuote | null>(
       null,
     ),
@@ -1109,6 +1117,10 @@ export function Earthdawn4eEditor({
     window.setTimeout(() => removalReturnFocusRef.current?.focus(), 0);
   };
   const recordWarnings = useMemo(() => dependencyWarnings(draft), [draft]);
+  const freeTalentPreview = useMemo(
+    () => previewFreeTalentReconciliation(draft),
+    [draft],
+  );
   const values = earthdawnAttributeValues(
     draft.attributes,
     draft.magic.effects,
@@ -2032,7 +2044,12 @@ export function Earthdawn4eEditor({
   const addDiscipline = (
     discipline: (typeof earthdawnDisciplines)[number],
     confirmed = false,
+    freeTalentChoice?: 'pilot-boat' | 'sailing',
   ) => {
+    if (discipline.name === 'Boatman' && !freeTalentChoice) {
+      setPendingBoatman({ discipline, confirmed });
+      return;
+    }
     if (
       draft.disciplines.some(
         ({ disciplineId }) => disciplineId === discipline.id,
@@ -2062,7 +2079,7 @@ export function Earthdawn4eEditor({
           training: `Learn ${missing.length} missing First-Circle talent(s) at rank 1 from qualified instructors, then complete initiation with a higher-Circle adept.`,
           sourceCitation: "Player's Guide pp. 456–459",
         },
-        () => addDiscipline(discipline, true),
+        () => addDiscipline(discipline, true, freeTalentChoice),
       );
       return;
     }
@@ -2095,6 +2112,7 @@ export function Earthdawn4eEditor({
             startedAtCircle: 1,
             questor: false,
             custom: false,
+            freeTalentChoice: freeTalentChoice ?? null,
           },
         ],
         talents: reconciled,
@@ -2446,15 +2464,35 @@ export function Earthdawn4eEditor({
       if (!advancementTargetExists(current, entry)) return current;
       const beforeRating = entry.beforeRating ?? 0;
       let next = current;
-      if (entry.type === 'talent')
+      if (entry.type === 'talent') {
+        const targetTalent = next.talents.find(
+          ({ id }) => id === entry.targetId,
+        );
+        const freeTalent = Boolean(targetTalent?.freeTalentOriginDisciplineId);
         next = {
           ...next,
           talents:
-            beforeRating === 0
+            beforeRating === 0 && !freeTalent
               ? next.talents.filter(({ id }) => id !== entry.targetId)
               : next.talents.map((record) =>
                   record.id === entry.targetId
-                    ? { ...record, rank: beforeRating }
+                    ? freeTalent
+                      ? {
+                          ...record,
+                          rank: Math.max(
+                            record.automaticRank ?? 0,
+                            beforeRating,
+                          ),
+                          freeTalentPurchasedRank:
+                            beforeRating > (record.automaticRank ?? 0)
+                              ? beforeRating
+                              : 0,
+                          freeTalentLpCredit:
+                            beforeRating > (record.automaticRank ?? 0)
+                              ? talentTierRankCost(beforeRating, 'novice')
+                              : 0,
+                        }
+                      : { ...record, rank: beforeRating }
                     : record,
                 ),
           mysticPaths: next.mysticPaths.map((path) => ({
@@ -2472,6 +2510,7 @@ export function Earthdawn4eEditor({
             ),
           },
         };
+      }
       if (entry.type === 'skill')
         next = {
           ...next,
@@ -3647,6 +3686,140 @@ export function Earthdawn4eEditor({
           </>
         }
       >
+        {pendingBoatman ? (
+          <div className="modal-backdrop" role="presentation">
+            <div
+              className="catalog-dialog earthdawn-confirm-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="boatman-free-talent-title"
+            >
+              <h2 id="boatman-free-talent-title">Choose Boatman Free Talent</h2>
+              <p>
+                Boatmen receive either Pilot Boat or Sailing automatically. Its
+                Rank will equal Boatman Circle.
+              </p>
+              <SheetToolbar>
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={() => {
+                    const pending = pendingBoatman;
+                    setPendingBoatman(null);
+                    addDiscipline(
+                      pending.discipline,
+                      pending.confirmed,
+                      'pilot-boat',
+                    );
+                  }}
+                >
+                  Pilot Boat
+                </button>
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={() => {
+                    const pending = pendingBoatman;
+                    setPendingBoatman(null);
+                    addDiscipline(
+                      pending.discipline,
+                      pending.confirmed,
+                      'sailing',
+                    );
+                  }}
+                >
+                  Sailing
+                </button>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={() => setPendingBoatman(null)}
+                >
+                  Cancel
+                </button>
+              </SheetToolbar>
+            </div>
+          </div>
+        ) : null}
+        {draft.creation.freeTalentReconciliation.pending ? (
+          <SheetCard density="compact" selected>
+            <h2>Free Talent update available</h2>
+            <p>
+              This character predates first-class Free Talents. Review the
+              automatic ranks and any audited Legend Point refunds before
+              applying the update.
+            </p>
+            {freeTalentPreview.needsBoatmanChoice ? (
+              <SheetField label="Boatman Free Talent">
+                <select
+                  value=""
+                  onChange={(event) =>
+                    update((current) => ({
+                      ...current,
+                      disciplines: current.disciplines.map((discipline) =>
+                        discipline.name === 'Boatman'
+                          ? {
+                              ...discipline,
+                              freeTalentChoice: event.target.value as
+                                'pilot-boat' | 'sailing',
+                            }
+                          : discipline,
+                      ),
+                    }))
+                  }
+                >
+                  <option value="">Choose Pilot Boat or Sailing</option>
+                  <option value="pilot-boat">Pilot Boat</option>
+                  <option value="sailing">Sailing</option>
+                </select>
+              </SheetField>
+            ) : null}
+            <ul>
+              {freeTalentPreview.grants.map((item) => (
+                <li key={`grant-${item}`}>Add {item}</li>
+              ))}
+              {freeTalentPreview.rankChanges.map((item) => (
+                <li key={`rank-${item}`}>{item}</li>
+              ))}
+              {freeTalentPreview.restoredTalentPoints ? (
+                <li>
+                  Restore {freeTalentPreview.restoredTalentPoints} creation
+                  Talent Point(s).
+                </li>
+              ) : null}
+              {freeTalentPreview.refundableLegendPoints ? (
+                <li>
+                  Refund {freeTalentPreview.refundableLegendPoints} audited LP
+                  through {freeTalentPreview.refundableEntryIds.length} reversal
+                  record(s).
+                </li>
+              ) : null}
+              {freeTalentPreview.ambiguousTalentIds.length ? (
+                <li>
+                  {freeTalentPreview.ambiguousTalentIds.length} talent record(s)
+                  have unverifiable spending and will be retained for manual GM
+                  review. No LP will be invented.
+                </li>
+              ) : null}
+            </ul>
+            <SheetToolbar>
+              <button
+                type="button"
+                className="primary-button"
+                disabled={freeTalentPreview.needsBoatmanChoice}
+                onClick={() =>
+                  update((current) => applyFreeTalentReconciliation(current))
+                }
+              >
+                Apply Free Talent update
+              </button>
+              <small>
+                Existing spells, custom records, and paid option matrices are
+                preserved.
+              </small>
+            </SheetToolbar>
+          </SheetCard>
+        ) : null}
         {draft.creation.status !== 'draft' ? (
           <div className="earthdawn-mode-bar">
             <div className="earthdawn-mode-controls">
@@ -4612,186 +4785,300 @@ export function Earthdawn4eEditor({
                 'ed4-talents',
                 'talents',
                 'Talents',
-                <TalentTable
-                  records={draft.talents}
-                  playMode={playMode}
-                  gmOverride={!draft.creation.enforceRules}
-                  dependencyWarnings={recordWarnings}
-                  onBrowse={() => openCatalog('talent')}
-                  onChange={(id, patch) =>
-                    update((c) => ({
-                      ...c,
-                      talents: c.talents.map((r) =>
-                        r.id === id
-                          ? {
-                              ...r,
-                              ...patch,
-                              ...(patch.attributeText
-                                ? {
-                                    attribute:
-                                      (Object.entries(labels).find(
-                                        ([, label]) =>
-                                          label.toLocaleLowerCase() ===
-                                          patch.attributeText?.toLocaleLowerCase(),
-                                      )?.[0] as
-                                        EarthdawnAttributeId | undefined) ??
-                                      r.attribute,
-                                  }
-                                : {}),
-                              metadataOverrides:
-                                r.definitionId &&
-                                !c.creation.enforceRules &&
-                                Object.keys(patch).some((key) => key !== 'rank')
-                                  ? [
-                                      ...new Set([
-                                        ...r.metadataOverrides,
-                                        ...Object.keys(patch).filter(
-                                          (key) => key !== 'rank',
-                                        ),
-                                      ]),
-                                    ]
-                                  : r.metadataOverrides,
-                            }
-                          : r,
-                      ),
-                      magic:
-                        patch.rank == null
-                          ? c.magic
-                          : {
-                              ...c.magic,
-                              matrices: c.magic.matrices.map((matrix) =>
-                                matrix.talentId === id
-                                  ? { ...matrix, rank: patch.rank! }
-                                  : matrix,
-                              ),
-                            },
-                    }))
-                  }
-                  onRemove={(id) => {
-                    requestRemoval({ kind: 'talent', id });
-                  }}
-                  onAdvance={(id) => {
-                    const talent = draft.talents.find((item) => item.id === id);
-                    if (!talent) return;
-                    const circle = talent.originCircle ?? primaryCircle;
-                    const matchingDisciplineIndices = draft.disciplines
-                      .map((discipline, index) =>
-                        discipline.disciplineId &&
-                        talent.disciplineSources.includes(
-                          discipline.disciplineId,
-                        )
-                          ? index
-                          : -1,
-                      )
-                      .filter((index) => index >= 0);
-                    const disciplineIndex = matchingDisciplineIndices.length
-                      ? Math.min(...matchingDisciplineIndices)
-                      : Math.max(
-                          0,
-                          draft.disciplines.findIndex(
-                            ({ disciplineId }) =>
-                              disciplineId === talent.originDisciplineId,
-                          ),
-                        );
-                    const versatility =
-                      talent.disciplineSources.includes('versatility');
-                    const costCircle = equivalentTalentCircle(
-                      circle,
-                      disciplineIndex,
-                      versatility,
-                    );
-                    const nextRank = talent.rank + 1;
-                    const cost = talent.pathCostTier
-                      ? talentTierRankCost(nextRank, talent.pathCostTier)
-                      : talentRankCost(nextRank, costCircle);
-                    reviewAdvancement(
-                      {
-                        title: `Advance ${talent.name} to rank ${nextRank}`,
-                        cost,
-                        silverCost: 0,
-                        training: talent.pathOriginId
-                          ? 'Path Talent Option; verify the Path advancement requirements.'
-                          : versatility
-                            ? 'Versatility talent; use the next higher Legend Point tier and verify training requirements.'
-                            : `Talent learned through ${draft.disciplines[disciplineIndex]?.name || 'the recorded Discipline'}.`,
-                        sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
-                        warning:
-                          legend.current < cost
-                            ? `Insufficient Legend Points. ${cost - legend.current} more LP required.`
-                            : undefined,
-                      },
-                      () =>
-                        update((current) => {
-                          const currentTalent = current.talents.find(
-                            (item) => item.id === id,
-                          );
-                          if (
-                            !currentTalent ||
-                            currentTalent.rank !== talent.rank ||
-                            legendTotals(current.advancement.ledger).current <
-                              cost
-                          )
-                            return current;
-                          return {
-                            ...current,
-                            talents: current.talents.map((item) =>
-                              item.id === id
-                                ? { ...item, rank: nextRank }
-                                : item,
-                            ),
-                            magic: {
-                              ...current.magic,
-                              matrices: current.magic.matrices.map((matrix) =>
-                                matrix.talentId === id
-                                  ? { ...matrix, rank: nextRank }
-                                  : matrix,
-                              ),
-                            },
-                            advancement: {
-                              ledger: [
-                                ...current.advancement.ledger,
-                                createLegendEntry({
-                                  type: 'talent',
-                                  amount: -cost,
-                                  earnedAmount: 0,
-                                  targetId: talent.id,
-                                  definitionId: talent.definitionId,
-                                  origin: talent.pathOriginId
-                                    ? 'path'
-                                    : versatility
-                                      ? 'versatility'
-                                      : 'discipline',
-                                  originDisciplineId:
-                                    talent.pathOriginId ??
-                                    draft.disciplines[disciplineIndex]?.id ??
-                                    null,
-                                  costCircle,
-                                  dependsOnEntryIds: current.advancement.ledger
-                                    .filter(
-                                      ({ type, targetId, reversesId }) =>
-                                        !reversesId &&
-                                        (talent.pathOriginId
-                                          ? type === 'path' &&
-                                            targetId === talent.pathOriginId
-                                          : type === 'discipline' &&
-                                            targetId ===
-                                              draft.disciplines[disciplineIndex]
-                                                ?.id),
+                <>
+                  {!playMode ? (
+                    <SheetNotice tone="info">
+                      <label className="appearance-switch">
+                        <input
+                          type="checkbox"
+                          role="switch"
+                          checked={draft.creation.advancedFreeTalents}
+                          onChange={(event) =>
+                            update((current) => ({
+                              ...current,
+                              creation: {
+                                ...current.creation,
+                                advancedFreeTalents: event.target.checked,
+                                overrides: event.target.checked
+                                  ? current.creation.overrides.some(
+                                      ({ code }) =>
+                                        code === 'advanced-free-talents',
                                     )
-                                    .map(({ id }) => id),
-                                  targetName: talent.name,
-                                  beforeRating: talent.rank,
-                                  afterRating: nextRank,
-                                  sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
-                                  description: `Raise ${talent.name} to rank ${nextRank}`,
-                                }),
-                              ],
-                            },
-                          };
-                        }),
-                    );
-                  }}
-                />,
+                                    ? current.creation.overrides
+                                    : [
+                                        ...current.creation.overrides,
+                                        {
+                                          id: crypto.randomUUID(),
+                                          code: 'advanced-free-talents',
+                                          reason:
+                                            'GM approved the Companion optional rule for advanced Free Talent ranks.',
+                                          createdAt: new Date().toISOString(),
+                                        },
+                                      ]
+                                  : current.creation.overrides.filter(
+                                      ({ code }) =>
+                                        code !== 'advanced-free-talents',
+                                    ),
+                              },
+                            }))
+                          }
+                        />
+                        Allow advanced Free Talent ranks (GM Override)
+                      </label>
+                    </SheetNotice>
+                  ) : null}
+                  <TalentTable
+                    records={draft.talents}
+                    playMode={playMode}
+                    advancedFreeTalents={draft.creation.advancedFreeTalents}
+                    gmOverride={!draft.creation.enforceRules}
+                    dependencyWarnings={recordWarnings}
+                    onBrowse={() => openCatalog('talent')}
+                    onChange={(id, patch) =>
+                      update((c) => ({
+                        ...c,
+                        talents: c.talents.map((r) =>
+                          r.id === id
+                            ? {
+                                ...r,
+                                ...patch,
+                                ...(patch.attributeText
+                                  ? {
+                                      attribute:
+                                        (Object.entries(labels).find(
+                                          ([, label]) =>
+                                            label.toLocaleLowerCase() ===
+                                            patch.attributeText?.toLocaleLowerCase(),
+                                        )?.[0] as
+                                          EarthdawnAttributeId | undefined) ??
+                                        r.attribute,
+                                    }
+                                  : {}),
+                                metadataOverrides:
+                                  r.definitionId &&
+                                  !c.creation.enforceRules &&
+                                  Object.keys(patch).some(
+                                    (key) => key !== 'rank',
+                                  )
+                                    ? [
+                                        ...new Set([
+                                          ...r.metadataOverrides,
+                                          ...Object.keys(patch).filter(
+                                            (key) => key !== 'rank',
+                                          ),
+                                        ]),
+                                      ]
+                                    : r.metadataOverrides,
+                              }
+                            : r,
+                        ),
+                        magic:
+                          patch.rank == null
+                            ? c.magic
+                            : {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((matrix) =>
+                                  matrix.talentId === id
+                                    ? { ...matrix, rank: patch.rank! }
+                                    : matrix,
+                                ),
+                              },
+                      }))
+                    }
+                    onRemove={(id) => {
+                      requestRemoval({ kind: 'talent', id });
+                    }}
+                    onAdvance={(id) => {
+                      const talent = draft.talents.find(
+                        (item) => item.id === id,
+                      );
+                      if (!talent) return;
+                      if (talent.freeTalentOriginDisciplineId) {
+                        const quote = freeTalentAdvanceQuote(talent);
+                        const allowed = draft.creation.advancedFreeTalents;
+                        reviewAdvancement(
+                          {
+                            title: `Advance ${talent.name} to rank ${quote.targetRank}`,
+                            cost: quote.cost,
+                            silverCost: 0,
+                            training:
+                              'Optional Companion Free Talent advancement. Prior paid LP carries forward as credit when Discipline Circle catches up.',
+                            sourceCitation: 'Earthdawn Companion optional rule',
+                            blocked: !allowed,
+                            warning: !allowed
+                              ? 'Enable the recorded GM Override for advanced Free Talent ranks in Build mode.'
+                              : legend.current < quote.cost
+                                ? `Insufficient Legend Points. ${quote.cost - legend.current} more LP required.`
+                                : undefined,
+                          },
+                          () =>
+                            update((current) => {
+                              if (
+                                !current.creation.advancedFreeTalents ||
+                                legendTotals(current.advancement.ledger)
+                                  .current < quote.cost
+                              )
+                                return current;
+                              return {
+                                ...current,
+                                talents: current.talents.map((item) =>
+                                  item.id === talent.id
+                                    ? {
+                                        ...item,
+                                        rank: quote.targetRank,
+                                        freeTalentPurchasedRank:
+                                          quote.targetRank,
+                                        freeTalentLpCredit: quote.fullCost,
+                                      }
+                                    : item,
+                                ),
+                                advancement: {
+                                  ledger: [
+                                    ...current.advancement.ledger,
+                                    createLegendEntry({
+                                      type: 'talent',
+                                      amount: -quote.cost,
+                                      targetId: talent.id,
+                                      targetName: talent.name,
+                                      beforeRating: talent.rank,
+                                      afterRating: quote.targetRank,
+                                      definitionId: talent.definitionId,
+                                      origin: 'override',
+                                      originDisciplineId:
+                                        talent.freeTalentOriginDisciplineId,
+                                      costCircle: 1,
+                                      description: `Advance Free Talent ${talent.name} to Rank ${quote.targetRank}; ${quote.credit} LP prior credit applied.`,
+                                    }),
+                                  ],
+                                },
+                              };
+                            }),
+                        );
+                        return;
+                      }
+                      const circle = talent.originCircle ?? primaryCircle;
+                      const matchingDisciplineIndices = draft.disciplines
+                        .map((discipline, index) =>
+                          discipline.disciplineId &&
+                          talent.disciplineSources.includes(
+                            discipline.disciplineId,
+                          )
+                            ? index
+                            : -1,
+                        )
+                        .filter((index) => index >= 0);
+                      const disciplineIndex = matchingDisciplineIndices.length
+                        ? Math.min(...matchingDisciplineIndices)
+                        : Math.max(
+                            0,
+                            draft.disciplines.findIndex(
+                              ({ disciplineId }) =>
+                                disciplineId === talent.originDisciplineId,
+                            ),
+                          );
+                      const versatility =
+                        talent.disciplineSources.includes('versatility');
+                      const costCircle = equivalentTalentCircle(
+                        circle,
+                        disciplineIndex,
+                        versatility,
+                      );
+                      const nextRank = talent.rank + 1;
+                      const cost = talent.pathCostTier
+                        ? talentTierRankCost(nextRank, talent.pathCostTier)
+                        : talentRankCost(nextRank, costCircle);
+                      reviewAdvancement(
+                        {
+                          title: `Advance ${talent.name} to rank ${nextRank}`,
+                          cost,
+                          silverCost: 0,
+                          training: talent.pathOriginId
+                            ? 'Path Talent Option; verify the Path advancement requirements.'
+                            : versatility
+                              ? 'Versatility talent; use the next higher Legend Point tier and verify training requirements.'
+                              : `Talent learned through ${draft.disciplines[disciplineIndex]?.name || 'the recorded Discipline'}.`,
+                          sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
+                          warning:
+                            legend.current < cost
+                              ? `Insufficient Legend Points. ${cost - legend.current} more LP required.`
+                              : undefined,
+                        },
+                        () =>
+                          update((current) => {
+                            const currentTalent = current.talents.find(
+                              (item) => item.id === id,
+                            );
+                            if (
+                              !currentTalent ||
+                              currentTalent.rank !== talent.rank ||
+                              legendTotals(current.advancement.ledger).current <
+                                cost
+                            )
+                              return current;
+                            return {
+                              ...current,
+                              talents: current.talents.map((item) =>
+                                item.id === id
+                                  ? { ...item, rank: nextRank }
+                                  : item,
+                              ),
+                              magic: {
+                                ...current.magic,
+                                matrices: current.magic.matrices.map(
+                                  (matrix) =>
+                                    matrix.talentId === id
+                                      ? { ...matrix, rank: nextRank }
+                                      : matrix,
+                                ),
+                              },
+                              advancement: {
+                                ledger: [
+                                  ...current.advancement.ledger,
+                                  createLegendEntry({
+                                    type: 'talent',
+                                    amount: -cost,
+                                    earnedAmount: 0,
+                                    targetId: talent.id,
+                                    definitionId: talent.definitionId,
+                                    origin: talent.pathOriginId
+                                      ? 'path'
+                                      : versatility
+                                        ? 'versatility'
+                                        : 'discipline',
+                                    originDisciplineId:
+                                      talent.pathOriginId ??
+                                      draft.disciplines[disciplineIndex]?.id ??
+                                      null,
+                                    costCircle,
+                                    dependsOnEntryIds:
+                                      current.advancement.ledger
+                                        .filter(
+                                          ({ type, targetId, reversesId }) =>
+                                            !reversesId &&
+                                            (talent.pathOriginId
+                                              ? type === 'path' &&
+                                                targetId === talent.pathOriginId
+                                              : type === 'discipline' &&
+                                                targetId ===
+                                                  draft.disciplines[
+                                                    disciplineIndex
+                                                  ]?.id),
+                                        )
+                                        .map(({ id }) => id),
+                                    targetName: talent.name,
+                                    beforeRating: talent.rank,
+                                    afterRating: nextRank,
+                                    sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
+                                    description: `Raise ${talent.name} to rank ${nextRank}`,
+                                  }),
+                                ],
+                              },
+                            };
+                          }),
+                      );
+                    }}
+                  />
+                </>,
               )}
               {section(
                 'ed4-skills',
@@ -9188,7 +9475,10 @@ export function Earthdawn4eEditor({
                         id: 'summary',
                         label: 'Summary',
                         width: 320,
-                        render: (row) => row.summary,
+                        render: (row) =>
+                          row.discipline?.freeTalent
+                            ? `${row.summary} Free Talent: ${row.discipline.freeTalent}`
+                            : row.summary,
                         sortValue: (row) => row.summary,
                       },
                       {
@@ -9263,6 +9553,12 @@ export function Earthdawn4eEditor({
                             <span className="kind-badge">Discipline</span>
                             <h3>{discipline.name}</h3>
                             <p>{discipline.summary}</p>
+                            {discipline.freeTalent ? (
+                              <p>
+                                <strong>Free Talent:</strong>{' '}
+                                {discipline.freeTalent}
+                              </p>
+                            ) : null}
                             {(
                               [
                                 'novice',
@@ -10783,6 +11079,7 @@ function AdjustedStat({
 function TalentTable({
   records,
   playMode,
+  advancedFreeTalents,
   gmOverride,
   dependencyWarnings,
   onBrowse,
@@ -10792,6 +11089,7 @@ function TalentTable({
 }: {
   records: Earthdawn4eCharacter['talents'];
   playMode: boolean;
+  advancedFreeTalents: boolean;
   gmOverride: boolean;
   dependencyWarnings: Map<string, string[]>;
   onBrowse: () => void;
@@ -10896,6 +11194,14 @@ function TalentTable({
                 ) : (
                   <small>Custom</small>
                 )}
+                {record.freeTalentOriginDisciplineId ? (
+                  <small>
+                    Free Talent · automatic Rank {record.automaticRank ?? 0}
+                    {!playMode && (record.freeTalentLpCredit ?? 0) > 0
+                      ? ` · ${(record.freeTalentLpCredit ?? 0).toLocaleString()} LP credit`
+                      : ''}
+                  </small>
+                ) : null}
                 {dependencyWarnings.get(record.id)?.map((warning) => (
                   <small className="sheet-warning" key={warning}>
                     {warning}
@@ -10924,7 +11230,10 @@ function TalentTable({
                   min="0"
                   max="15"
                   value={record.rank}
-                  readOnly={playMode && !gmOverride}
+                  readOnly={
+                    Boolean(record.freeTalentOriginDisciplineId) ||
+                    (playMode && !gmOverride)
+                  }
                   onChange={(event) =>
                     onChange(record.id, { rank: integer(event.target.value) })
                   }
@@ -11000,6 +11309,10 @@ function TalentTable({
                 <button
                   type="button"
                   className="text-button"
+                  disabled={
+                    Boolean(record.freeTalentOriginDisciplineId) &&
+                    !advancedFreeTalents
+                  }
                   onClick={() => onAdvance(record.id)}
                 >
                   Advance

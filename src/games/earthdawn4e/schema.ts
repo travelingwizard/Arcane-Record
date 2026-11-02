@@ -132,6 +132,20 @@ export const earthdawn4eCharacterSchema = z.object({
     ),
     attributePoints: z.record(z.string(), z.number().int().min(-2).max(8)),
     talentPoints: z.record(z.string(), nonnegative),
+    advancedFreeTalents: z.boolean().default(false),
+    freeTalentReconciliation: z
+      .object({
+        version: nonnegative,
+        pending: z.boolean(),
+        reviewedAt: z.string().datetime().nullable(),
+        ambiguousTalentIds: z.array(uuid),
+      })
+      .default({
+        version: 0,
+        pending: true,
+        reviewedAt: null,
+        ambiguousTalentIds: [],
+      }),
     finalizationVersion: nonnegative.default(0),
     purchaseTotalCopper: nonnegative.default(0),
     finalizationSnapshot: z
@@ -181,6 +195,7 @@ export const earthdawn4eCharacterSchema = z.object({
       startedAtCircle: z.number().int().min(1).max(15),
       questor: z.boolean(),
       custom: z.boolean(),
+      freeTalentChoice: z.enum(['pilot-boat', 'sailing']).nullable().optional(),
     }),
   ),
   questor: z.object({
@@ -249,6 +264,10 @@ export const earthdawn4eCharacterSchema = z.object({
       originCircle: z.number().int().min(1).max(15).nullable(),
       originDisciplineId: z.string().nullable(),
       creationOwned: z.boolean(),
+      automaticRank: nonnegative.optional(),
+      freeTalentOriginDisciplineId: uuid.nullable().optional(),
+      freeTalentLpCredit: nonnegative.optional(),
+      freeTalentPurchasedRank: nonnegative.optional(),
       pathOriginId: uuid.optional(),
       pathCostTier: z.enum(['journeyman', 'warden', 'master']).optional(),
     }),

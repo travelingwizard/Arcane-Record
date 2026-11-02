@@ -95,6 +95,7 @@ export interface EarthdawnDiscipline extends EarthdawnDefinition {
   halfMagic?: string;
   karmaRitual?: string;
   restrictions?: string[];
+  freeTalent?: string;
 }
 export type EarthdawnAttributeId =
   | 'dexterity'
@@ -638,6 +639,18 @@ const disciplineRows: Array<
     ],
   ],
 ];
+const coreFreeTalents: Record<string, string> = {
+  'Air Sailor': 'Air Sailing; Rank equals Air Sailor Circle.',
+  Troubadour: 'Entertainer; Rank equals Troubadour Circle.',
+  Elementalist:
+    'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
+  Illusionist:
+    'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
+  Nethermancer:
+    'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
+  Wizard:
+    'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
+};
 const coreDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
   ([name, page, importantAttributes, spellcaster, noviceTalents]) => ({
     ...entry(
@@ -652,6 +665,7 @@ const coreDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
     noviceTalents,
     optionalTalents: [],
     spellcaster,
+    freeTalent: coreFreeTalents[name],
     circles: coreDisciplineProgressions[name] ?? [],
     talentOptions: coreTalentOptions[name] ?? {
       novice: [],
@@ -706,6 +720,20 @@ const boatman: EarthdawnDiscipline = {
     warden: [...airSailor.talentOptions.warden],
     master: [...airSailor.talentOptions.master],
   },
+  freeTalent: 'Choose Pilot Boat or Sailing; Rank equals Boatman Circle.',
+};
+
+const sailor: EarthdawnDiscipline = {
+  ...airSailor,
+  id: 'ed4.discipline.sailor',
+  name: 'Sailor',
+  summary:
+    'A water-going Air Sailor variant whose free Sailing talent replaces Air Sailing.',
+  aliases: ['Air Sailor variant', 'Water Sailor'],
+  freeTalent: 'Sailing; Rank equals Sailor Circle.',
+  noviceTalents: airSailor.noviceTalents.map((name) =>
+    name === 'Air Sailing' ? 'Sailing' : name,
+  ),
 };
 
 const disciplineSupplementSources = [
@@ -749,6 +777,8 @@ const gauntlet: EarthdawnDiscipline = {
     'Body Control requires both bare hands to remain free.',
     'Terrene sense can cause distraction.',
   ],
+  freeTalent:
+    'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
 };
 
 const shaman: EarthdawnDiscipline = {
@@ -791,6 +821,7 @@ const shaman: EarthdawnDiscipline = {
 export const earthdawnDisciplines: EarthdawnDiscipline[] = [
   ...coreDisciplines,
   boatman,
+  sailor,
   gauntlet,
   shaman,
 ];

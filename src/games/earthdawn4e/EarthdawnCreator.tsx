@@ -242,6 +242,7 @@ export function EarthdawnCreator({
     useState<EarthdawnDefinition | null>(null);
   const [pendingChange, setPendingChange] =
     useState<CreatorChangePreview | null>(null);
+  const [pendingBoatmanChoice, setPendingBoatmanChoice] = useState(false);
   const [talentSearch, setTalentSearch] = useState('');
   const [spellSearch, setSpellSearch] = useState('');
   const step = character.creation.currentStep;
@@ -679,6 +680,7 @@ export function EarthdawnCreator({
   const buildDisciplineChange = (
     current: Earthdawn4eCharacter,
     id: string | null,
+    freeTalentChoice?: 'pilot-boat' | 'sailing',
   ) => {
     const previousId = current.disciplines[0]?.disciplineId;
     const cleaned = {
@@ -736,6 +738,7 @@ export function EarthdawnCreator({
       startedAtCircle: 1,
       questor: false,
       custom: false,
+      freeTalentChoice: freeTalentChoice ?? null,
     };
     return reconcileFreeMatrices({
       ...cleaned,
@@ -747,8 +750,15 @@ export function EarthdawnCreator({
       ),
     });
   };
-  const chooseDiscipline = (id: string | null) => {
-    const next = buildDisciplineChange(character, id);
+  const chooseDiscipline = (
+    id: string | null,
+    freeTalentChoice?: 'pilot-boat' | 'sailing',
+  ) => {
+    if (id === 'ed4.discipline.boatman' && !freeTalentChoice) {
+      setPendingBoatmanChoice(true);
+      return;
+    }
+    const next = buildDisciplineChange(character, id, freeTalentChoice);
     setPendingChange(
       creatorChangePreview('Review Discipline change', character, next),
     );
@@ -1432,42 +1442,50 @@ export function EarthdawnCreator({
                 <small>Circle {talent.originCircle ?? 'custom'}</small>
               </span>
             </div>
-            <SheetField label="Free ranks">
-              <input
-                aria-label={`${talent.name} free ranks`}
-                type="number"
-                min="0"
-                max={15}
-                value={talent.freeRank}
-                onChange={(event) => {
-                  const rank = Math.min(
-                    15,
-                    Math.max(0, Number(event.target.value)),
-                  );
-                  updateWithBudgetAlert((current) => {
-                    const next = {
-                      ...current,
-                      talents: current.talents.map((item) =>
-                        item.id === talent.id
-                          ? {
-                              ...item,
-                              freeRank: rank,
-                              rank,
-                            }
-                          : item,
-                      ),
-                    };
-                    return {
-                      ...next,
-                      creation: {
-                        ...next.creation,
-                        talentPoints: creatorTalentAllocation(next),
-                      },
-                    };
-                  });
-                }}
-              />
-            </SheetField>
+            {talent.freeTalentOriginDisciplineId ? (
+              <p>
+                <strong>Free Talent</strong> · automatic Rank{' '}
+                {talent.automaticRank ?? talent.rank}. It does not use creation
+                Talent Points or count toward Circle qualification.
+              </p>
+            ) : (
+              <SheetField label="Free ranks">
+                <input
+                  aria-label={`${talent.name} free ranks`}
+                  type="number"
+                  min="0"
+                  max={15}
+                  value={talent.freeRank}
+                  onChange={(event) => {
+                    const rank = Math.min(
+                      15,
+                      Math.max(0, Number(event.target.value)),
+                    );
+                    updateWithBudgetAlert((current) => {
+                      const next = {
+                        ...current,
+                        talents: current.talents.map((item) =>
+                          item.id === talent.id
+                            ? {
+                                ...item,
+                                freeRank: rank,
+                                rank,
+                              }
+                            : item,
+                        ),
+                      };
+                      return {
+                        ...next,
+                        creation: {
+                          ...next.creation,
+                          talentPoints: creatorTalentAllocation(next),
+                        },
+                      };
+                    });
+                  }}
+                />
+              </SheetField>
+            )}
           </SheetCard>
         ))}
       </div>
@@ -2811,6 +2829,46 @@ export function EarthdawnCreator({
               }}
             >
               Apply change
+            </button>
+          </div>
+        </CreatorDialog>
+      ) : null}
+      {pendingBoatmanChoice ? (
+        <CreatorDialog
+          title="Choose Boatman Free Talent"
+          onClose={() => setPendingBoatmanChoice(false)}
+        >
+          <p>
+            Choose the talent that will advance automatically with Boatman
+            Circle. The other remains available through its normal rules.
+          </p>
+          <div className="button-row">
+            <button
+              type="button"
+              className="primary-button"
+              onClick={() => {
+                setPendingBoatmanChoice(false);
+                chooseDiscipline('ed4.discipline.boatman', 'pilot-boat');
+              }}
+            >
+              Pilot Boat
+            </button>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={() => {
+                setPendingBoatmanChoice(false);
+                chooseDiscipline('ed4.discipline.boatman', 'sailing');
+              }}
+            >
+              Sailing
+            </button>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => setPendingBoatmanChoice(false)}
+            >
+              Cancel
             </button>
           </div>
         </CreatorDialog>
