@@ -216,6 +216,8 @@ export const earthdawn4eCharacterSchema = z.object({
       outOfFavor: z.boolean(),
       gmOverride: z.boolean(),
       notes: z.string(),
+      active: z.boolean().optional(),
+      selectedAt: z.string().datetime().nullable().optional(),
     }),
   ),
   mysticPaths: z
@@ -318,6 +320,9 @@ export const earthdawn4eCharacterSchema = z.object({
       name: z.string(),
       kind: z.enum(['racial', 'discipline', 'questor', 'path', 'other']),
       notes: z.string(),
+      rank: nonnegative.optional(),
+      questorPatronId: z.string().nullable().optional(),
+      lastAdvancedAt: z.string().datetime().nullable().optional(),
     }),
   ),
   magic: z.object({
@@ -532,6 +537,7 @@ export const earthdawn4eCharacterSchema = z.object({
             'currency',
             'equipment',
             'race',
+            'devotion',
             'correction',
           ]),
           description: z.string(),
@@ -744,12 +750,62 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         optionTalentIds: [],
       });
     }
+    const hasExplicitQuestorState = parsedCurrent.data.questorPaths.every(
+      ({ active }) => typeof active === 'boolean',
+    );
+    const activeQuestorIndex = hasExplicitQuestorState
+      ? parsedCurrent.data.questorPaths.findIndex(({ active }) => active)
+      : parsedCurrent.data.questorPaths.length
+        ? 0
+        : -1;
+    const normalizedQuestorPaths = parsedCurrent.data.questorPaths.map(
+      (path, index) => ({
+        ...path,
+        active: index === activeQuestorIndex,
+        selectedAt: path.selectedAt ?? null,
+      }),
+    );
+    const activeQuestor = normalizedQuestorPaths[activeQuestorIndex];
     const normalized = earthdawn4eCharacterSchema.parse({
       ...parsedCurrent.data,
       mysticPaths: migratedPaths,
-      abilities: parsedCurrent.data.abilities.filter(
-        ({ definitionId }) => !definitionId?.startsWith('creator-path:'),
-      ),
+      questorPaths: normalizedQuestorPaths,
+      questor: activeQuestor
+        ? {
+            ...parsedCurrent.data.questor,
+            patronId: activeQuestor.patronId,
+            patronName: activeQuestor.patronName,
+            rank: activeQuestor.rank,
+            tier: activeQuestor.tier,
+            outOfFavor: activeQuestor.outOfFavor,
+            notes: activeQuestor.notes,
+          }
+        : normalizedQuestorPaths.length
+          ? {
+              ...parsedCurrent.data.questor,
+              patronId: null,
+              patronName: '',
+              rank: 0,
+              tier: 'none',
+              outOfFavor: false,
+              notes: '',
+            }
+          : parsedCurrent.data.questor,
+      abilities: parsedCurrent.data.abilities
+        .filter(
+          ({ definitionId }) => !definitionId?.startsWith('creator-path:'),
+        )
+        .map((ability) =>
+          ability.kind === 'questor'
+            ? {
+                ...ability,
+                rank: ability.rank ?? 1,
+                questorPatronId:
+                  ability.questorPatronId ?? activeQuestor?.patronId ?? null,
+                lastAdvancedAt: ability.lastAdvancedAt ?? null,
+              }
+            : ability,
+        ),
       sources:
         parsedCurrent.data.sources.defaultsVersion < 2
           ? {
@@ -1099,7 +1155,14 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
           notes: '',
         },
     questorPaths: Array.isArray(data.questorPaths)
-      ? data.questorPaths
+      ? data.questorPaths.map((entry, index) => ({
+          ...(isRecord(entry) ? entry : {}),
+          active: index === 0,
+          selectedAt:
+            isRecord(entry) && typeof entry.selectedAt === 'string'
+              ? entry.selectedAt
+              : null,
+        }))
       : (() => {
           const legacy = isRecord(data.questor) ? data.questor : null;
           const patronName =
@@ -1128,6 +1191,8 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
                     legacy && typeof legacy.notes === 'string'
                       ? legacy.notes
                       : '',
+                  active: true,
+                  selectedAt: null,
                 },
               ]
             : [];
@@ -1173,6 +1238,28 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       ...(isRecord(entry) ? entry : {}),
       creationOwned: false,
     })),
+    abilities: (Array.isArray(data.abilities) ? data.abilities : []).map(
+      (entry) => {
+        const value = isRecord(entry) ? entry : {};
+        const questor = value.kind === 'questor';
+        return {
+          ...value,
+          ...(questor
+            ? {
+                rank: Number(value.rank ?? 1),
+                questorPatronId:
+                  typeof value.questorPatronId === 'string'
+                    ? value.questorPatronId
+                    : null,
+                lastAdvancedAt:
+                  typeof value.lastAdvancedAt === 'string'
+                    ? value.lastAdvancedAt
+                    : null,
+              }
+            : {}),
+        };
+      },
+    ),
     magic: {
       ...magic,
       spells: (Array.isArray(magic.spells) ? magic.spells : []).map(

@@ -104,9 +104,9 @@ test('initiates and refunds a secondary Discipline atomically', async ({
     data,
   );
 
-  await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
+  await page.getByRole('button', { name: 'Add Discipline' }).click();
   const browser = page.getByRole('dialog', {
-    name: 'Add Discipline and Questor',
+    name: 'Add Discipline',
   });
   await browser.getByRole('searchbox').fill('Warrior');
   await browser
@@ -135,6 +135,72 @@ test('initiates and refunds a secondary Discipline atomically', async ({
       .locator('.earthdawn-derived-grid span')
       .filter({ hasText: 'Current Legend Points' }),
   ).toContainText('20000');
+});
+
+test('separates Questor selection and manages the conditional devotion dashboard', async ({
+  page,
+}) => {
+  const data = createBlankEarthdawn4eCharacter({
+    status: 'finalized',
+    mode: 'edit',
+  });
+  await seedEarthdawnCharacter(
+    page,
+    '21212121-2121-4121-8121-212121212121',
+    'Questor Dashboard Test',
+    data,
+  );
+  const identity = page.locator('#ed4-identity');
+  await expect(
+    identity.getByRole('button', { name: 'Browse Devotions' }),
+  ).toHaveCount(0);
+  await identity.getByRole('button', { name: 'Add Questor' }).click();
+  const browser = page.getByRole('dialog', { name: 'Add Questor' });
+  await expect(browser.getByText('Warrior')).toHaveCount(0);
+  await browser.getByRole('searchbox').fill('Astendar');
+  await browser
+    .locator('.catalog-card')
+    .filter({ hasText: 'Astendar' })
+    .getByRole('button', { name: 'Select Passion' })
+    .click();
+  await page.getByLabel(/gamemaster approves this patron/i).check();
+  await page.getByRole('button', { name: 'Select patron' }).click();
+  await expect(
+    identity.getByRole('heading', { name: 'Astendar' }),
+  ).toBeVisible();
+  await expect(identity.getByText(/0 \/ 0/).first()).toBeVisible();
+  await expect(
+    identity.getByRole('button', { name: 'Browse Devotions' }),
+  ).toBeVisible();
+
+  await identity.getByLabel('Questor rank').fill('2');
+  await expect(identity.getByText(/0 \/ 20/).first()).toBeVisible();
+  await identity.getByRole('button', { name: 'Minor +1' }).click();
+  await identity.getByRole('button', { name: 'Major +5' }).click();
+  await identity.getByRole('button', { name: 'Zealous +10' }).click();
+  await expect(identity.getByText(/16 \/ 20/)).toBeVisible();
+  await identity.getByLabel('Devotion Points to spend').fill('5');
+  await identity.getByRole('button', { name: 'Spend Devotion Points' }).click();
+  await expect(identity.getByText(/11 \/ 20/)).toBeVisible();
+  await identity.getByLabel('Out of favor').check();
+  await expect(
+    identity.getByRole('button', { name: 'Spend Devotion Points' }),
+  ).toBeDisabled();
+
+  await identity.getByRole('button', { name: 'Change Questor' }).click();
+  const replacement = page.getByRole('dialog', { name: 'Change Questor' });
+  await replacement.getByRole('searchbox').fill('Garlen');
+  await replacement
+    .locator('.catalog-card')
+    .filter({ hasText: 'Garlen' })
+    .getByRole('button', { name: 'Change to this Passion' })
+    .click();
+  await page.getByLabel(/gamemaster approves this patron/i).check();
+  await page.getByRole('button', { name: 'Change patron' }).click();
+  await expect(identity.getByRole('heading', { name: 'Garlen' })).toBeVisible();
+  await expect(
+    identity.getByText('Inactive legacy Questor patrons'),
+  ).toBeVisible();
 });
 
 async function applyCreatorChange(
@@ -505,13 +571,13 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
     'Supplemental Discipline Browser',
     data,
   );
-  await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
+  await page.getByRole('button', { name: 'Add Discipline' }).click();
   const dialog = page.getByRole('dialog', {
-    name: 'Add Discipline and Questor',
+    name: 'Add Discipline',
   });
   await expect(dialog).toBeVisible();
   const search = dialog.getByLabel(
-    'Search Disciplines, Questors, talents, and abilities',
+    'Search Disciplines, talents, and abilities',
   );
   await search.fill('Pattern Manifestation');
   await expect(dialog.getByRole('heading', { name: 'Gauntlet' })).toBeVisible();
@@ -523,7 +589,7 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
   await expect(dialog.getByText(/p\. 167–178/).first()).toBeVisible();
   await dialog
     .getByRole('button', {
-      name: 'Show Disciplines and Questors as a list',
+      name: 'Show Disciplines as a list',
     })
     .click();
   await expect(
@@ -531,7 +597,7 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
   ).toBeVisible();
   await dialog
     .getByRole('button', {
-      name: 'Show Disciplines and Questors as cards',
+      name: 'Show Disciplines as cards',
     })
     .click();
   await page.setViewportSize({ width: 320, height: 800 });
@@ -1390,7 +1456,10 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   const addRace = identity.getByRole('button', { name: 'Add Race' });
   await expect(addRace).toHaveClass(/primary-button/);
   await expect(
-    identity.getByRole('button', { name: 'Add Discipline & Questor' }),
+    identity.getByRole('button', { name: 'Add Discipline' }),
+  ).toHaveClass(/primary-button/);
+  await expect(
+    identity.getByRole('button', { name: 'Add Questor' }),
   ).toHaveClass(/primary-button/);
   await addRace.click();
   let raceDialog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
@@ -1489,9 +1558,9 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await characteristics.getByLabel('Damage amount').fill('999');
   await characteristics.getByRole('button', { name: 'Take Damage' }).click();
   await expect(characteristics.getByText('💀 Dead')).toBeVisible();
-  await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
+  await page.getByRole('button', { name: 'Add Discipline' }).click();
   const pathDialog = page.getByRole('dialog', {
-    name: 'Add Discipline and Questor',
+    name: 'Add Discipline',
   });
   await pathDialog.getByRole('searchbox').fill('Warrior');
   await pathDialog

@@ -231,36 +231,29 @@ const removeWithoutActivity = (
     return suspendInvalidPaths(reconcileFreeMatrices(next));
   }
   if (target.kind === 'questor') {
+    const removed = character.questorPaths.find((item) => item.id === id);
+    const removesActive = id == null || removed?.active !== false;
     const questorPaths = character.questorPaths.filter(
       (item) => item.id !== id,
     );
-    const primary = questorPaths[0];
+    if (!removesActive) return { ...character, questorPaths };
     return {
       ...character,
       identity: {
         ...character.identity,
-        passion: primary?.patronName ?? '',
+        passion: '',
       },
       questorPaths,
-      questor: primary
-        ? {
-            ...character.questor,
-            patronId: primary.patronId,
-            patronName: primary.patronName,
-            rank: primary.rank,
-            tier: primary.tier,
-            outOfFavor: primary.outOfFavor,
-            notes: primary.notes,
-          }
-        : {
-            ...character.questor,
-            patronId: null,
-            patronName: '',
-            rank: 0,
-            tier: 'none' as const,
-            outOfFavor: false,
-            notes: '',
-          },
+      questor: {
+        ...character.questor,
+        patronId: null,
+        patronName: '',
+        rank: 0,
+        tier: 'none' as const,
+        outOfFavor: false,
+        notes: '',
+      },
+      health: { ...character.health, devotionPoints: 0 },
     };
   }
   if (target.kind === 'mystic-path') {
@@ -670,9 +663,7 @@ export function previewRemoval(
   )
     impacts.push({
       kind: 'update',
-      text: next.questor.patronName
-        ? `${next.questor.patronName} will become the primary Questor patron.`
-        : 'Primary Questor status will be cleared.',
+      text: 'Active Questor status and the current Devotion Point pool will be cleared. Inactive legacy patrons are not promoted automatically.',
     });
   if (target.kind === 'questor')
     impacts.push({
@@ -790,8 +781,16 @@ export function dependencyWarnings(character: Earthdawn4eCharacter) {
       !character.mysticPaths.some(({ id }) => id === talent.pathOriginId)
     )
       add(talent.id, 'The originating Mystic Path is no longer recorded.');
+  const activeQuestor = character.questorPaths.find(
+    ({ active }) => active !== false,
+  );
+  const activePatronId = activeQuestor?.patronId ?? character.questor.patronId;
   for (const ability of character.abilities)
-    if (ability.kind === 'questor' && !character.questorPaths.length)
-      add(ability.id, 'No Questor patron is currently recorded.');
+    if (
+      ability.kind === 'questor' &&
+      (!activePatronId ||
+        (ability.questorPatronId && ability.questorPatronId !== activePatronId))
+    )
+      add(ability.id, 'No matching active Questor patron is recorded.');
   return warnings;
 }

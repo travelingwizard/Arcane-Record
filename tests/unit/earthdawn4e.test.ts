@@ -44,6 +44,7 @@ import {
   processEarthdawnPortrait,
 } from '../../src/games/earthdawn4e/portrait';
 import {
+  activeQuestorPath,
   appendRoll,
   applyNewDisciplineInitiation,
   advancementTargetExists,
@@ -56,6 +57,7 @@ import {
   moneyToCopper,
   disciplineCircleTraining,
   disciplineProgressionEffects,
+  devotionAdvancedToday,
   equivalentTalentCircle,
   equivalentDisciplineNames,
   grantedDevotionCost,
@@ -74,6 +76,9 @@ import {
   pathRankCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
+  questorDevotionDie,
+  questorDevotionSlots,
+  questorMaximumDevotionPoints,
   quoteNewDisciplineInitiation,
   reconcileFreeMatrices,
   applyFreeTalentReconciliation,
@@ -1911,6 +1916,137 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(missingCircleTalentRanks(character, discipline, 2).length).toBe(
       discipline.circles[0]!.requiredTalents.length,
     );
+  });
+  it('derives Questor points, slots, tiers, and same-day advancement', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const patronId = 'ed4.questor.astendar';
+    character.questor = {
+      patronId,
+      patronName: 'Astendar',
+      rank: 5,
+      tier: 'adherent',
+      outOfFavor: false,
+      notes: '',
+    };
+    character.questorPaths = [
+      {
+        id: crypto.randomUUID(),
+        patronId,
+        patronName: 'Astendar',
+        rank: 5,
+        tier: 'adherent',
+        outOfFavor: false,
+        gmOverride: false,
+        notes: '',
+        active: true,
+        selectedAt: null,
+      },
+    ];
+    character.abilities = [
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'ed4.devotion.artist',
+        sourceId: 'ed4.questors',
+        source: 'Questors',
+        page: 140,
+        unresolved: false,
+        name: 'Artist',
+        kind: 'questor',
+        notes: '',
+        rank: 2,
+        questorPatronId: patronId,
+        lastAdvancedAt: null,
+      },
+    ];
+    expect(activeQuestorPath(character)?.patronName).toBe('Astendar');
+    expect(questorMaximumDevotionPoints(5)).toBe(50);
+    expect(questorDevotionDie(5)).toBe('Step 4 (d6)');
+    expect(questorDevotionSlots(character)).toEqual({
+      maximum: 5,
+      used: 1,
+      available: 4,
+    });
+    expect(devotionAdvancedToday(character)).toBe(false);
+    character.advancement.ledger.push(
+      createLegendEntry({
+        type: 'questor',
+        amount: -300,
+        targetId: character.abilities[0]!.id,
+        targetName: 'Artist',
+        description: 'Raise Artist',
+      }),
+    );
+    expect(devotionAdvancedToday(character)).toBe(true);
+  });
+  it('migrates extra patrons inactive and preserves orphaned devotions', () => {
+    const legacy = createBlankEarthdawn4eCharacter();
+    const firstId = crypto.randomUUID();
+    const secondId = crypto.randomUUID();
+    legacy.questorPaths = [
+      {
+        id: firstId,
+        patronId: 'ed4.questor.astendar',
+        patronName: 'Astendar',
+        rank: 2,
+        tier: 'follower',
+        outOfFavor: false,
+        gmOverride: false,
+        notes: '',
+      },
+      {
+        id: secondId,
+        patronId: 'ed4.questor.garlen',
+        patronName: 'Garlen',
+        rank: 1,
+        tier: 'follower',
+        outOfFavor: false,
+        gmOverride: true,
+        notes: '',
+      },
+    ];
+    legacy.questor = {
+      patronId: 'ed4.questor.astendar',
+      patronName: 'Astendar',
+      rank: 2,
+      tier: 'follower',
+      outOfFavor: false,
+      notes: '',
+    };
+    legacy.abilities.push({
+      id: crypto.randomUUID(),
+      definitionId: 'ed4.devotion.artist',
+      sourceId: 'ed4.questors',
+      source: 'Questors',
+      page: 140,
+      unresolved: false,
+      name: 'Artist',
+      kind: 'questor',
+      notes: '',
+    });
+    const migrated = migrateEarthdawn4eCharacter(legacy);
+    expect(migrated.questorPaths.map(({ active }) => active)).toEqual([
+      true,
+      false,
+    ]);
+    expect(migrated.abilities[0]).toMatchObject({
+      rank: 1,
+      questorPatronId: 'ed4.questor.astendar',
+    });
+    migrated.health.devotionPoints = 12;
+    const removed = applyRemoval(migrated, {
+      kind: 'questor',
+      id: firstId,
+    });
+    expect(removed.questor.patronName).toBe('');
+    expect(removed.health.devotionPoints).toBe(0);
+    expect(removed.questorPaths[0]).toMatchObject({
+      id: secondId,
+      active: false,
+    });
+    expect(removed.abilities).toHaveLength(1);
+    expect(dependencyWarnings(removed).get(removed.abilities[0]!.id)).toEqual([
+      'No matching active Questor patron is recorded.',
+    ]);
   });
   it('shifts talent cost tiers for additional Disciplines and Versatility', () => {
     expect(equivalentTalentCircle(1, 0)).toBe(1);

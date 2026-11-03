@@ -61,6 +61,7 @@ import {
   stepDiceChart,
 } from './engine';
 import {
+  activeQuestorPath,
   appendRoll,
   applyNewDisciplineInitiation,
   attributeIncreaseCost,
@@ -74,6 +75,7 @@ import {
   reconcileRace,
   disciplineCircleTraining,
   disciplineProgressionEffects,
+  devotionAdvancedToday,
   equivalentTalentCircle,
   grantedDevotionCost,
   knackLearningQuote,
@@ -87,6 +89,9 @@ import {
   mysticPathModifierValue,
   previewDisciplineTalentReconciliation,
   questorRankCost,
+  questorDevotionDie,
+  questorDevotionSlots,
+  questorMaximumDevotionPoints,
   pathEligibility,
   pathRankCost,
   questorTier,
@@ -720,6 +725,7 @@ type AdvancementQuote = {
   blocked?: boolean;
   acknowledgement?: string;
   details?: string[];
+  confirmLabel?: string;
 };
 type DevotionEligibility = {
   passion: string;
@@ -764,6 +770,9 @@ export function Earthdawn4eEditor({
     [legendAmount, setLegendAmount] = useState(0),
     [legendDescription, setLegendDescription] = useState(''),
     [disciplinePickerOpen, setDisciplinePickerOpen] = useState(false),
+    [disciplinePickerKind, setDisciplinePickerKind] = useState<
+      'discipline' | 'questor'
+    >('discipline'),
     [pathPickerOpen, setPathPickerOpen] = useState(false),
     [disciplinePickerView, setDisciplinePickerView] = useState<
       'cards' | 'list'
@@ -786,6 +795,7 @@ export function Earthdawn4eEditor({
     [recoveryKarma, setRecoveryKarma] = useState(false),
     [woundBalanceKarma, setWoundBalanceKarma] = useState(false),
     [damageAmount, setDamageAmount] = useState(1),
+    [devotionSpendAmount, setDevotionSpendAmount] = useState(1),
     [moneyAmount, setMoneyAmount] = useState(1),
     [moneyDenomination, setMoneyDenomination] = useState<'cp' | 'sp' | 'gp'>(
       'sp',
@@ -1185,6 +1195,16 @@ export function Earthdawn4eEditor({
       : 0);
   const pathRecoveryTests = mysticPathModifierValue(draft, 'recovery');
   const legend = legendTotals(draft.advancement.ledger);
+  const activeQuestor = activeQuestorPath(draft);
+  const questorPatronName =
+    activeQuestor?.patronName ?? draft.questor.patronName;
+  const questorPatronId = activeQuestor?.patronId ?? draft.questor.patronId;
+  const questorRank = activeQuestor?.rank ?? draft.questor.rank;
+  const questorOutOfFavor =
+    activeQuestor?.outOfFavor ?? draft.questor.outOfFavor;
+  const hasActiveQuestor = Boolean(questorPatronName);
+  const questorPointMaximum = questorMaximumDevotionPoints(questorRank);
+  const devotionSlots = questorDevotionSlots(draft);
   const gmOverride = !draft.creation.enforceRules;
   const racialKarmaModifier =
     earthdawnRaces.find(({ id }) => id === draft.identity.raceId)
@@ -1550,6 +1570,9 @@ export function Earthdawn4eEditor({
           draft.questor.rank >= minimumQuestorRank,
       );
       const cost = grantedDevotionCost(1, draft.questor.rank);
+      const dailyWarning = devotionAdvancedToday(draft)
+        ? 'Another devotion was purchased or advanced today; the rules permit only one per day.'
+        : undefined;
       reviewAdvancement(
         {
           title: `Learn ${d.name} devotion`,
@@ -1560,23 +1583,27 @@ export function Earthdawn4eEditor({
           sourceCitation: `${d.source} p. ${d.page}`,
           blocked:
             draft.questor.rank < 1 ||
+            questorOutOfFavor ||
             !eligible ||
             draft.abilities.some(
               ({ definitionId: selectedId }) => selectedId === definitionId,
             ) ||
-            draft.abilities.filter(({ kind }) => kind === 'questor').length >=
-              draft.questor.rank,
+            devotionSlots.available < 1,
           warning:
             draft.questor.rank < 1
               ? 'A Questor rank is required.'
-              : !eligible
-                ? `This devotion is not available to a rank ${draft.questor.rank} questor of ${draft.questor.patronName || 'an unselected Passion'}.`
-                : draft.abilities.some(
-                      ({ definitionId: selectedId }) =>
-                        selectedId === definitionId,
-                    )
-                  ? 'This devotion is already recorded.'
-                  : undefined,
+              : questorOutOfFavor
+                ? 'Questor and granted devotions cannot advance while out of favor.'
+                : !eligible
+                  ? `This devotion is not available to a rank ${draft.questor.rank} questor of ${draft.questor.patronName || 'an unselected Passion'}.`
+                  : draft.abilities.some(
+                        ({ definitionId: selectedId }) =>
+                          selectedId === definitionId,
+                      )
+                    ? 'This devotion is already recorded.'
+                    : devotionSlots.available < 1
+                      ? 'No granted-devotion slot is available.'
+                      : dailyWarning,
         },
         () => addCatalog(definitionId, true),
       );
@@ -1918,7 +1945,19 @@ export function Earthdawn4eEditor({
               : c.advancement,
         };
       }
-      if (['ability', 'path', 'devotion'].includes(d.kind))
+      if (['ability', 'path', 'devotion'].includes(d.kind)) {
+        const path = activeQuestorPath(c);
+        const rank = path?.rank ?? c.questor.rank;
+        const patronId = path?.patronId ?? c.questor.patronId;
+        if (
+          d.kind === 'devotion' &&
+          (!patronId ||
+            rank < 1 ||
+            (path?.outOfFavor ?? c.questor.outOfFavor) ||
+            c.abilities.some(({ definitionId }) => definitionId === d.id) ||
+            questorDevotionSlots(c).available < 1)
+        )
+          return c;
         return {
           ...c,
           abilities: [
@@ -1931,6 +1970,13 @@ export function Earthdawn4eEditor({
                   : d.kind === 'devotion'
                     ? ('questor' as const)
                     : ('other' as const),
+              ...(d.kind === 'devotion'
+                ? {
+                    rank: 1,
+                    questorPatronId: patronId,
+                    lastAdvancedAt: new Date().toISOString(),
+                  }
+                : {}),
             },
           ],
           advancement:
@@ -1940,8 +1986,10 @@ export function Earthdawn4eEditor({
                     ...c.advancement.ledger,
                     createLegendEntry({
                       type: 'questor',
-                      amount: -grantedDevotionCost(1, c.questor.rank),
-                      targetId: d.id,
+                      amount: -grantedDevotionCost(1, rank),
+                      targetId: base.id,
+                      definitionId: d.id,
+                      origin: 'catalog',
                       targetName: d.name,
                       beforeRating: 0,
                       afterRating: 1,
@@ -1953,6 +2001,7 @@ export function Earthdawn4eEditor({
                 }
               : c.advancement,
         };
+      }
       if (d.kind === 'thread-item')
         return {
           ...c,
@@ -2154,11 +2203,38 @@ export function Earthdawn4eEditor({
       };
     });
   };
-  const addQuestorPath = (name: string) => {
-    const existing = draft.questorPaths.some(
-      ({ patronName }) => patronName === name,
+  const addQuestorPath = (name: string, confirmed = false) => {
+    if (questorPatronName === name) return;
+    const passion = earthdawnPassions.find(
+      ([passionName]) => passionName === name,
     );
-    if (existing || (draft.questorPaths.length > 0 && !gmOverride)) return;
+    if (!confirmed) {
+      reviewAdvancement(
+        {
+          title: `${hasActiveQuestor ? 'Change patron to' : 'Become a Questor of'} ${name}`,
+          cost: 0,
+          silverCost: 0,
+          training:
+            'Declare singular dedication to the Passion and record gamemaster approval. Patron selection does not purchase Questor Rank 1.',
+          sourceCitation: `Questors${passion?.[1] ? ` p. ${passion[1]}` : ''}`,
+          acknowledgement:
+            'The gamemaster approves this patron and the character’s singular dedication.',
+          warning: hasActiveQuestor
+            ? 'Changing patrons resets Questor Rank and Devotion Points. Purchased devotions remain recorded but become orphaned.'
+            : undefined,
+          details: hasActiveQuestor
+            ? [
+                `${questorPatronName} will become an inactive legacy patron record.`,
+                'Questor Rank becomes 0 and the Devotion Point pool becomes 0.',
+              ]
+            : ['Questor Rank begins at 0 with no Devotion Point capacity.'],
+          confirmLabel: hasActiveQuestor ? 'Change patron' : 'Select patron',
+        },
+        () => addQuestorPath(name, true),
+      );
+      setDisciplinePickerOpen(false);
+      return;
+    }
     const path = {
       id: crypto.randomUUID(),
       patronId: `ed4.questor.${name.toLocaleLowerCase()}`,
@@ -2166,22 +2242,54 @@ export function Earthdawn4eEditor({
       rank: 0,
       tier: 'none' as const,
       outOfFavor: false,
-      gmOverride: draft.questorPaths.length > 0,
+      gmOverride: false,
       notes: '',
+      active: true,
+      selectedAt: new Date().toISOString(),
     };
     update((current) => ({
       ...current,
-      identity: current.questorPaths.length
-        ? current.identity
-        : { ...current.identity, passion: name },
-      questor: current.questorPaths.length
-        ? current.questor
-        : {
-            ...current.questor,
-            patronId: path.patronId,
-            patronName: name,
-          },
-      questorPaths: [...current.questorPaths, path],
+      identity: { ...current.identity, passion: name },
+      questor: {
+        ...current.questor,
+        patronId: path.patronId,
+        patronName: name,
+        rank: 0,
+        tier: 'none',
+        outOfFavor: false,
+        notes: '',
+      },
+      questorPaths: [
+        ...current.questorPaths.map((item) => ({ ...item, active: false })),
+        path,
+      ],
+      abilities: current.abilities.map((ability) =>
+        ability.kind === 'questor' && !ability.questorPatronId
+          ? {
+              ...ability,
+              questorPatronId:
+                activeQuestorPath(current)?.patronId ??
+                current.questor.patronId,
+            }
+          : ability,
+      ),
+      health: { ...current.health, devotionPoints: 0 },
+      activity: current.activity.tracking
+        ? {
+            ...current.activity,
+            ledger: [
+              ...current.activity.ledger,
+              createActivityEntry({
+                type: 'devotion',
+                description: `${hasActiveQuestor ? 'Changed Questor patron' : 'Selected Questor patron'}: ${name}`,
+                targetId: path.id,
+                targetName: name,
+                before: questorPatronName || 'None',
+                after: name,
+              }),
+            ],
+          }
+        : current.activity,
     }));
   };
   const initiateMysticPath = (pathId: string) => {
@@ -2609,23 +2717,54 @@ export function Earthdawn4eEditor({
             ),
           };
       }
-      if (entry.type === 'questor' && entry.targetId === 'questor-rank')
-        next = {
-          ...next,
-          questor: {
-            ...next.questor,
-            rank: beforeRating,
-            tier: questorTier(beforeRating),
-          },
-        };
-      if (entry.type === 'questor' && entry.targetId !== 'questor-rank')
-        next = {
-          ...next,
-          abilities: next.abilities.filter(
-            ({ id, definitionId }) =>
-              id !== entry.targetId && definitionId !== entry.targetId,
-          ),
-        };
+      if (entry.type === 'questor') {
+        const pathTarget = next.questorPaths.find(
+          ({ id }) => id === entry.targetId,
+        );
+        const abilityTarget = next.abilities.find(
+          ({ id }) => id === entry.targetId,
+        );
+        if (entry.targetId === 'questor-rank' || pathTarget) {
+          next = {
+            ...next,
+            questor: {
+              ...next.questor,
+              rank: beforeRating,
+              tier: questorTier(beforeRating),
+            },
+            questorPaths: pathTarget
+              ? next.questorPaths.map((path) =>
+                  path.id === entry.targetId
+                    ? {
+                        ...path,
+                        rank: beforeRating,
+                        tier: questorTier(beforeRating),
+                      }
+                    : path,
+                )
+              : next.questorPaths,
+            health: {
+              ...next.health,
+              devotionPoints: Math.min(
+                next.health.devotionPoints,
+                questorMaximumDevotionPoints(beforeRating),
+              ),
+            },
+          };
+        } else if (abilityTarget) {
+          next = {
+            ...next,
+            abilities:
+              beforeRating === 0
+                ? next.abilities.filter(({ id }) => id !== entry.targetId)
+                : next.abilities.map((ability) =>
+                    ability.id === entry.targetId
+                      ? { ...ability, rank: beforeRating }
+                      : ability,
+                  ),
+          };
+        }
+      }
       return {
         ...next,
         advancement: {
@@ -3122,6 +3261,97 @@ export function Earthdawn4eEditor({
         );
       return left.name.localeCompare(right.name);
     });
+  const updateQuestorRank = (rank: number) =>
+    update((current) => {
+      const nextRank = Math.max(0, Math.min(12, Math.trunc(rank)));
+      const active = activeQuestorPath(current);
+      return {
+        ...current,
+        questor: {
+          ...current.questor,
+          rank: nextRank,
+          tier: questorTier(nextRank),
+        },
+        questorPaths: active
+          ? current.questorPaths.map((path) =>
+              path.id === active.id
+                ? { ...path, rank: nextRank, tier: questorTier(nextRank) }
+                : path,
+            )
+          : current.questorPaths,
+        health: {
+          ...current.health,
+          devotionPoints: Math.min(
+            current.health.devotionPoints,
+            questorMaximumDevotionPoints(nextRank),
+          ),
+        },
+      };
+    });
+  const changeDevotionPoints = (amount: number | 'fill', description: string) =>
+    update((current) => {
+      const path = activeQuestorPath(current);
+      const rank = path?.rank ?? current.questor.rank;
+      const maximum = questorMaximumDevotionPoints(rank);
+      const before = current.health.devotionPoints;
+      const after =
+        amount === 'fill'
+          ? maximum
+          : Math.max(0, Math.min(maximum, before + Math.trunc(amount)));
+      if (after === before) return current;
+      return {
+        ...current,
+        health: { ...current.health, devotionPoints: after },
+        activity: current.activity.tracking
+          ? {
+              ...current.activity,
+              ledger: [
+                ...current.activity.ledger,
+                createActivityEntry({
+                  type: 'devotion',
+                  description,
+                  targetId: path?.id ?? null,
+                  targetName: path?.patronName ?? current.questor.patronName,
+                  quantityDelta: after - before,
+                  before: String(before),
+                  after: String(after),
+                }),
+              ],
+            }
+          : current.activity,
+      };
+    });
+  const setQuestorFavor = (outOfFavor: boolean) =>
+    update((current) => {
+      const active = activeQuestorPath(current);
+      return {
+        ...current,
+        questor: { ...current.questor, outOfFavor },
+        questorPaths: active
+          ? current.questorPaths.map((path) =>
+              path.id === active.id ? { ...path, outOfFavor } : path,
+            )
+          : current.questorPaths,
+        activity: current.activity.tracking
+          ? {
+              ...current.activity,
+              ledger: [
+                ...current.activity.ledger,
+                createActivityEntry({
+                  type: 'devotion',
+                  description: outOfFavor
+                    ? 'Questor fell out of favor'
+                    : 'Questor returned to favor',
+                  targetId: active?.id ?? null,
+                  targetName: active?.patronName ?? current.questor.patronName,
+                  before: outOfFavor ? 'In favor' : 'Out of favor',
+                  after: outOfFavor ? 'Out of favor' : 'In favor',
+                }),
+              ],
+            }
+          : current.activity,
+      };
+    });
   const disciplineQuestorContent = (
     <>
       <SheetToolbar>
@@ -3129,15 +3359,27 @@ export function Earthdawn4eEditor({
           type="button"
           className="primary-button"
           onClick={() => {
+            setDisciplinePickerKind('discipline');
             setDisciplineSearch('');
             setDisciplinePickerOpen(true);
           }}
         >
-          Add Discipline &amp; Questor
+          Add Discipline
+        </button>
+        <button
+          type="button"
+          className="primary-button"
+          onClick={() => {
+            setDisciplinePickerKind('questor');
+            setDisciplineSearch('');
+            setDisciplinePickerOpen(true);
+          }}
+        >
+          {hasActiveQuestor ? 'Change Questor' : 'Add Questor'}
         </button>
         <small>
-          Search by Discipline, Passion, talent, or Circle ability. Custom
-          Discipline drafts are managed in Settings.
+          Disciplines and Questor patrons use separate source-backed reviews.
+          Custom Discipline drafts are managed in Settings.
         </small>
       </SheetToolbar>
       {draft.disciplines.map((d) => (
@@ -3328,192 +3570,282 @@ export function Earthdawn4eEditor({
             })()}
         </div>
       ))}
-      {draft.questorPaths.map((path, pathIndex) => (
-        <SheetCard key={path.id} density="compact">
+      {hasActiveQuestor ? (
+        <SheetCard density="compact">
           <div className="earthdawn-questor-row">
             <div>
               <span className="kind-badge">Questor</span>
-              <h3>{path.patronName}</h3>
+              <h3>{questorPatronName}</h3>
               <small>
-                Rank {path.rank} · {path.tier}
-                {path.gmOverride ? ' · GM Override' : ''}
+                Rank {questorRank} · {questorTier(questorRank)} ·{' '}
+                {questorDevotionDie(questorRank)}
               </small>
             </div>
-            <SheetField label={`${path.patronName} Questor rank`}>
+            <div className="sheet-stat-grid earthdawn-derived-grid">
+              <span>
+                Devotion Points{' '}
+                <strong>
+                  {draft.health.devotionPoints} / {questorPointMaximum}
+                </strong>
+              </span>
+              <span>
+                Devotion slots{' '}
+                <strong>
+                  {devotionSlots.used} / {devotionSlots.maximum}
+                </strong>
+              </span>
+              <span>
+                Available slots <strong>{devotionSlots.available}</strong>
+              </span>
+              <span>
+                Favor{' '}
+                <strong>
+                  {questorOutOfFavor ? 'Out of favor' : 'In favor'}
+                </strong>
+              </span>
+            </div>
+            <details className="earthdawn-tier-disclosures">
+              <summary>Questor progression tiers</summary>
+              <ul>
+                <li>
+                  Follower · Ranks 1–4 · Step 3 (d4) · Novice devotion costs
+                </li>
+                <li>
+                  Adherent · Ranks 5–8 · Step 4 (d6) · Journeyman devotion costs
+                  · sacred Quest required at Rank 5
+                </li>
+                <li>
+                  Exemplar · Ranks 9–12 · Step 5 (d8) · Warden devotion costs ·
+                  sacred Quest required at Rank 9
+                </li>
+              </ul>
+            </details>
+            {!playMode ? (
+              <SheetField label="Questor rank">
+                <input
+                  type="number"
+                  min="0"
+                  max="12"
+                  value={questorRank}
+                  onChange={(event) =>
+                    updateQuestorRank(integer(event.target.value))
+                  }
+                />
+              </SheetField>
+            ) : null}
+            <SheetField label={`${questorPatronName} notes`}>
               <input
-                type="number"
-                min="0"
-                max="12"
-                readOnly={playMode}
-                value={path.rank}
+                value={activeQuestor?.notes ?? draft.questor.notes}
                 onChange={(event) => {
-                  const rank = Math.min(12, integer(event.target.value));
-                  update((current) => ({
-                    ...current,
-                    questorPaths: current.questorPaths.map((item) =>
-                      item.id === path.id
-                        ? {
-                            ...item,
-                            rank,
-                            tier: questorTier(rank),
-                          }
-                        : item,
-                    ),
-                    questor:
-                      pathIndex === 0
-                        ? {
-                            ...current.questor,
-                            rank,
-                            tier: questorTier(rank),
-                          }
-                        : current.questor,
-                  }));
+                  const notes = event.target.value;
+                  update((current) => {
+                    const active = activeQuestorPath(current);
+                    return {
+                      ...current,
+                      questor: { ...current.questor, notes },
+                      questorPaths: active
+                        ? current.questorPaths.map((path) =>
+                            path.id === active.id ? { ...path, notes } : path,
+                          )
+                        : current.questorPaths,
+                    };
+                  });
                 }}
-              />
-            </SheetField>
-            <SheetField label={`${path.patronName} notes`}>
-              <input
-                value={path.notes}
-                onChange={(event) =>
-                  update((current) => ({
-                    ...current,
-                    questorPaths: current.questorPaths.map((item) =>
-                      item.id === path.id
-                        ? { ...item, notes: event.target.value }
-                        : item,
-                    ),
-                  }))
-                }
               />
             </SheetField>
             <label className="sheet-choice-card">
               <input
                 type="checkbox"
-                checked={path.outOfFavor}
-                onChange={(event) =>
-                  update((current) => ({
-                    ...current,
-                    questorPaths: current.questorPaths.map((item) =>
-                      item.id === path.id
-                        ? { ...item, outOfFavor: event.target.checked }
-                        : item,
-                    ),
-                  }))
-                }
+                checked={questorOutOfFavor}
+                onChange={(event) => setQuestorFavor(event.target.checked)}
               />
               <span>Out of favor</span>
             </label>
-            <button
-              type="button"
-              className="text-button"
-              onClick={() => requestRemoval({ kind: 'questor', id: path.id })}
-            >
-              Remove
-            </button>
-          </div>
-        </SheetCard>
-      ))}
-      {draft.questor.patronName && draft.questorPaths.length === 0 ? (
-        <SheetCard density="compact">
-          <SheetFieldGrid columns={3}>
-            <SheetField label="Patron Passion">
-              <input
-                readOnly
-                value={draft.questor.patronName || 'Not a Questor'}
-              />
-            </SheetField>
-            <SheetField label="Questor rank">
-              <input
-                type="number"
-                min="0"
-                max="12"
-                disabled={playMode}
-                value={draft.questor.rank}
-                onChange={(event) => {
-                  const rank = Math.min(12, integer(event.target.value));
-                  update((current) => ({
-                    ...current,
-                    questor: {
-                      ...current.questor,
-                      rank,
-                      tier: questorTier(rank),
-                    },
-                  }));
-                }}
-              />
-            </SheetField>
-            <span>
-              Tier <strong>{draft.questor.tier}</strong>
-            </span>
-            <button
-              type="button"
-              className="text-button"
-              onClick={() => requestRemoval({ kind: 'questor', id: null })}
-            >
-              Remove Questor
-            </button>
-            {playMode && draft.questor.patronName ? (
+            {questorOutOfFavor ? (
+              <p className="sheet-warning">
+                Devotion Points and devotions cannot be spent or advanced.
+                Continue Acts of Devotion to atone; restoration usually requires
+                two to three times the neglected devotion, as determined by the
+                gamemaster.
+              </p>
+            ) : null}
+            <SheetToolbar>
               <button
                 type="button"
-                className="secondary-button"
-                disabled={draft.questor.rank >= 12}
-                onClick={() => {
-                  const nextRank = draft.questor.rank + 1;
-                  const cost = questorRankCost(nextRank);
-                  const crossesTier = [5, 9].includes(nextRank);
-                  reviewAdvancement(
-                    {
-                      title: `Raise Questor rank to ${nextRank}`,
-                      cost,
-                      silverCost: 0,
-                      training:
-                        'Commune with the patron Passion; only one devotion may advance per day.',
-                      sourceCitation: 'Questors pp. 133–135',
-                      warning: crossesTier
-                        ? 'This crosses a Questor tier and requires a completed quest approved by the gamemaster.'
-                        : undefined,
-                    },
-                    () =>
-                      update((current) => {
-                        if (
-                          legendTotals(current.advancement.ledger).current <
-                          cost
-                        )
-                          return current;
-                        const before = current.questor.rank;
-                        return {
-                          ...current,
-                          questor: {
-                            ...current.questor,
-                            rank: before + 1,
-                            tier: questorTier(before + 1),
-                          },
-                          advancement: {
-                            ledger: [
-                              ...current.advancement.ledger,
-                              createLegendEntry({
-                                type: 'questor',
-                                amount: -cost,
-                                targetId: 'questor-rank',
-                                targetName: 'Questor rank',
-                                beforeRating: before,
-                                afterRating: before + 1,
-                                training: 'Communion; one rank per day',
-                                sourceCitation: 'Questors pp. 133–135',
-                                description: `Raise Questor rank to ${before + 1}`,
-                              }),
-                            ],
-                          },
-                        };
-                      }),
-                  );
-                }}
+                className="secondary-button compact-inline-button"
+                onClick={() => changeDevotionPoints(1, 'Minor Act of Devotion')}
               >
-                Advance Questor rank
+                Minor +1
               </button>
-            ) : null}
-          </SheetFieldGrid>
+              <button
+                type="button"
+                className="secondary-button compact-inline-button"
+                onClick={() => changeDevotionPoints(5, 'Major Act of Devotion')}
+              >
+                Major +5
+              </button>
+              <button
+                type="button"
+                className="secondary-button compact-inline-button"
+                onClick={() =>
+                  changeDevotionPoints(10, 'Zealous Act of Devotion')
+                }
+              >
+                Zealous +10
+              </button>
+              <button
+                type="button"
+                className="secondary-button compact-inline-button"
+                onClick={() =>
+                  changeDevotionPoints('fill', 'Completed sacred Quest')
+                }
+              >
+                Quest: Fill pool
+              </button>
+            </SheetToolbar>
+            <SheetToolbar>
+              <SheetField label="Devotion Points to spend">
+                <input
+                  type="number"
+                  min="1"
+                  value={devotionSpendAmount}
+                  onChange={(event) =>
+                    setDevotionSpendAmount(
+                      Math.max(1, integer(event.target.value)),
+                    )
+                  }
+                />
+              </SheetField>
+              <button
+                type="button"
+                className="secondary-button compact-inline-button"
+                disabled={
+                  questorOutOfFavor ||
+                  devotionSpendAmount > draft.health.devotionPoints
+                }
+                onClick={() =>
+                  changeDevotionPoints(
+                    -devotionSpendAmount,
+                    `Spent ${devotionSpendAmount} Devotion Point(s)`,
+                  )
+                }
+              >
+                Spend Devotion Points
+              </button>
+            </SheetToolbar>
+            <SheetToolbar>
+              {playMode ? (
+                <button
+                  type="button"
+                  className="text-button"
+                  disabled={questorRank >= 12 || questorOutOfFavor}
+                  onClick={() => {
+                    const nextRank = questorRank + 1;
+                    const cost = questorRankCost(nextRank);
+                    reviewAdvancement(
+                      {
+                        title: `Raise Questor rank to ${nextRank}`,
+                        cost,
+                        silverCost: 0,
+                        training:
+                          'Commune with the patron Passion; advance only one rank at a time.',
+                        sourceCitation: 'Questors pp. 128–135',
+                        warning: [5, 9].includes(nextRank)
+                          ? 'This tier transition requires a completed sacred Quest approved by the gamemaster.'
+                          : undefined,
+                      },
+                      () =>
+                        update((current) => {
+                          if (
+                            legendTotals(current.advancement.ledger).current <
+                            cost
+                          )
+                            return current;
+                          const active = activeQuestorPath(current);
+                          const before = active?.rank ?? current.questor.rank;
+                          const after = before + 1;
+                          return {
+                            ...current,
+                            questor: {
+                              ...current.questor,
+                              rank: after,
+                              tier: questorTier(after),
+                            },
+                            questorPaths: active
+                              ? current.questorPaths.map((path) =>
+                                  path.id === active.id
+                                    ? {
+                                        ...path,
+                                        rank: after,
+                                        tier: questorTier(after),
+                                      }
+                                    : path,
+                                )
+                              : current.questorPaths,
+                            advancement: {
+                              ledger: [
+                                ...current.advancement.ledger,
+                                createLegendEntry({
+                                  type: 'questor',
+                                  amount: -cost,
+                                  targetId: active?.id ?? 'questor-rank',
+                                  targetName: `${questorPatronName} Questor rank`,
+                                  beforeRating: before,
+                                  afterRating: after,
+                                  training: 'Communion; one rank at a time',
+                                  sourceCitation: 'Questors pp. 128–135',
+                                  description: `Raise Questor rank to ${after}`,
+                                }),
+                              ],
+                            },
+                          };
+                        }),
+                    );
+                  }}
+                >
+                  Advance Questor rank
+                </button>
+              ) : null}
+              <button
+                type="button"
+                className="text-button"
+                onClick={() =>
+                  requestRemoval({
+                    kind: 'questor',
+                    id: activeQuestor?.id ?? null,
+                  })
+                }
+              >
+                Remove Questor
+              </button>
+            </SheetToolbar>
+          </div>
         </SheetCard>
+      ) : null}
+      {draft.questorPaths.some(({ active }) => active === false) ? (
+        <details className="earthdawn-tier-disclosures">
+          <summary>Inactive legacy Questor patrons</summary>
+          {draft.questorPaths
+            .filter(({ active }) => active === false)
+            .map((path) => (
+              <div key={path.id} className="earthdawn-record">
+                <strong>{path.patronName}</strong>
+                <small>
+                  Rank {path.rank} · preserved for compatibility; no benefits
+                  are active.
+                </small>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() =>
+                    requestRemoval({ kind: 'questor', id: path.id })
+                  }
+                >
+                  Remove legacy patron
+                </button>
+              </div>
+            ))}
+        </details>
       ) : null}
     </>
   );
@@ -4167,13 +4499,15 @@ export function Earthdawn4eEditor({
                           >
                             Browse Abilities
                           </button>
-                          <button
-                            type="button"
-                            className="secondary-button compact-inline-button"
-                            onClick={() => openCatalog('devotion')}
-                          >
-                            Browse Devotions
-                          </button>
+                          {hasActiveQuestor ? (
+                            <button
+                              type="button"
+                              className="secondary-button compact-inline-button"
+                              onClick={() => openCatalog('devotion')}
+                            >
+                              Browse Devotions
+                            </button>
+                          ) : null}
                         </SheetToolbar>
                         {draft.abilities.length ? (
                           <div className="earthdawn-progression-list">
@@ -4211,6 +4545,43 @@ export function Earthdawn4eEditor({
                                     {ability.source || 'Custom'}
                                     {managed ? ' · Managed grant' : ''}
                                   </small>
+                                  {ability.kind === 'questor' ? (
+                                    <small>
+                                      Rank {ability.rank ?? 1} ·{' '}
+                                      {ability.questorPatronId ===
+                                        questorPatronId && hasActiveQuestor
+                                        ? questorPatronName
+                                        : 'Missing active patron'}
+                                    </small>
+                                  ) : null}
+                                  {ability.kind === 'questor' && !playMode ? (
+                                    <SheetField label={`${ability.name} rank`}>
+                                      <input
+                                        type="number"
+                                        min="1"
+                                        max={Math.max(1, questorRank)}
+                                        value={ability.rank ?? 1}
+                                        onChange={(event) => {
+                                          const rank = Math.max(
+                                            1,
+                                            Math.min(
+                                              Math.max(1, questorRank),
+                                              integer(event.target.value),
+                                            ),
+                                          );
+                                          update((current) => ({
+                                            ...current,
+                                            abilities: current.abilities.map(
+                                              (item) =>
+                                                item.id === ability.id
+                                                  ? { ...item, rank }
+                                                  : item,
+                                            ),
+                                          }));
+                                        }}
+                                      />
+                                    </SheetField>
+                                  ) : null}
                                   {managed ? (
                                     ability.notes ? (
                                       <p className="earthdawn-managed-grant-note">
@@ -4247,6 +4618,110 @@ export function Earthdawn4eEditor({
                                         {warning}
                                       </p>
                                     ))}
+                                  {ability.kind === 'questor' && playMode ? (
+                                    <button
+                                      type="button"
+                                      className="text-button"
+                                      disabled={
+                                        questorOutOfFavor ||
+                                        !hasActiveQuestor ||
+                                        ability.questorPatronId !==
+                                          questorPatronId ||
+                                        (ability.rank ?? 1) >= questorRank
+                                      }
+                                      onClick={() => {
+                                        const before = ability.rank ?? 1;
+                                        const after = before + 1;
+                                        const cost = grantedDevotionCost(
+                                          after,
+                                          questorRank,
+                                        );
+                                        reviewAdvancement(
+                                          {
+                                            title: `Raise ${ability.name} to Rank ${after}`,
+                                            cost,
+                                            silverCost: 0,
+                                            training:
+                                              'Commune with the patron Passion; increase only one devotion by one rank per day.',
+                                            sourceCitation: `${ability.source}${ability.page ? ` p. ${ability.page}` : ''}; Questors pp. 128–135`,
+                                            warning: devotionAdvancedToday(
+                                              draft,
+                                            )
+                                              ? 'Another devotion was purchased or advanced today; the rules permit only one per day.'
+                                              : undefined,
+                                          },
+                                          () =>
+                                            update((current) => {
+                                              if (
+                                                legendTotals(
+                                                  current.advancement.ledger,
+                                                ).current < cost
+                                              )
+                                                return current;
+                                              const currentAbility =
+                                                current.abilities.find(
+                                                  ({ id }) => id === ability.id,
+                                                );
+                                              const currentRank =
+                                                currentAbility?.rank ?? 1;
+                                              const currentPath =
+                                                activeQuestorPath(current);
+                                              const maximum =
+                                                currentPath?.rank ??
+                                                current.questor.rank;
+                                              if (
+                                                !currentAbility ||
+                                                (currentPath?.outOfFavor ??
+                                                  current.questor.outOfFavor) ||
+                                                currentRank >= maximum
+                                              )
+                                                return current;
+                                              const nextRank = currentRank + 1;
+                                              const createdAt =
+                                                new Date().toISOString();
+                                              return {
+                                                ...current,
+                                                abilities:
+                                                  current.abilities.map(
+                                                    (item) =>
+                                                      item.id === ability.id
+                                                        ? {
+                                                            ...item,
+                                                            rank: nextRank,
+                                                            lastAdvancedAt:
+                                                              createdAt,
+                                                          }
+                                                        : item,
+                                                  ),
+                                                advancement: {
+                                                  ledger: [
+                                                    ...current.advancement
+                                                      .ledger,
+                                                    createLegendEntry({
+                                                      type: 'questor',
+                                                      amount: -cost,
+                                                      targetId: ability.id,
+                                                      definitionId:
+                                                        ability.definitionId,
+                                                      origin: 'catalog',
+                                                      targetName: ability.name,
+                                                      beforeRating: currentRank,
+                                                      afterRating: nextRank,
+                                                      sourceCitation: `${ability.source}${ability.page ? ` p. ${ability.page}` : ''}`,
+                                                      training:
+                                                        'Communion; one devotion rank per day',
+                                                      description: `Raise ${ability.name} to Rank ${nextRank}`,
+                                                    }),
+                                                  ],
+                                                },
+                                              };
+                                            }),
+                                        );
+                                      }}
+                                    >
+                                      Advance
+                                    </button>
+                                  ) : null}
                                   {!managed ? (
                                     <button
                                       type="button"
@@ -8237,7 +8712,7 @@ export function Earthdawn4eEditor({
                             setAdvancementAcknowledged(false);
                           }}
                         >
-                          Confirm purchase
+                          {advancementQuote.confirmLabel ?? 'Confirm purchase'}
                         </button>
                         <button
                           type="button"
@@ -9360,14 +9835,34 @@ export function Earthdawn4eEditor({
             className="catalog-overlay"
             role="dialog"
             aria-modal="true"
-            aria-label="Add Discipline and Questor"
+            aria-label={
+              disciplinePickerKind === 'discipline'
+                ? 'Add Discipline'
+                : hasActiveQuestor
+                  ? 'Change Questor'
+                  : 'Add Questor'
+            }
           >
             <div className="catalog-dialog">
               <div className="catalog-dialog-header">
                 <div>
-                  <p className="sheet-eyebrow">Earthdawn paths</p>
-                  <h2>Add Discipline &amp; Questor</h2>
-                  <p>Review complete progression before adding a path.</p>
+                  <p className="sheet-eyebrow">
+                    {disciplinePickerKind === 'discipline'
+                      ? 'Adept paths'
+                      : 'Passion paths'}
+                  </p>
+                  <h2>
+                    {disciplinePickerKind === 'discipline'
+                      ? 'Add Discipline'
+                      : hasActiveQuestor
+                        ? 'Change Questor'
+                        : 'Add Questor'}
+                  </h2>
+                  <p>
+                    {disciplinePickerKind === 'discipline'
+                      ? 'Review complete Discipline progression before adding it.'
+                      : 'Review a Passion, its philosophy, and granted devotions.'}
+                  </p>
                 </div>
                 <button
                   className="secondary-button"
@@ -9377,7 +9872,13 @@ export function Earthdawn4eEditor({
                 </button>
               </div>
               <div className="reference-catalog">
-                <SheetField label="Search Disciplines, Questors, talents, and abilities">
+                <SheetField
+                  label={
+                    disciplinePickerKind === 'discipline'
+                      ? 'Search Disciplines, talents, and abilities'
+                      : 'Search Passions, philosophies, and devotions'
+                  }
+                >
                   <input
                     type="search"
                     autoFocus
@@ -9391,7 +9892,7 @@ export function Earthdawn4eEditor({
                   <button
                     type="button"
                     className="icon-button"
-                    aria-label="Show Disciplines and Questors as cards"
+                    aria-label={`Show ${disciplinePickerKind === 'discipline' ? 'Disciplines' : 'Questors'} as cards`}
                     aria-pressed={disciplinePickerView === 'cards'}
                     onClick={() => setDisciplinePickerView('cards')}
                   >
@@ -9400,7 +9901,7 @@ export function Earthdawn4eEditor({
                   <button
                     type="button"
                     className="icon-button"
-                    aria-label="Show Disciplines and Questors as a list"
+                    aria-label={`Show ${disciplinePickerKind === 'discipline' ? 'Disciplines' : 'Questors'} as a list`}
                     aria-pressed={disciplinePickerView === 'list'}
                     onClick={() => setDisciplinePickerView('list')}
                   >
@@ -9409,58 +9910,62 @@ export function Earthdawn4eEditor({
                 </SheetToolbar>
                 {disciplinePickerView === 'list' ? (
                   <EarthdawnCatalogList
-                    preferenceKey="arcane-record:earthdawn4e:discipline-picker"
+                    preferenceKey={`arcane-record:earthdawn4e:${disciplinePickerKind}-picker`}
                     rows={[
-                      ...earthdawnDisciplines
-                        .filter((entry) => {
-                          const query = disciplineSearch
-                            .trim()
-                            .toLocaleLowerCase();
-                          return (
-                            !query ||
-                            `${entry.name} ${entry.summary} ${entry.mechanics} ${Object.values(entry.talentOptions).flat().join(' ')}`
-                              .toLocaleLowerCase()
-                              .includes(query)
-                          );
-                        })
-                        .map((entry) => ({
-                          id: `discipline:${entry.id}`,
-                          type: 'Discipline',
-                          name: entry.name,
-                          summary: entry.summary,
-                          attributes: entry.importantAttributes.join(', '),
-                          access: entry.spellcaster
-                            ? 'Spellcaster'
-                            : 'Non-magician',
-                          source: entry.source,
-                          discipline: entry,
-                          passion: null as null | string,
-                          page: entry.page,
-                          mad: false,
-                        })),
-                      ...earthdawnPassions
-                        .filter(
-                          ([name, , , summary]) =>
-                            !disciplineSearch.trim() ||
-                            `${name} ${summary}`
-                              .toLocaleLowerCase()
-                              .includes(
-                                disciplineSearch.trim().toLocaleLowerCase(),
-                              ),
-                        )
-                        .map(([name, page, mad, summary]) => ({
-                          id: `questor:${name}`,
-                          type: 'Questor',
-                          name,
-                          summary,
-                          attributes: 'Passion',
-                          access: 'Devotions',
-                          source: 'Questors',
-                          discipline: null,
-                          passion: name as string | null,
-                          page,
-                          mad,
-                        })),
+                      ...(disciplinePickerKind === 'discipline'
+                        ? earthdawnDisciplines
+                            .filter((entry) => {
+                              const query = disciplineSearch
+                                .trim()
+                                .toLocaleLowerCase();
+                              return (
+                                !query ||
+                                `${entry.name} ${entry.summary} ${entry.mechanics} ${Object.values(entry.talentOptions).flat().join(' ')}`
+                                  .toLocaleLowerCase()
+                                  .includes(query)
+                              );
+                            })
+                            .map((entry) => ({
+                              id: `discipline:${entry.id}`,
+                              type: 'Discipline',
+                              name: entry.name,
+                              summary: entry.summary,
+                              attributes: entry.importantAttributes.join(', '),
+                              access: entry.spellcaster
+                                ? 'Spellcaster'
+                                : 'Non-magician',
+                              source: entry.source,
+                              discipline: entry,
+                              passion: null as null | string,
+                              page: entry.page,
+                              mad: false,
+                            }))
+                        : []),
+                      ...(disciplinePickerKind === 'questor'
+                        ? earthdawnPassions
+                            .filter(
+                              ([name, , , summary]) =>
+                                !disciplineSearch.trim() ||
+                                `${name} ${summary}`
+                                  .toLocaleLowerCase()
+                                  .includes(
+                                    disciplineSearch.trim().toLocaleLowerCase(),
+                                  ),
+                            )
+                            .map(([name, page, mad, summary]) => ({
+                              id: `questor:${name}`,
+                              type: 'Questor',
+                              name,
+                              summary,
+                              attributes: 'Passion',
+                              access: 'Devotions',
+                              source: 'Questors',
+                              discipline: null,
+                              passion: name as string | null,
+                              page,
+                              mad,
+                            }))
+                        : []),
                     ]}
                     columns={[
                       {
@@ -9527,18 +10032,12 @@ export function Earthdawn4eEditor({
                           </button>
                         );
                       }
-                      const selected = draft.questorPaths.some(
-                        ({ patronName }) => patronName === row.passion,
-                      );
+                      const selected = questorPatronName === row.passion;
                       return (
                         <button
                           type="button"
                           className="primary-button compact-inline-button"
-                          disabled={
-                            selected ||
-                            (row.mad && !gmOverride) ||
-                            (draft.questorPaths.length > 0 && !gmOverride)
-                          }
+                          disabled={selected || (row.mad && !gmOverride)}
                           onClick={() => addQuestorPath(row.passion!)}
                         >
                           {selected ? 'Selected' : '+'}
@@ -9549,186 +10048,200 @@ export function Earthdawn4eEditor({
                   />
                 ) : (
                   <div className="catalog-results">
-                    {earthdawnDisciplines
-                      .filter((discipline) => {
-                        const query = disciplineSearch
-                          .trim()
-                          .toLocaleLowerCase();
-                        return (
-                          !query ||
-                          `${discipline.name} ${discipline.summary} ${discipline.mechanics} ${discipline.halfMagic ?? ''} ${discipline.karmaRitual ?? ''} ${(discipline.restrictions ?? []).join(' ')} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
-                            .toLocaleLowerCase()
-                            .includes(query)
-                        );
-                      })
-                      .map((discipline) => {
-                        const selected = draft.disciplines.some(
-                          ({ disciplineId }) => disciplineId === discipline.id,
-                        );
-                        return (
-                          <SheetCard
-                            key={discipline.id}
-                            className="catalog-card"
-                          >
-                            <span className="kind-badge">Discipline</span>
-                            <h3>{discipline.name}</h3>
-                            <p>{discipline.summary}</p>
-                            {discipline.freeTalent ? (
-                              <p>
-                                <strong>Free Talent:</strong>{' '}
-                                {discipline.freeTalent}
-                              </p>
-                            ) : null}
-                            {(
-                              [
-                                'novice',
-                                'journeyman',
-                                'warden',
-                                'master',
-                              ] as const
-                            ).map((tier, tierIndex) => {
-                              const start = tierIndex * 4 + 1;
-                              const end = tier === 'master' ? 15 : start + 3;
-                              const circles = discipline.circles.filter(
-                                ({ circle }) =>
-                                  circle >= start && circle <= end,
-                              );
-                              return (
-                                <details key={tier}>
-                                  <summary>
-                                    {tier[0].toUpperCase() + tier.slice(1)} ·
-                                    Circles {start}–{end}
-                                  </summary>
-                                  <div className="earthdawn-progression-list">
-                                    {circles.map((circle) => (
-                                      <div key={circle.circle}>
-                                        <strong>Circle {circle.circle}</strong>
-                                        <span>
-                                          {circle.requiredTalents.join(', ')}
-                                        </span>
-                                        {circle.ability ? (
-                                          <small>{circle.ability}</small>
-                                        ) : null}
-                                        {circle.bonuses.length ? (
-                                          <small>
-                                            {circle.bonuses.join(' · ')}
-                                          </small>
-                                        ) : null}
-                                        <cite>
-                                          {circle.source}
-                                          {circle.page
-                                            ? `, p. ${circle.page}${circle.pageEnd && circle.pageEnd !== circle.page ? `–${circle.pageEnd}` : ''}`
-                                            : ', page unavailable'}
-                                        </cite>
+                    {disciplinePickerKind === 'discipline'
+                      ? earthdawnDisciplines
+                          .filter((discipline) => {
+                            const query = disciplineSearch
+                              .trim()
+                              .toLocaleLowerCase();
+                            return (
+                              !query ||
+                              `${discipline.name} ${discipline.summary} ${discipline.mechanics} ${discipline.halfMagic ?? ''} ${discipline.karmaRitual ?? ''} ${(discipline.restrictions ?? []).join(' ')} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
+                                .toLocaleLowerCase()
+                                .includes(query)
+                            );
+                          })
+                          .map((discipline) => {
+                            const selected = draft.disciplines.some(
+                              ({ disciplineId }) =>
+                                disciplineId === discipline.id,
+                            );
+                            return (
+                              <SheetCard
+                                key={discipline.id}
+                                className="catalog-card"
+                              >
+                                <span className="kind-badge">Discipline</span>
+                                <h3>{discipline.name}</h3>
+                                <p>{discipline.summary}</p>
+                                {discipline.freeTalent ? (
+                                  <p>
+                                    <strong>Free Talent:</strong>{' '}
+                                    {discipline.freeTalent}
+                                  </p>
+                                ) : null}
+                                {(
+                                  [
+                                    'novice',
+                                    'journeyman',
+                                    'warden',
+                                    'master',
+                                  ] as const
+                                ).map((tier, tierIndex) => {
+                                  const start = tierIndex * 4 + 1;
+                                  const end =
+                                    tier === 'master' ? 15 : start + 3;
+                                  const circles = discipline.circles.filter(
+                                    ({ circle }) =>
+                                      circle >= start && circle <= end,
+                                  );
+                                  return (
+                                    <details key={tier}>
+                                      <summary>
+                                        {tier[0].toUpperCase() + tier.slice(1)}{' '}
+                                        · Circles {start}–{end}
+                                      </summary>
+                                      <div className="earthdawn-progression-list">
+                                        {circles.map((circle) => (
+                                          <div key={circle.circle}>
+                                            <strong>
+                                              Circle {circle.circle}
+                                            </strong>
+                                            <span>
+                                              {circle.requiredTalents.join(
+                                                ', ',
+                                              )}
+                                            </span>
+                                            {circle.ability ? (
+                                              <small>{circle.ability}</small>
+                                            ) : null}
+                                            {circle.bonuses.length ? (
+                                              <small>
+                                                {circle.bonuses.join(' · ')}
+                                              </small>
+                                            ) : null}
+                                            <cite>
+                                              {circle.source}
+                                              {circle.page
+                                                ? `, p. ${circle.page}${circle.pageEnd && circle.pageEnd !== circle.page ? `–${circle.pageEnd}` : ''}`
+                                                : ', page unavailable'}
+                                            </cite>
+                                          </div>
+                                        ))}
+                                        <p>
+                                          <strong>Talent options:</strong>{' '}
+                                          {discipline.talentOptions[tier].join(
+                                            ', ',
+                                          ) || 'None listed'}
+                                        </p>
                                       </div>
-                                    ))}
-                                    <p>
-                                      <strong>Talent options:</strong>{' '}
-                                      {discipline.talentOptions[tier].join(
-                                        ', ',
-                                      ) || 'None listed'}
-                                    </p>
-                                  </div>
+                                    </details>
+                                  );
+                                })}
+                                {discipline.halfMagic ||
+                                discipline.karmaRitual ? (
+                                  <details>
+                                    <summary>
+                                      Half-Magic and Karma Ritual
+                                    </summary>
+                                    {discipline.halfMagic ? (
+                                      <p>
+                                        <strong>Half-Magic:</strong>{' '}
+                                        {discipline.halfMagic}
+                                      </p>
+                                    ) : null}
+                                    {discipline.karmaRitual ? (
+                                      <p>
+                                        <strong>Karma Ritual:</strong>{' '}
+                                        {discipline.karmaRitual}
+                                      </p>
+                                    ) : null}
+                                    {(discipline.restrictions ?? []).map(
+                                      (restriction) => (
+                                        <p key={restriction}>{restriction}</p>
+                                      ),
+                                    )}
+                                  </details>
+                                ) : null}
+                                <button
+                                  className="primary-button"
+                                  disabled={selected}
+                                  onClick={() => addDiscipline(discipline)}
+                                >
+                                  {selected ? 'Selected' : 'Add Discipline'}
+                                </button>
+                              </SheetCard>
+                            );
+                          })
+                      : null}
+                    {disciplinePickerKind === 'questor'
+                      ? earthdawnPassions
+                          .filter(([name, , , summary]) => {
+                            const query = disciplineSearch
+                              .trim()
+                              .toLocaleLowerCase();
+                            const devotions = earthdawnCatalog
+                              .filter(
+                                ({ kind, mechanics }) =>
+                                  kind === 'devotion' &&
+                                  mechanics.includes(name),
+                              )
+                              .map(({ name: devotionName }) => devotionName)
+                              .join(' ');
+                            return (
+                              !query ||
+                              `${name} ${summary} ${devotions}`
+                                .toLocaleLowerCase()
+                                .includes(query)
+                            );
+                          })
+                          .map(([name, page, mad, summary]) => {
+                            const selected = questorPatronName === name;
+                            const unavailable = mad && !gmOverride;
+                            return (
+                              <SheetCard key={name} className="catalog-card">
+                                <span className="kind-badge">Questor</span>
+                                <h3>{name}</h3>
+                                <p>{summary}</p>
+                                <details>
+                                  <summary>
+                                    Follower, Adherent, and Exemplar devotions
+                                  </summary>
+                                  <ul>
+                                    {earthdawnCatalog
+                                      .filter(
+                                        ({ kind, mechanics }) =>
+                                          kind === 'devotion' &&
+                                          mechanics.includes(name),
+                                      )
+                                      .map((devotion) => (
+                                        <li key={devotion.id}>
+                                          {devotion.name}
+                                        </li>
+                                      ))}
+                                  </ul>
                                 </details>
-                              );
-                            })}
-                            {discipline.halfMagic || discipline.karmaRitual ? (
-                              <details>
-                                <summary>Half-Magic and Karma Ritual</summary>
-                                {discipline.halfMagic ? (
-                                  <p>
-                                    <strong>Half-Magic:</strong>{' '}
-                                    {discipline.halfMagic}
-                                  </p>
-                                ) : null}
-                                {discipline.karmaRitual ? (
-                                  <p>
-                                    <strong>Karma Ritual:</strong>{' '}
-                                    {discipline.karmaRitual}
-                                  </p>
-                                ) : null}
-                                {(discipline.restrictions ?? []).map(
-                                  (restriction) => (
-                                    <p key={restriction}>{restriction}</p>
-                                  ),
-                                )}
-                              </details>
-                            ) : null}
-                            <button
-                              className="primary-button"
-                              disabled={selected}
-                              onClick={() => addDiscipline(discipline)}
-                            >
-                              {selected ? 'Selected' : 'Add Discipline'}
-                            </button>
-                          </SheetCard>
-                        );
-                      })}
-                    {earthdawnPassions
-                      .filter(([name, , , summary]) => {
-                        const query = disciplineSearch
-                          .trim()
-                          .toLocaleLowerCase();
-                        const devotions = earthdawnCatalog
-                          .filter(
-                            ({ kind, mechanics }) =>
-                              kind === 'devotion' && mechanics.includes(name),
-                          )
-                          .map(({ name: devotionName }) => devotionName)
-                          .join(' ');
-                        return (
-                          !query ||
-                          `${name} ${summary} ${devotions}`
-                            .toLocaleLowerCase()
-                            .includes(query)
-                        );
-                      })
-                      .map(([name, page, mad, summary]) => {
-                        const selected = draft.questorPaths.some(
-                          ({ patronName }) => patronName === name,
-                        );
-                        const unavailable = mad && !gmOverride;
-                        return (
-                          <SheetCard key={name} className="catalog-card">
-                            <span className="kind-badge">Questor</span>
-                            <h3>{name}</h3>
-                            <p>{summary}</p>
-                            <details>
-                              <summary>
-                                Follower, Adherent, and Exemplar devotions
-                              </summary>
-                              <ul>
-                                {earthdawnCatalog
-                                  .filter(
-                                    ({ kind, mechanics }) =>
-                                      kind === 'devotion' &&
-                                      mechanics.includes(name),
-                                  )
-                                  .map((devotion) => (
-                                    <li key={devotion.id}>{devotion.name}</li>
-                                  ))}
-                              </ul>
-                            </details>
-                            <small>
-                              Questors, p. {page}
-                              {mad
-                                ? ' · Mad Passion; GM Override required'
-                                : ''}
-                            </small>
-                            <button
-                              className="primary-button"
-                              disabled={
-                                selected ||
-                                unavailable ||
-                                (draft.questorPaths.length > 0 && !gmOverride)
-                              }
-                              onClick={() => addQuestorPath(name)}
-                            >
-                              {selected ? 'Selected' : 'Add Questor path'}
-                            </button>
-                          </SheetCard>
-                        );
-                      })}
+                                <small>
+                                  Questors, p. {page}
+                                  {mad
+                                    ? ' · Mad Passion; GM Override required'
+                                    : ''}
+                                </small>
+                                <button
+                                  className="primary-button"
+                                  disabled={selected || unavailable}
+                                  onClick={() => addQuestorPath(name)}
+                                >
+                                  {selected
+                                    ? 'Selected'
+                                    : hasActiveQuestor
+                                      ? 'Change to this Passion'
+                                      : 'Select Passion'}
+                                </button>
+                              </SheetCard>
+                            );
+                          })
+                      : null}
                   </div>
                 )}
               </div>

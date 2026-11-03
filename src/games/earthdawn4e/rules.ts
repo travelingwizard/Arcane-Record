@@ -876,6 +876,63 @@ export function questorTier(
   return 'exemplar';
 }
 
+export function questorDevotionDie(rank: number) {
+  if (rank < 1) return '—';
+  if (rank <= 4) return 'Step 3 (d4)';
+  if (rank <= 8) return 'Step 4 (d6)';
+  return 'Step 5 (d8)';
+}
+
+export function questorMaximumDevotionPoints(rank: number) {
+  return Math.max(0, Math.min(12, Math.trunc(rank))) * 10;
+}
+
+export function activeQuestorPath(character: Earthdawn4eCharacter) {
+  return character.questorPaths.find(({ active }) => active !== false) ?? null;
+}
+
+export function questorDevotionSlots(character: Earthdawn4eCharacter) {
+  const path = activeQuestorPath(character);
+  const patronId = path?.patronId ?? character.questor.patronId;
+  const rank = path?.rank ?? character.questor.rank;
+  const used = character.abilities.filter(
+    (ability) =>
+      ability.kind === 'questor' &&
+      (!ability.questorPatronId || ability.questorPatronId === patronId),
+  ).length;
+  return {
+    maximum: Math.max(0, rank),
+    used,
+    available: Math.max(0, rank - used),
+  };
+}
+
+export function devotionAdvancedToday(
+  character: Earthdawn4eCharacter,
+  now = new Date(),
+) {
+  const today = now.toISOString().slice(0, 10);
+  const devotionIds = new Set(
+    character.abilities
+      .filter(({ kind }) => kind === 'questor')
+      .map(({ id }) => id),
+  );
+  const reversed = new Set(
+    character.advancement.ledger
+      .map(({ reversesId }) => reversesId)
+      .filter((id): id is string => Boolean(id)),
+  );
+  return character.advancement.ledger.some(
+    ({ id, type, targetId, createdAt, reversesId, voidedAt }) =>
+      type === 'questor' &&
+      Boolean(targetId && devotionIds.has(targetId)) &&
+      createdAt.slice(0, 10) === today &&
+      !reversesId &&
+      !voidedAt &&
+      !reversed.has(id),
+  );
+}
+
 export function legendTotals(ledger: readonly LedgerEntry[]) {
   const active = ledger.filter((entry) => !entry.voidedAt);
   return {
@@ -1340,7 +1397,8 @@ export function pathEligibility(
     blockers.push(`Requires ${path.race}.`);
   if (
     path.questorProhibited &&
-    (character.questorPaths.length > 0 || character.questor.rank > 0)
+    (character.questorPaths.some(({ active }) => active !== false) ||
+      character.questor.rank > 0)
   )
     blockers.push('Questors cannot initiate or advance on this Path.');
   for (const requirement of path.requirements) {
