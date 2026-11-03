@@ -521,6 +521,7 @@ test('browses every supported Mystic Path without treating Boatman as a Path', a
   const dialog = page.getByRole('dialog', { name: 'Browse Mystic Paths' });
   await expect(dialog).toBeVisible();
   for (const name of [
+    'Brother of Stone',
     'Outcast Path',
     'Windmaster Path',
     'Tail Dancer Path',
@@ -544,6 +545,9 @@ test('browses every supported Mystic Path without treating Boatman as a Path', a
     .click();
   await expect(
     dialog.getByRole('button', { name: 'Resize Name column' }),
+  ).toBeVisible();
+  await expect(
+    dialog.getByRole('button', { name: 'Resize Half-Magic column' }),
   ).toBeVisible();
   await dialog
     .getByRole('button', { name: 'Show Mystic Paths as cards' })
@@ -577,8 +581,14 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
   });
   await expect(dialog).toBeVisible();
   const search = dialog.getByLabel(
-    'Search Disciplines, talents, and abilities',
+    'Search Disciplines, talents, abilities, and Half-Magic',
   );
+  await search.fill('merchant caravans');
+  await expect(dialog.getByRole('heading', { name: 'Marauder' })).toBeVisible();
+  await dialog.getByText('Half-Magic and Karma Ritual').click();
+  await expect(
+    dialog.getByText(/farmsteads and rural settlements/i),
+  ).toBeVisible();
   await search.fill('Pattern Manifestation');
   await expect(dialog.getByRole('heading', { name: 'Gauntlet' })).toBeVisible();
   await dialog.getByText('Novice · Circles 1–4').click();
@@ -592,6 +602,9 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
       name: 'Show Disciplines as a list',
     })
     .click();
+  await expect(
+    dialog.getByRole('columnheader', { name: 'Half-Magic' }),
+  ).toBeVisible();
   await expect(
     dialog.getByRole('button', { name: 'Resize Name column' }),
   ).toBeVisible();
@@ -611,10 +624,122 @@ test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
   await openEarthdawnCreator(page);
   await page.getByRole('button', { name: 'Next' }).click();
   await expect(page.getByRole('button', { name: /Gauntlet/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Marauder/ })).toBeVisible();
   await page.getByRole('button', { name: /Shaman/ }).click();
   await applyCreatorChange(page, 'Review Discipline change');
   await expect(page.getByText('Thread Weaving (Shamanism)')).toBeVisible();
+  await page.getByText('Half-Magic, Karma Ritual, and restrictions').click();
+  await expect(page.getByText(/Recognize animals, tracks/i)).toBeVisible();
   await expect(page.getByText('Alter Tracks')).toBeVisible();
+});
+
+test('shows selected Half-Magic and aligns Discipline and Questor actions', async ({
+  page,
+}) => {
+  const data = createBlankEarthdawn4eCharacter({
+    status: 'finalized',
+    mode: 'edit',
+  });
+  const marauder = earthdawnDisciplines.find(
+    ({ id }) => id === 'ed4.discipline.marauder',
+  )!;
+  data.identity.raceName = 'Obsidiman';
+  data.disciplines = [
+    {
+      id: '34343434-3434-4434-8434-343434343434',
+      definitionId: marauder.id,
+      sourceId: marauder.sourceId,
+      sourceIds: marauder.sourceIds,
+      source: marauder.source,
+      page: marauder.page,
+      pageEnd: marauder.pageEnd,
+      unresolved: false,
+      disciplineId: marauder.id,
+      name: marauder.name,
+      circle: 5,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      freeTalentChoice: null,
+    },
+  ];
+  data.mysticPaths = [
+    {
+      id: '56565656-5656-4565-8565-565656565656',
+      definitionId: 'brother-of-stone',
+      name: 'Brother of Stone',
+      rank: 5,
+      active: false,
+      suspendedReason: 'Playtest suspension',
+      initiationEntryId: null,
+      bloodMagicDamage: 2,
+      sourceId: 'ed4.mystic-paths',
+      source: 'The Adept’s Journey: Mystic Paths, p. 11–22',
+      page: 11,
+      pageEnd: 22,
+      unresolved: false,
+      overrideReason: '',
+      optionTalentIds: [],
+    },
+  ];
+  await seedEarthdawnCharacter(
+    page,
+    '45454545-4545-4454-8454-454545454545',
+    'Half Magic Reference',
+    data,
+  );
+
+  const talents = page.locator('#ed4-talents');
+  const halfMagic = talents.locator('.earthdawn-half-magic-reference');
+  await expect(halfMagic).toBeVisible();
+  await halfMagic.locator('summary').click();
+  await expect(halfMagic.getByText(/merchant caravans/i)).toBeVisible();
+  await expect(
+    halfMagic.getByText(/Brother of Stone Path · Suspended/),
+  ).toBeVisible();
+  await expect(
+    halfMagic.getByText(/inactive while the Path is suspended/i),
+  ).toBeVisible();
+
+  const identity = page.locator('#ed4-identity');
+  const expectAlignedActions = async () => {
+    const [race, discipline, questor, paths] = await Promise.all([
+      identity.getByRole('button', { name: 'Add Race' }).boundingBox(),
+      identity.getByRole('button', { name: 'Add Discipline' }).boundingBox(),
+      identity.getByRole('button', { name: 'Add Questor' }).boundingBox(),
+      identity
+        .getByRole('button', { name: 'Browse Mystic Paths' })
+        .boundingBox(),
+    ]);
+    expect(race).not.toBeNull();
+    expect(discipline).not.toBeNull();
+    expect(questor).not.toBeNull();
+    expect(paths).not.toBeNull();
+    expect(Math.abs(discipline!.x - race!.x)).toBeLessThanOrEqual(1);
+    expect(
+      Math.abs(questor!.x + questor!.width - (race!.x + race!.width)),
+    ).toBeLessThanOrEqual(1);
+    expect(questor!.x - (discipline!.x + discipline!.width)).toBeGreaterThan(0);
+    expect(Math.abs(discipline!.width - questor!.width)).toBeLessThanOrEqual(1);
+    expect(Math.abs(paths!.width - race!.width)).toBeLessThanOrEqual(1);
+  };
+  await expectAlignedActions();
+  await page.setViewportSize({ width: 320, height: 800 });
+  await expectAlignedActions();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+
+  await page.getByRole('button', { name: 'Compendium' }).click();
+  const compendium = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await compendium
+    .getByLabel('Search catalog')
+    .fill('detect earth elemental spirits within 30 yards');
+  await expect(
+    compendium.getByRole('heading', { name: 'Brother of Stone' }),
+  ).toBeVisible();
 });
 
 test('opens isolated, ordered Basic Rules and Character Creation references', async ({
@@ -1060,6 +1185,8 @@ test('playtests Warrior, Wizard, non-Adept Questor, and Windmaster creation thro
   for (let index = 0; index < 4; index += 1)
     await page.getByRole('button', { name: 'Previous' }).click();
   await page.getByRole('button', { name: /Windmaster/ }).click();
+  await page.getByText('Windmaster Path progression').click();
+  await expect(page.getByText(/martial and aerial knowledge/i)).toBeVisible();
   for (let index = 0; index < 5; index += 1)
     await page.getByRole('button', { name: 'Next' }).click();
   await page.getByLabel('name').fill('Windmaster Playtest');

@@ -38,6 +38,8 @@ export type EarthdawnPathProfile = {
   halfMagic: string;
   karmaRitual: string;
   restrictions: readonly string[];
+  features?: readonly string[];
+  additionalCitations?: readonly string[];
   advancement: string;
   sourceId: string;
   page: number | null;
@@ -77,6 +79,89 @@ const imported = (
 });
 
 export const earthdawnPathProfiles: readonly EarthdawnPathProfile[] = [
+  imported({
+    id: 'brother-of-stone',
+    name: 'Brother of Stone',
+    summary:
+      'An ancient obsidiman brotherhood devoted to all Liferocks, elemental Earth, and the protection of the land from corruption and exploitation.',
+    initiationCost: 500,
+    minimumCircle: 5,
+    maximumRank: 10,
+    talentCostTier: 'master',
+    race: 'Obsidiman',
+    requirements: [
+      { kind: 'language', name: 'Speak Obsidiman', rank: 5 },
+      { kind: 'language', name: 'Read and Write Obsidiman', rank: 5 },
+      { kind: 'skill', name: 'Obsidiman Lore', rank: 5 },
+      manual(
+        'Present yourself before at least three Rank 5 Brothers of Stone and complete their philosophical questioning and Path Ordeal.',
+      ),
+    ],
+    questorProhibited: false,
+    incompatiblePathIds: [],
+    ordeal:
+      'A gathering of at least three Rank 5 Brothers conducts rigorous philosophical questioning before assigning a Path Ordeal.',
+    bloodMagicDamage: 2,
+    rankBonuses: [
+      b(2, 'mysticDefense', 1, '+1 Mystic Defense'),
+      b(4, 'physicalDefense', 1, '+1 Physical Defense'),
+      b(7, 'mysticDefense', 2, '+2 Mystic Defense'),
+      b(8, 'recovery', 1, '+1 Recovery Test per day'),
+      b(9, 'physicalDefense', 2, '+2 Physical Defense'),
+      b(10, 'recovery', 2, '+2 Recovery Tests per day'),
+    ],
+    optionTiers: [
+      o(1, 'journeyman', [
+        'Astral Sight',
+        'Danger Sense',
+        'Deliberate Assault',
+        'Earth Bond',
+        'Item History',
+        'Navigation',
+        'Steel Thought',
+        'True Sight',
+        'Wilderness Survival',
+        'Wound Balance',
+      ]),
+      o(5, 'warden', [
+        'Earth Skin',
+        'Earth Speak',
+        'Earth Walk',
+        'Iron Constitution',
+        'Resist Taunt',
+        'Temper Self',
+      ]),
+      o(9, 'master', [
+        'Relentless Recovery',
+        'Resist Pain',
+        'Unflinching Fortitude',
+        'Wisdom of Ages',
+      ]),
+    ],
+    halfMagic:
+      'Locate other Brothers of Stone, recall the brotherhood’s history, and use a Perception-based Half-Magic test against Mystic Defense to detect earth elemental spirits within 30 yards.',
+    karmaRitual:
+      'Perform the adept’s Karma Ritual with bare skin in direct contact with earth or stone while connecting the ritual to the brotherhood.',
+    restrictions: [
+      'The Path is restricted to obsidimen.',
+      'Brother of Stone Rank adds to Interaction tests made to impress or request favors from other Brothers of Stone.',
+    ],
+    features: [
+      'Karma knacks: Stability of Stone, Earth Cloak, Earth Sense, Resilience of Stone, Earth Brother, Force of Stone, Earth Elemental Affinity, and Stone Flesh.',
+      'Thread Weaving maneuvers: Falling Rocks and Stone Strike.',
+      'Patterncraft spell access: Resist Earth, Uneven Ground, Earth Surfing, and Earth Wall.',
+      'Earth Bond and Earth Walk knacks include Earth Slumber, Earth Mending, Earth Awareness, and Stone Walk.',
+      'Wisdom of Ages permits communion with the adept’s home Liferock.',
+    ],
+    additionalCitations: [
+      'The Adept’s Journey: Mystic Paths, p. 68',
+      'The Adept’s Journey: Mystic Paths, p. 208',
+    ],
+    advancement:
+      'Advance the Brother of Stone Path talent at Master-tier costs to a maximum of Rank 10. Path Talent Options unlock at Ranks 1, 5, and 9.',
+    page: 11,
+    pageEnd: 22,
+  }),
   imported({
     id: 'outcast',
     name: 'Outcast Path',

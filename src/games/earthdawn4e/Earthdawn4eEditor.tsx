@@ -492,6 +492,12 @@ const catalogTableColumns = (
             ? 'Magician'
             : 'None',
       },
+      {
+        key: 'halfMagic',
+        label: 'Half-Magic',
+        value: (definition) =>
+          definition.halfMagic ?? 'Half-Magic details unavailable.',
+      },
       summary,
       source,
     ];
@@ -641,7 +647,24 @@ const catalogTableColumns = (
       },
       source,
     ];
-  if (kind === 'path' || kind === 'devotion' || kind === 'ability')
+  if (kind === 'path')
+    return [
+      name,
+      {
+        key: 'requirements',
+        label: 'Requirements',
+        value: (definition) => definition.requirements.join(' · '),
+      },
+      {
+        key: 'halfMagic',
+        label: 'Half-Magic',
+        value: (definition) =>
+          definition.halfMagic ?? 'Half-Magic details unavailable.',
+      },
+      summary,
+      source,
+    ];
+  if (kind === 'devotion' || kind === 'ability')
     return [
       name,
       {
@@ -712,6 +735,11 @@ const catalogTableColumns = (
       value: (definition) => definition.kind.replace('-', ' '),
     },
     summary,
+    {
+      key: 'halfMagic',
+      label: 'Half-Magic',
+      value: (definition) => definition.halfMagic ?? '',
+    },
     source,
   ];
 };
@@ -1205,6 +1233,16 @@ export function Earthdawn4eEditor({
   const hasActiveQuestor = Boolean(questorPatronName);
   const questorPointMaximum = questorMaximumDevotionPoints(questorRank);
   const devotionSlots = questorDevotionSlots(draft);
+  const halfMagicDisciplines = draft.disciplines.map((record) => ({
+    record,
+    definition: earthdawnDisciplines.find(
+      ({ id }) => id === record.disciplineId,
+    ),
+  }));
+  const halfMagicPaths = draft.mysticPaths.map((record) => ({
+    record,
+    profile: earthdawnPathById.get(record.definitionId),
+  }));
   const gmOverride = !draft.creation.enforceRules;
   const racialKarmaModifier =
     earthdawnRaces.find(({ id }) => id === draft.identity.raceId)
@@ -3219,7 +3257,7 @@ export function Earthdawn4eEditor({
                 isAddableReferenceSource(definition.sourceId));
       const query = catalogSearch.trim().toLocaleLowerCase();
       const searchMatches =
-        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.mechanics} ${definition.source} ${(definition.sourceIds ?? []).map((sourceId) => earthdawnSources.find(({ id }) => id === sourceId)?.title ?? sourceId).join(' ')} ${definition.page ?? ''} ${definition.pageEnd ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.mechanics} ${definition.halfMagic ?? ''} ${(definition.artisanSkills ?? []).join(' ')} ${(definition.referenceFeatures ?? []).join(' ')} ${(definition.citations ?? []).join(' ')} ${definition.source} ${(definition.sourceIds ?? []).map((sourceId) => earthdawnSources.find(({ id }) => id === sourceId)?.title ?? sourceId).join(' ')} ${definition.page ?? ''} ${definition.pageEnd ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
           .replace(/not in source/gi, '')
           .toLocaleLowerCase()
           .includes(query);
@@ -3354,7 +3392,7 @@ export function Earthdawn4eEditor({
     });
   const disciplineQuestorContent = (
     <>
-      <SheetToolbar>
+      <SheetToolbar className="earthdawn-discipline-questor-actions">
         <button
           type="button"
           className="primary-button"
@@ -4349,13 +4387,15 @@ export function Earthdawn4eEditor({
                       </div>
                       <div className="earthdawn-identity-paths">
                         <h3>Mystic Paths</h3>
-                        <button
-                          type="button"
-                          className="primary-button"
-                          onClick={() => setPathPickerOpen(true)}
-                        >
-                          Browse Mystic Paths
-                        </button>
+                        <div className="sheet-toolbar earthdawn-identity-full-action">
+                          <button
+                            type="button"
+                            className="primary-button"
+                            onClick={() => setPathPickerOpen(true)}
+                          >
+                            Browse Mystic Paths
+                          </button>
+                        </div>
                         {draft.mysticPaths.length ? (
                           <div className="earthdawn-progression-list">
                             {draft.mysticPaths.map((record) => {
@@ -5248,6 +5288,71 @@ export function Earthdawn4eEditor({
                 'talents',
                 'Talents',
                 <>
+                  {halfMagicDisciplines.length || halfMagicPaths.length ? (
+                    <details className="sheet-card sheet-card--compact earthdawn-half-magic-reference">
+                      <summary>Half-Magic</summary>
+                      <p>
+                        For a Half-Magic test, the gamemaster chooses the most
+                        appropriate Attribute. The test Step equals the
+                        character’s Discipline Circle plus that Attribute Step.
+                        Every adept may also use Half-Magic to recall the lives,
+                        deeds, and history of legendary heroes and past adepts
+                        of their own Discipline.
+                      </p>
+                      <p>
+                        Half-Magic supplies vocational knowledge, evaluation,
+                        maintenance, and background lore. Artisan skills remain
+                        the hands-on expression or creation of a work; the two
+                        may support one another when the gamemaster permits.
+                      </p>
+                      <div className="earthdawn-progression-list">
+                        {halfMagicDisciplines.map(({ record, definition }) => (
+                          <div key={record.id}>
+                            <strong>
+                              {record.name} · Circle {record.circle}
+                            </strong>
+                            <p>
+                              {definition?.halfMagic ??
+                                'Half-Magic details are unavailable for this custom or unresolved Discipline.'}
+                            </p>
+                            {definition?.artisanSkills?.length ? (
+                              <small>
+                                Suggested Artisan skills:{' '}
+                                {definition.artisanSkills.join(', ')}
+                              </small>
+                            ) : null}
+                            {definition ? (
+                              <cite>
+                                {definition.source}
+                                {definition.page
+                                  ? `, p. ${definition.page}${definition.pageEnd && definition.pageEnd !== definition.page ? `–${definition.pageEnd}` : ''}`
+                                  : ', page unavailable'}
+                              </cite>
+                            ) : null}
+                          </div>
+                        ))}
+                        {halfMagicPaths.map(({ record, profile }) => (
+                          <div key={record.id}>
+                            <strong>
+                              {record.name} Path
+                              {!record.active ? ' · Suspended' : ''}
+                            </strong>
+                            <p>
+                              {profile?.halfMagic ??
+                                'Half-Magic details are unavailable for this unresolved Path.'}
+                            </p>
+                            {!record.active ? (
+                              <small>
+                                This expansion is inactive while the Path is
+                                suspended.
+                              </small>
+                            ) : null}
+                            {profile ? <cite>{profile.citation}</cite> : null}
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  ) : null}
                   {!playMode ? (
                     <SheetNotice tone="info">
                       <label className="appearance-switch">
@@ -9713,6 +9818,13 @@ export function Earthdawn4eEditor({
                       sortValue: (path) => path.summary,
                     },
                     {
+                      id: 'halfMagic',
+                      label: 'Half-Magic',
+                      width: 320,
+                      render: (path) => path.halfMagic,
+                      sortValue: (path) => path.halfMagic,
+                    },
+                    {
                       id: 'source',
                       label: 'Source',
                       width: 190,
@@ -9743,7 +9855,13 @@ export function Earthdawn4eEditor({
                     <div>
                       <p>{path.summary}</p>
                       <p>{path.ordeal}</p>
+                      <p>
+                        <strong>Half-Magic:</strong> {path.halfMagic}
+                      </p>
                       <p>{path.advancement}</p>
+                      {(path.features ?? []).map((feature) => (
+                        <p key={feature}>{feature}</p>
+                      ))}
                     </div>
                   )}
                 />
@@ -9810,8 +9928,14 @@ export function Earthdawn4eEditor({
                           <p>{path.halfMagic}</p>
                           <p>{path.karmaRitual}</p>
                           <p>{path.advancement}</p>
+                          {(path.features ?? []).map((feature) => (
+                            <p key={feature}>{feature}</p>
+                          ))}
                         </details>
                         <cite>{path.citation}</cite>
+                        {(path.additionalCitations ?? []).map((citation) => (
+                          <cite key={citation}>{citation}</cite>
+                        ))}
                         <button
                           className="primary-button"
                           disabled={
@@ -9875,7 +9999,7 @@ export function Earthdawn4eEditor({
                 <SheetField
                   label={
                     disciplinePickerKind === 'discipline'
-                      ? 'Search Disciplines, talents, and abilities'
+                      ? 'Search Disciplines, talents, abilities, and Half-Magic'
                       : 'Search Passions, philosophies, and devotions'
                   }
                 >
@@ -9920,7 +10044,7 @@ export function Earthdawn4eEditor({
                                 .toLocaleLowerCase();
                               return (
                                 !query ||
-                                `${entry.name} ${entry.summary} ${entry.mechanics} ${Object.values(entry.talentOptions).flat().join(' ')}`
+                                `${entry.name} ${entry.summary} ${entry.mechanics} ${entry.halfMagic ?? ''} ${(entry.artisanSkills ?? []).join(' ')} ${Object.values(entry.talentOptions).flat().join(' ')}`
                                   .toLocaleLowerCase()
                                   .includes(query)
                               );
@@ -9934,6 +10058,7 @@ export function Earthdawn4eEditor({
                               access: entry.spellcaster
                                 ? 'Spellcaster'
                                 : 'Non-magician',
+                              halfMagic: entry.halfMagic ?? '',
                               source: entry.source,
                               discipline: entry,
                               passion: null as null | string,
@@ -9959,6 +10084,7 @@ export function Earthdawn4eEditor({
                               summary,
                               attributes: 'Passion',
                               access: 'Devotions',
+                              halfMagic: '',
                               source: 'Questors',
                               discipline: null,
                               passion: name as string | null,
@@ -10006,6 +10132,19 @@ export function Earthdawn4eEditor({
                             : row.summary,
                         sortValue: (row) => row.summary,
                       },
+                      ...(disciplinePickerKind === 'discipline'
+                        ? [
+                            {
+                              id: 'halfMagic',
+                              label: 'Half-Magic',
+                              width: 320,
+                              render: (row: { halfMagic: string }) =>
+                                row.halfMagic,
+                              sortValue: (row: { halfMagic: string }) =>
+                                row.halfMagic,
+                            },
+                          ]
+                        : []),
                       {
                         id: 'source',
                         label: 'Source',
@@ -10044,7 +10183,26 @@ export function Earthdawn4eEditor({
                         </button>
                       );
                     }}
-                    details={(row) => <p>{row.summary}</p>}
+                    details={(row) => (
+                      <div>
+                        <p>{row.summary}</p>
+                        {row.discipline ? (
+                          <>
+                            <p>
+                              <strong>Half-Magic:</strong>{' '}
+                              {row.discipline.halfMagic ??
+                                'Details unavailable.'}
+                            </p>
+                            {row.discipline.artisanSkills?.length ? (
+                              <p>
+                                <strong>Suggested Artisan skills:</strong>{' '}
+                                {row.discipline.artisanSkills.join(', ')}
+                              </p>
+                            ) : null}
+                          </>
+                        ) : null}
+                      </div>
+                    )}
                   />
                 ) : (
                   <div className="catalog-results">
@@ -10148,6 +10306,14 @@ export function Earthdawn4eEditor({
                                       <p>
                                         <strong>Half-Magic:</strong>{' '}
                                         {discipline.halfMagic}
+                                      </p>
+                                    ) : null}
+                                    {discipline.artisanSkills?.length ? (
+                                      <p>
+                                        <strong>
+                                          Suggested Artisan skills:
+                                        </strong>{' '}
+                                        {discipline.artisanSkills.join(', ')}
                                       </p>
                                     ) : null}
                                     {discipline.karmaRitual ? (
@@ -11228,6 +11394,24 @@ export function Earthdawn4eEditor({
                               </SheetField>
                             </details>
                           </>
+                        ) : null}
+                        {d.halfMagic ? (
+                          <details>
+                            <summary>Half-Magic</summary>
+                            <p>{d.halfMagic}</p>
+                            {d.artisanSkills?.length ? (
+                              <p>
+                                <strong>Suggested Artisan skills:</strong>{' '}
+                                {d.artisanSkills.join(', ')}
+                              </p>
+                            ) : null}
+                            {(d.referenceFeatures ?? []).map((feature) => (
+                              <p key={feature}>{feature}</p>
+                            ))}
+                            {(d.citations ?? []).slice(1).map((citation) => (
+                              <cite key={citation}>{citation}</cite>
+                            ))}
+                          </details>
                         ) : null}
                         {d.talentMetadata ? (
                           <>

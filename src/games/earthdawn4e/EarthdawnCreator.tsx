@@ -1101,6 +1101,12 @@ export function EarthdawnCreator({
                   <strong>Half-Magic:</strong> {discipline.halfMagic}
                 </p>
               ) : null}
+              {discipline.artisanSkills?.length ? (
+                <p>
+                  <strong>Suggested Artisan skills:</strong>{' '}
+                  {discipline.artisanSkills.join(', ')}
+                </p>
+              ) : null}
               {discipline.karmaRitual ? (
                 <p>
                   <strong>Karma Ritual:</strong> {discipline.karmaRitual}
@@ -1315,6 +1321,9 @@ export function EarthdawnCreator({
             <details className="sheet-card sheet-card--compact">
               <summary>{selectedPath.name} progression</summary>
               <p>{selectedPath.ordeal}</p>
+              <p>
+                <strong>Half-Magic:</strong> {selectedPath.halfMagic}
+              </p>
               <p>
                 Rank bonuses:{' '}
                 {selectedPath.rankBonuses

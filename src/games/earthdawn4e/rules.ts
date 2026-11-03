@@ -1140,9 +1140,11 @@ export function disciplineProgressionEffects(character: Earthdawn4eCharacter) {
 }
 
 export function equivalentDisciplineNames(name: string) {
-  return name === 'Boatman' || name === 'Air Sailor' || name === 'Sailor'
-    ? (['Boatman', 'Air Sailor', 'Sailor'] as const)
-    : ([name] as const);
+  if (name === 'Boatman' || name === 'Air Sailor' || name === 'Sailor')
+    return ['Boatman', 'Air Sailor', 'Sailor'] as const;
+  if (name === 'Marauder' || name === 'Sky Raider')
+    return ['Marauder', 'Sky Raider'] as const;
+  return [name] as const;
 }
 
 const noviceSkillCosts = [

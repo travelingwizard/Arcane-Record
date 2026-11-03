@@ -554,6 +554,7 @@ describe('Earthdawn Fourth Edition module', () => {
       'Boatman',
     ]);
     expect(earthdawnPathProfiles.map(({ id }) => id)).toEqual([
+      'brother-of-stone',
       'outcast',
       'windmaster',
       'tail-dancer',
@@ -701,6 +702,127 @@ describe('Earthdawn Fourth Edition module', () => {
       ),
     ).toEqual(new Set(Array.from({ length: 15 }, (_, index) => index + 1)));
   });
+  it('defines Half-Magic, Marauder, and Brother of Stone progression', () => {
+    expect(earthdawnDisciplines).toHaveLength(20);
+    expect(
+      earthdawnDisciplines.every(({ halfMagic }) => halfMagic?.trim()),
+    ).toBe(true);
+    expect(earthdawnPathProfiles).toHaveLength(12);
+    expect(
+      earthdawnPathProfiles.every(({ halfMagic }) => halfMagic.trim()),
+    ).toBe(true);
+
+    const marauder = earthdawnDisciplines.find(
+      ({ id }) => id === 'ed4.discipline.marauder',
+    )!;
+    expect(marauder).toMatchObject({
+      name: 'Marauder',
+      sourceId: 'ed4.vasgothia',
+      page: 183,
+      pageEnd: 185,
+      durability: 7,
+      spellcaster: false,
+      importantAttributes: ['charisma', 'dexterity', 'strength'],
+      artisanSkills: ['Body Painting', 'Tattooing', 'Wood Carving'],
+    });
+    expect(marauder.circles).toHaveLength(15);
+    expect(marauder.circles[0]?.requiredTalents).toContain(
+      'Wilderness Survival',
+    );
+    expect(marauder.circles[8]?.ability).toContain('Strength of the Sky');
+    expect(marauder.circles[11]?.bonuses).toEqual([
+      '+4 Physical Defense',
+      '+2 Recovery Tests per day',
+    ]);
+    expect(equivalentDisciplineNames('Marauder')).toEqual([
+      'Marauder',
+      'Sky Raider',
+    ]);
+    expect(
+      earthdawnCatalog.some(
+        ({ kind, name }) => kind === 'path' && name === 'Marauder',
+      ),
+    ).toBe(false);
+
+    const brother = earthdawnPathProfiles.find(
+      ({ id }) => id === 'brother-of-stone',
+    )!;
+    expect(brother).toMatchObject({
+      initiationCost: 500,
+      minimumCircle: 5,
+      maximumRank: 10,
+      talentCostTier: 'master',
+      race: 'Obsidiman',
+      bloodMagicDamage: 2,
+      page: 11,
+      pageEnd: 22,
+    });
+    expect(brother.optionTiers[1]?.talents).toContain('Temper Self');
+    expect(
+      earthdawnCatalog.find(({ name }) => name === 'Temper Self'),
+    ).toMatchObject({ verification: 'reference-only', page: null });
+
+    const character = createBlankEarthdawn4eCharacter({ status: 'manual' });
+    character.identity.raceName = 'Obsidiman';
+    character.disciplines.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: false,
+      disciplineId: null,
+      name: 'Warrior',
+      circle: 5,
+      startedAtCircle: 1,
+      questor: false,
+      custom: true,
+    });
+    for (const [name, category] of [
+      ['Speak Obsidiman', 'language'],
+      ['Read and Write Obsidiman', 'language'],
+      ['Obsidiman Lore', 'knowledge'],
+    ] as const)
+      character.skills.push({
+        id: crypto.randomUUID(),
+        definitionId: null,
+        sourceId: null,
+        source: null,
+        page: null,
+        unresolved: true,
+        name,
+        rank: 5,
+        freeRank: 0,
+        attribute: 'perception',
+        bonus: 0,
+        notes: '',
+        category,
+        action: '',
+        strain: 0,
+        creationOwned: false,
+      });
+    expect(pathEligibility(character, brother).blockers).toEqual([]);
+    character.mysticPaths.push({
+      id: crypto.randomUUID(),
+      definitionId: brother.id,
+      name: brother.name,
+      rank: 10,
+      active: true,
+      suspendedReason: '',
+      initiationEntryId: null,
+      bloodMagicDamage: 2,
+      sourceId: brother.sourceId,
+      source: brother.citation,
+      page: brother.page,
+      pageEnd: brother.pageEnd,
+      unresolved: false,
+      overrideReason: '',
+      optionTalentIds: [],
+    });
+    expect(mysticPathModifierValue(character, 'mysticDefense')).toBe(2);
+    expect(mysticPathModifierValue(character, 'physicalDefense')).toBe(2);
+    expect(mysticPathModifierValue(character, 'recovery')).toBe(2);
+  });
   it('checks Path eligibility, tier costs, and replacement-threshold modifiers', () => {
     const character = createBlankEarthdawn4eCharacter({ status: 'manual' });
     character.identity.raceName = 'Ork';
@@ -763,8 +885,8 @@ describe('Earthdawn Fourth Edition module', () => {
     );
     expect(character.sources.defaultsVersion).toBe(2);
     expect(earthdawnRaces).toHaveLength(8);
-    expect(earthdawnDisciplines).toHaveLength(19);
-    expect(Object.keys(coreTalentOptions)).toHaveLength(19);
+    expect(earthdawnDisciplines).toHaveLength(20);
+    expect(Object.keys(coreTalentOptions)).toHaveLength(20);
     for (const discipline of earthdawnDisciplines) {
       expect(coreTalentOptions[discipline.name]?.novice).toHaveLength(10);
       expect(coreTalentOptions[discipline.name]?.journeyman).toHaveLength(10);
@@ -774,8 +896,8 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(earthdawnSpells).toHaveLength(479);
     expect(earthdawnKnacks).toHaveLength(238);
     expect(earthdawnThreadItems).toHaveLength(142);
-    expect(earthdawnTalents).toHaveLength(453);
-    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(453);
+    expect(earthdawnTalents).toHaveLength(454);
+    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(454);
     expect(
       earthdawnTalents.find(({ name }) => name === 'Acrobatic Defense'),
     ).toMatchObject({

@@ -3,9 +3,9 @@ import {
   earthdawnDisciplines,
   earthdawnSources,
   earthdawnSpells,
-  earthdawnTalents,
   type EarthdawnDefinition,
 } from './catalog';
+import { earthdawnPathProfiles } from './path-profiles';
 
 const normalize = (value: string) =>
   value
@@ -136,10 +136,16 @@ export function auditEarthdawnCatalog(
   }
 
   const talentNames = new Set(
-    earthdawnTalents.map(({ name }) => normalize(name)),
+    catalog
+      .filter(({ kind }) => kind === 'talent')
+      .map(({ name }) => normalize(name)),
   );
   for (const discipline of earthdawnDisciplines.filter(({ id }) =>
-    ['ed4.discipline.gauntlet', 'ed4.discipline.shaman'].includes(id),
+    [
+      'ed4.discipline.gauntlet',
+      'ed4.discipline.shaman',
+      'ed4.discipline.marauder',
+    ].includes(id),
   )) {
     if (
       discipline.circles.length !== 15 ||
@@ -166,6 +172,11 @@ export function auditEarthdawnCatalog(
       if (!talentNames.has(normalize(talent)))
         errors.push(`Unknown Discipline talent ${talent}: ${discipline.id}`);
   }
+
+  if (earthdawnDisciplines.some(({ halfMagic }) => !halfMagic?.trim()))
+    errors.push('Every official Discipline must define Half-Magic.');
+  if (earthdawnPathProfiles.some(({ halfMagic }) => !halfMagic.trim()))
+    errors.push('Every Mystic Path must define Half-Magic.');
 
   const shamanSpellCircles = new Set(
     earthdawnSpells.flatMap(

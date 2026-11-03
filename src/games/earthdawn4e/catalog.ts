@@ -40,6 +40,10 @@ export interface EarthdawnDefinition {
   page: number | null;
   pageEnd?: number | null;
   verification: 'verified' | 'reference-only' | 'unresolved';
+  halfMagic?: string;
+  artisanSkills?: string[];
+  referenceFeatures?: string[];
+  citations?: string[];
   ruleMetadata?: EarthdawnRuleMetadata;
   costSilver?: number;
   price?: { amount: number; denomination: 'cp' | 'sp' | 'gp' };
@@ -92,7 +96,6 @@ export interface EarthdawnDiscipline extends EarthdawnDefinition {
     'novice' | 'journeyman' | 'warden' | 'master',
     string[]
   >;
-  halfMagic?: string;
   karmaRitual?: string;
   restrictions?: string[];
   freeTalent?: string;
@@ -396,6 +399,15 @@ const disciplineTalentVariant = (
 
 earthdawnTalents.push(
   disciplineTalentVariant(
+    'ed4.players-guide.talent.thread-weaving-sky-weaving',
+    'Thread Weaving (Sky Weaving)',
+    'Thread Weaving',
+    'ed4.players-guide',
+    ['ed4.players-guide', 'ed4.vasgothia'],
+    104,
+    104,
+  ),
+  disciplineTalentVariant(
     'ed4.discipline.gauntlet.talent.thread-weaving',
     'Thread Weaving (Gauntlet Weaving)',
     'Thread Weaving',
@@ -651,6 +663,38 @@ const coreFreeTalents: Record<string, string> = {
   Wizard:
     'Two Standard Matrices; Ranks equal Circle. One becomes Enhanced at Circle 5.',
 };
+const coreHalfMagic: Record<string, string> = {
+  'Air Sailor':
+    'Knowledge of airship designs, airship types, common flight paths, crew complements, and the maintenance, repair, and construction of airships.',
+  Archer:
+    'Care of ranged weapons and recognition of ranged weapons, ammunition, and their famous creators.',
+  Beastmaster:
+    'Animal care beyond talents, including animal husbandry and veterinary first aid, and recognizing animals, tracks, and abnormal creature behavior.',
+  Cavalryman:
+    'Knowledge of Namegiver mounts, riding gear, animal husbandry, veterinary first aid, and significant cavalry units throughout Barsaive.',
+  Elementalist:
+    'Knowledge of nature, the five elements, elemental magic, and magical rituals. A Perception-based Half-Magic test against an elemental spirit’s Mystic Defense detects elemental spirits within 30 yards.',
+  Illusionist:
+    'Recognize types of magic, identify applications of illusion magic, and attempt to perceive the truth of a situation.',
+  Nethermancer:
+    'Recognize nethermantic magic, undead, spirits, blood magic rituals, and blood charms. A Perception-based Half-Magic test against a spirit’s Mystic Defense detects spirits within 30 yards.',
+  Scout:
+    'Recognize tracks and trails, identify regional plants and creatures, and recall general information about cultures across Barsaive.',
+  'Sky Raider':
+    'Maintain, repair, and construct smaller airships; recognize airship designs and crew complements; and know commonly followed flight paths.',
+  Swordmaster:
+    'Maintain weapons, recall legendary weapon histories, recognize melee weapons, and identify fighting techniques and the prominent Swordmasters who shaped them.',
+  Thief:
+    'Evaluate, build, or bypass theft-prevention measures and recognize different locking mechanisms.',
+  Troubadour:
+    'Knowledge of legends, myths, folklore, musical instruments, and performing-arts traditions from the character’s home province and other regions.',
+  Warrior:
+    'Care for and repair weapons and armor, recall military history, apply tactics and strategy, and recognize warrior orders, ancient Warriors, arms, and armor.',
+  Weaponsmith:
+    'Care for weapons and armor and recognize equipment associated with different Namegiver races and specific artisans.',
+  Wizard:
+    'Recognize types of magic, identify uses of Wizardry, and recall theoretical and practical magical rituals.',
+};
 const coreDurability: Record<string, number> = {
   'Air Sailor': 5,
   Archer: 5,
@@ -683,6 +727,7 @@ const coreDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
     optionalTalents: [],
     spellcaster,
     freeTalent: coreFreeTalents[name],
+    halfMagic: coreHalfMagic[name],
     circles: coreDisciplineProgressions[name] ?? [],
     talentOptions: coreTalentOptions[name] ?? {
       novice: [],
@@ -738,6 +783,8 @@ const boatman: EarthdawnDiscipline = {
     master: [...airSailor.talentOptions.master],
   },
   freeTalent: 'Choose Pilot Boat or Sailing; Rank equals Boatman Circle.',
+  halfMagic:
+    'Knowledge of riverboat designs, riverboat types, common river trade routes, crew complements, and maintaining, repairing, and constructing riverboats other than fire engines.',
 };
 
 const sailor: EarthdawnDiscipline = {
@@ -748,9 +795,45 @@ const sailor: EarthdawnDiscipline = {
     'A water-going Air Sailor variant whose free Sailing talent replaces Air Sailing.',
   aliases: ['Air Sailor variant', 'Water Sailor'],
   freeTalent: 'Sailing; Rank equals Sailor Circle.',
+  halfMagic:
+    'Knowledge of seafaring ship designs, ship types, common sea trade routes, crew complements, and maintaining, repairing, and constructing ships.',
   noviceTalents: airSailor.noviceTalents.map((name) =>
     name === 'Air Sailing' ? 'Sailing' : name,
   ),
+};
+
+const marauder: EarthdawnDiscipline = {
+  id: 'ed4.discipline.marauder',
+  kind: 'discipline',
+  name: 'Marauder',
+  summary:
+    'A Vasgothian Sky Raider variant that channels the fury of storms into fast overland raids.',
+  mechanics:
+    'Durability 7. Marauders replace Sky Raider airship training with Wilderness Survival and ground-based raiding abilities while retaining a distinct Sky Weaving tradition.',
+  requirements: [],
+  aliases: ['Sky Raider variant', 'Vasgothian Marauder'],
+  sourceId: 'ed4.vasgothia',
+  sourceIds: ['ed4.vasgothia', 'ed4.players-guide', 'ed4.companion'],
+  source: 'Vasgothia',
+  page: 183,
+  pageEnd: 185,
+  verification: 'verified',
+  importantAttributes: ['charisma', 'dexterity', 'strength'],
+  durability: 7,
+  noviceTalents:
+    coreDisciplineProgressions.Marauder?.[0]?.requiredTalents ?? [],
+  optionalTalents: coreTalentOptions.Marauder?.novice ?? [],
+  spellcaster: false,
+  circles: coreDisciplineProgressions.Marauder ?? [],
+  talentOptions: coreTalentOptions.Marauder!,
+  halfMagic:
+    'Maintain, repair, and care for weapons and armor; know overland merchant caravans, trade routes, and guard complements; and understand the layouts and defenses of farmsteads and rural settlements.',
+  artisanSkills: ['Body Painting', 'Tattooing', 'Wood Carving'],
+  karmaRitual:
+    'Meditate beneath an open sky, build a low guttural sound into a primal scream, stop abruptly, and meditate in silence while the echoes fade.',
+  restrictions: [
+    'Strength of the Sky requires an eight-hour ritual and 1 Blood Magic Damage before its permanent Strength bonus applies.',
+  ],
 };
 
 const disciplineSupplementSources = [
@@ -838,6 +921,7 @@ export const earthdawnDisciplines: EarthdawnDiscipline[] = [
   ...coreDisciplines,
   boatman,
   sailor,
+  marauder,
   gauntlet,
   shaman,
 ];
@@ -1622,6 +1706,23 @@ const earthdawnCatalogRows: EarthdawnDefinition[] = [
   ...earthdawnKnacks,
   ...earthdawnThreadItems,
   ...earthdawnTalents,
+  {
+    id: 'ed4.mystic-paths.talent.temper-self',
+    kind: 'talent',
+    name: 'Temper Self',
+    summary:
+      'A Brother of Stone Path Talent Option. Complete action, strain, and effect mechanics are unavailable in the supplied reference.',
+    mechanics:
+      'Brother of Stone Rank 5+ Talent Option purchased at Warden-tier cost; complete mechanics unavailable.',
+    requirements: ['Brother of Stone Rank 5+'],
+    aliases: [],
+    sourceId: 'ed4.mystic-paths',
+    sourceIds: ['ed4.mystic-paths'],
+    source: 'The Adept’s Journey: Mystic Paths',
+    page: null,
+    pageEnd: null,
+    verification: 'reference-only',
+  },
   ...currencyReferenceEntries,
   ...skillDefinitions(
     'general',
@@ -1979,7 +2080,7 @@ const earthdawnCatalogRows: EarthdawnDefinition[] = [
     'ed4.travar',
     273,
   ),
-  ...referenced('path', ['Marauder', 'Avowed'], 'ed4.vasgothia', 183),
+  ...referenced('path', ['Avowed'], 'ed4.vasgothia', 183),
   ...earthdawnPathProfiles.map((path) => ({
     id: `ed4.path.${path.id}`,
     kind: 'path' as const,
@@ -1995,6 +2096,7 @@ const earthdawnCatalogRows: EarthdawnDefinition[] = [
       path.halfMagic,
       path.karmaRitual,
       path.advancement,
+      ...(path.features ?? []),
       ...path.restrictions,
     ]
       .filter(Boolean)
@@ -2007,6 +2109,9 @@ const earthdawnCatalogRows: EarthdawnDefinition[] = [
           : `${requirement.name} Rank ${requirement.rank}`,
     ),
     aliases: [],
+    halfMagic: path.halfMagic,
+    referenceFeatures: [...(path.features ?? [])],
+    citations: [path.citation, ...(path.additionalCitations ?? [])],
     sourceId: path.sourceId,
     source: path.citation,
     page: path.page,
