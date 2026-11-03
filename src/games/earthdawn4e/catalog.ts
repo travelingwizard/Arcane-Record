@@ -33,6 +33,7 @@ export interface EarthdawnDefinition {
   costSilver?: number;
   skillCategory?: 'general' | 'knowledge' | 'artisan' | 'language';
   defaultAttribute?: EarthdawnAttributeId;
+  halfMagic?: string;
 }
 export interface EarthdawnRace extends EarthdawnDefinition {
   attributes: Record<EarthdawnAttributeId, number>;
@@ -156,6 +157,7 @@ import {
   questorTierMinimumRank,
 } from './questor-devotions';
 import { companionThreadItemRows } from './companion-thread-items';
+import { earthdawnHalfMagicByName } from './half-magic';
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -388,6 +390,7 @@ export const earthdawnDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
     noviceTalents,
     optionalTalents: [],
     spellcaster,
+    halfMagic: earthdawnHalfMagicByName[name],
     circles: coreDisciplineProgressions[name] ?? [],
     talentOptions: coreTalentOptions[name] ?? {
       novice: [],
@@ -592,11 +595,15 @@ const referenced = (
   sourceId: string,
   page: number,
 ) =>
-  named(kind, names, sourceId, page).map((definition) => ({
-    ...definition,
-    verification: 'reference-only' as const,
-    summary: `${definition.name} is indexed as player-facing reference material, but its complete selectable mechanics have not been certified.`,
-  }));
+  named(kind, names, sourceId, page).map((definition) => {
+    const halfMagic = earthdawnHalfMagicByName[definition.name];
+    return {
+      ...definition,
+      ...(halfMagic ? { halfMagic } : {}),
+      verification: 'reference-only' as const,
+      summary: `${definition.name} is indexed as player-facing reference material, but its complete selectable mechanics have not been certified.`,
+    };
+  });
 const priced = (
   kind: 'equipment' | 'weapon',
   rows: Array<[string, number, number]>,
@@ -1139,6 +1146,7 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
       'Woodsman',
       'Boatman',
       'Gauntlet',
+      'Sailor',
       'Shaman',
     ],
     'ed4.mystic-paths',

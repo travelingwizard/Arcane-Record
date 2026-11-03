@@ -37,6 +37,8 @@ import {
   type EarthdawnCatalogKind,
 } from './catalog';
 import { EarthdawnCreator } from './EarthdawnCreator';
+import { HalfMagicRule, HalfMagicUses } from './HalfMagicNote';
+import { earthdawnHalfMagicByName } from './half-magic';
 import {
   attributeStep,
   deriveCharacter,
@@ -1068,6 +1070,7 @@ export function Earthdawn4eEditor({
                 'disciplines',
                 'Discipline & Questor',
                 <>
+                  <HalfMagicRule />
                   <SheetFieldGrid columns={2}>
                     <SheetField label="Add a Discipline">
                       <select
@@ -1171,6 +1174,18 @@ export function Earthdawn4eEditor({
                       <small>
                         {d.source} {d.page && `p. ${d.page}`}
                       </small>
+                      {(() => {
+                        const uses = earthdawnDisciplines.find(
+                          (entry) => entry.id === d.disciplineId,
+                        )?.halfMagic;
+                        return uses ? (
+                          <HalfMagicUses
+                            name={d.name || 'Discipline'}
+                            circle={d.circle}
+                            uses={uses}
+                          />
+                        ) : null;
+                      })()}
                       {playMode && d.disciplineId && d.circle < 15 ? (
                         <button
                           type="button"
@@ -1325,6 +1340,17 @@ export function Earthdawn4eEditor({
                         })()}
                     </div>
                   ))}
+                  {draft.abilities.map((ability) => {
+                    const uses =
+                      ability.kind === 'path'
+                        ? earthdawnHalfMagicByName[ability.name]
+                        : undefined;
+                    return uses ? (
+                      <SheetCard key={ability.id} density="compact">
+                        <HalfMagicUses name={ability.name} uses={uses} />
+                      </SheetCard>
+                    ) : null;
+                  })}
                   <SheetCard density="compact">
                     <SheetFieldGrid columns={3}>
                       <SheetField label="Patron Passion">
@@ -2862,7 +2888,7 @@ export function Earthdawn4eEditor({
                     (d.kind !== 'devotion' ||
                       devotionAvailable ||
                       draft.sources.showUnavailable) &&
-                    `${d.name} ${d.summary} ${d.source}`
+                    `${d.name} ${d.summary} ${d.halfMagic ?? ''} ${d.source}`
                       .toLocaleLowerCase()
                       .includes(catalogSearch.trim().toLocaleLowerCase())
                   );
@@ -2871,6 +2897,12 @@ export function Earthdawn4eEditor({
                   <article key={d.id} className="reference-card">
                     <h3>{d.name}</h3>
                     <p>{d.summary}</p>
+                    {d.halfMagic ? (
+                      <p>
+                        Half-Magic Step = Discipline Circle + the Attribute Step
+                        the gamemaster chooses. {d.halfMagic}
+                      </p>
+                    ) : null}
                     <small>
                       {d.source}, p. {d.page}
                       {d.verification !== 'verified'

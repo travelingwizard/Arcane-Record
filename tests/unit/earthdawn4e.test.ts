@@ -120,6 +120,71 @@ describe('Earthdawn Fourth Edition module', () => {
       ).toBe(8);
     }
   });
+  it('records Half-Magic uses for Disciplines, paths, and variants', () => {
+    const pathNames = [
+      'Brother of Stone',
+      'Fire Eater',
+      'Horror Stalker',
+      'Journeyman',
+      'Liberator',
+      'Messenger',
+      'Purifier',
+      'Scholar',
+      'Tail Dancer',
+      'Windmaster',
+      'Woodsman',
+      'Shaman',
+      'Gauntlet',
+      'Boatman',
+      'Sailor',
+      'Marauder',
+    ];
+    for (const discipline of earthdawnDisciplines) {
+      expect(discipline.halfMagic?.length).toBeGreaterThan(40);
+    }
+    expect(
+      earthdawnDisciplines.find(({ name }) => name === 'Elementalist')
+        ?.halfMagic,
+    ).toMatch(/elemental spirits within 30 yards/);
+    expect(
+      earthdawnDisciplines.find(({ name }) => name === 'Nethermancer')
+        ?.halfMagic,
+    ).toMatch(/spirits within 30 yards/);
+    for (const name of pathNames) {
+      const entry = earthdawnCatalog.find(
+        (definition) => definition.kind === 'path' && definition.name === name,
+      );
+      expect(entry?.halfMagic?.length).toBeGreaterThan(40);
+      expect(entry?.verification).toBe('reference-only');
+      expect(
+        earthdawnDisciplines.some((discipline) => discipline.name === name),
+      ).toBe(false);
+    }
+    expect(
+      earthdawnCatalog.find(({ name }) => name === 'Boatman')?.halfMagic,
+    ).toMatch(/fire engines/);
+    expect(
+      earthdawnCatalog.find(({ name }) => name === 'Boatman')?.halfMagic,
+    ).toMatch(/aropagoi/);
+    expect(
+      earthdawnCatalog.find(({ name }) => name === 'Shaman')?.halfMagic,
+    ).toMatch(/beast spirits within 30 yards/);
+    for (const name of ['Outcast', 'Avowed']) {
+      expect(
+        earthdawnCatalog.find(
+          (definition) =>
+            definition.kind === 'path' && definition.name === name,
+        )?.halfMagic,
+      ).toBeUndefined();
+    }
+    expect(
+      earthdawnCatalog.find(({ name }) => name === 'Sailor'),
+    ).toMatchObject({
+      kind: 'path',
+      verification: 'reference-only',
+      sourceId: 'ed4.mystic-paths',
+    });
+  });
   it('quotes Companion knack learning at the required Novice talent rank', () => {
     expect(knackLearningQuote(5)).toEqual({
       legendCost: 800,

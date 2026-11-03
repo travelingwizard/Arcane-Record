@@ -17,6 +17,7 @@ import {
   type EarthdawnDefinition,
 } from './catalog';
 import { attributeModifierCosts, deriveCharacter, stepDice } from './engine';
+import { HalfMagicRule, HalfMagicUses } from './HalfMagicNote';
 import {
   questorTier,
   reconcileDisciplineTalents,
@@ -619,6 +620,18 @@ export function EarthdawnCreator({
                 }
               />
             </label>
+          ) : null}
+          {selected ? (
+            <>
+              <HalfMagicRule />
+              {discipline?.halfMagic ? (
+                <HalfMagicUses
+                  name={discipline.name}
+                  circle={selected.circle}
+                  uses={discipline.halfMagic}
+                />
+              ) : null}
+            </>
           ) : null}
         </>
       ) : null}
